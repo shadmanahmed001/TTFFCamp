@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57EF1C90EDA9008267EC /* AppDelegate.swift */; };
+		E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57F11C90EDA9008267EC /* ViewController.swift */; };
+		E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F31C90EDA9008267EC /* Main.storyboard */; };
+		E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F61C90EDA9008267EC /* Assets.xcassets */; };
+		E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E01E57EC1C90EDA9008267EC /* TTFFCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTFFCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E01E57EF1C90EDA9008267EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E01E57F11C90EDA9008267EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E01E57F41C90EDA9008267EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E01E57F61C90EDA9008267EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E01E57F91C90EDA9008267EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E01E57FB1C90EDA9008267EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E01E57E91C90EDA9008267EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E01E57E31C90EDA9008267EC = {
+			isa = PBXGroup;
+			children = (
+				E01E57EE1C90EDA9008267EC /* TTFFCamp */,
+				E01E57ED1C90EDA9008267EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E01E57ED1C90EDA9008267EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E01E57EC1C90EDA9008267EC /* TTFFCamp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E01E57EE1C90EDA9008267EC /* TTFFCamp */ = {
+			isa = PBXGroup;
+			children = (
+				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
+				E01E57F11C90EDA9008267EC /* ViewController.swift */,
+				E01E57F31C90EDA9008267EC /* Main.storyboard */,
+				E01E57F61C90EDA9008267EC /* Assets.xcassets */,
+				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
+				E01E57FB1C90EDA9008267EC /* Info.plist */,
+			);
+			path = TTFFCamp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E01E57EB1C90EDA9008267EC /* TTFFCamp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E01E57FE1C90EDA9008267EC /* Build configuration list for PBXNativeTarget "TTFFCamp" */;
+			buildPhases = (
+				E01E57E81C90EDA9008267EC /* Sources */,
+				E01E57E91C90EDA9008267EC /* Frameworks */,
+				E01E57EA1C90EDA9008267EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTFFCamp;
+			productName = TTFFCamp;
+			productReference = E01E57EC1C90EDA9008267EC /* TTFFCamp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E01E57E41C90EDA9008267EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "The Taylor Family Foundation";
+				TargetAttributes = {
+					E01E57EB1C90EDA9008267EC = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = E01E57E71C90EDA9008267EC /* Build configuration list for PBXProject "TTFFCamp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E01E57E31C90EDA9008267EC;
+			productRefGroup = E01E57ED1C90EDA9008267EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E01E57EB1C90EDA9008267EC /* TTFFCamp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E01E57EA1C90EDA9008267EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */,
+				E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */,
+				E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E01E57E81C90EDA9008267EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */,
+				E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E01E57F31C90EDA9008267EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E01E57F41C90EDA9008267EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E01E57F91C90EDA9008267EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E01E57FC1C90EDA9008267EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E01E57FD1C90EDA9008267EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E01E57FF1C90EDA9008267EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TTFFCamp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.ttff.TTFFCamp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E01E58001C90EDA9008267EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TTFFCamp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.ttff.TTFFCamp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E01E57E71C90EDA9008267EC /* Build configuration list for PBXProject "TTFFCamp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E01E57FC1C90EDA9008267EC /* Debug */,
+				E01E57FD1C90EDA9008267EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E01E57FE1C90EDA9008267EC /* Build configuration list for PBXNativeTarget "TTFFCamp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E01E57FF1C90EDA9008267EC /* Debug */,
+				E01E58001C90EDA9008267EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E01E57E41C90EDA9008267EC /* Project object */;
+}

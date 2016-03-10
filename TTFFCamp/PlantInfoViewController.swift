@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -19,6 +20,20 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     override func viewDidLoad() {
         super.viewDidLoad()
         detectedTextView.text = detectedText
+        
+        
+        Alamofire.request(.GET, "https://api.github.com/users/yanze")
+            .responseJSON { response in
+                //                print(response.request)  // original URL request
+                //                print(response.response) // URL response
+                //                print(response.data)     // server data
+                //                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                    self.detectedTextView.text = "\(JSON)!"
+                }
+        }
     }
    
     

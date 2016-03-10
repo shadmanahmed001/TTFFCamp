@@ -11,12 +11,10 @@ import AVFoundation
 
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBOutlet weak var qrCodeLabel: UILabel!
-    @IBOutlet weak var detectedTextLabel: UILabel!
-    
     var objCaptureSession: AVCaptureSession?
     var objCaptureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
     var vwQRCode: UIView?
+    var detectedText = ""
     
     
     override func viewDidLoad() {
@@ -77,8 +75,6 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         objCaptureVideoPreviewLayer?.frame = view.layer.bounds
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
-        self.view.bringSubviewToFront(detectedTextLabel)
-        self.view.bringSubviewToFront(qrCodeLabel)
     }
     
     func initializeQRView() {
@@ -93,7 +89,6 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
             vwQRCode?.frame = CGRectZero
-            detectedTextLabel.text = "NO QRCode text detacted"
             return
         }
         let objMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
@@ -101,11 +96,21 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObjectForMetadataObject(objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                detectedTextLabel.text = objMetadataMachineReadableCodeObject.stringValue
+                detectedText = objMetadataMachineReadableCodeObject.stringValue
+                objCaptureSession?.stopRunning()
+                self.performSegueWithIdentifier("showInfo", sender: nil)
             }
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier! == "showInfo"){
+            let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
+            plantInfoVC.detectedText = detectedText
+        }
+    }
+    
+
     
 }
 

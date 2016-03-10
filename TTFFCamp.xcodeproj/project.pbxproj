@@ -12,6 +12,7 @@
 		E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F31C90EDA9008267EC /* Main.storyboard */; };
 		E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F61C90EDA9008267EC /* Assets.xcassets */; };
 		E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */; };
+		E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E58011C90F80F008267EC /* PlantInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E01E57F61C90EDA9008267EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E01E57F91C90EDA9008267EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01E57FB1C90EDA9008267EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E01E58011C90F80F008267EC /* PlantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +56,13 @@
 		E01E57EE1C90EDA9008267EC /* TTFFCamp */ = {
 			isa = PBXGroup;
 			children = (
+				E01E57FB1C90EDA9008267EC /* Info.plist */,
 				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
 				E01E57F11C90EDA9008267EC /* ViewController.swift */,
-				E01E57F31C90EDA9008267EC /* Main.storyboard */,
 				E01E57F61C90EDA9008267EC /* Assets.xcassets */,
 				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
-				E01E57FB1C90EDA9008267EC /* Info.plist */,
+				E01E57F31C90EDA9008267EC /* Main.storyboard */,
+				E01E58011C90F80F008267EC /* PlantInfoViewController.swift */,
 			);
 			path = TTFFCamp;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */,
 				E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */,
 				E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */,
 			);

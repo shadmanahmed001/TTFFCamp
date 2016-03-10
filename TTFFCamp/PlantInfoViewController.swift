@@ -24,11 +24,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         Alamofire.request(.GET, "https://api.github.com/users/yanze")
             .responseJSON { response in
-                //                print(response.request)  // original URL request
-                //                print(response.response) // URL response
-                //                print(response.data)     // server data
-                //                print(response.result)   // result of response serialization
-                
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
                     self.detectedTextView.text = "\(JSON)!"

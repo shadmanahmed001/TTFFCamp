@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286AC2611C9258C900970D53 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 286AC2601C9258C900970D53 /* camera.png */; };
+		286AC2631C9258DA00970D53 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286AC2621C9258DA00970D53 /* Plant.swift */; };
+		286AC2651C9258F100970D53 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286AC2641C9258F100970D53 /* Database.swift */; };
 		AA8A24DDDAA2005F137600CA /* Pods_TTFFCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */; };
 		E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57EF1C90EDA9008267EC /* AppDelegate.swift */; };
 		E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57F11C90EDA9008267EC /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		286AC2601C9258C900970D53 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		286AC2621C9258DA00970D53 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		286AC2641C9258F100970D53 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		4A6EC689F3C0F53F9389C862 /* Pods-TTFFCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.release.xcconfig"; sourceTree = "<group>"; };
 		51C93434E05113EBB271C567 /* Pods-TTFFCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.debug.xcconfig"; sourceTree = "<group>"; };
 		C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTFFCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		286AC25F1C9258BB00970D53 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				286AC2601C9258C900970D53 /* camera.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		B50A75765E25F1E1FC6FF4C2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +89,7 @@
 		E01E57EE1C90EDA9008267EC /* TTFFCamp */ = {
 			isa = PBXGroup;
 			children = (
+				286AC25F1C9258BB00970D53 /* Images */,
 				E01E57FB1C90EDA9008267EC /* Info.plist */,
 				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
 				E01E57F11C90EDA9008267EC /* ViewController.swift */,
@@ -82,6 +97,8 @@
 				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
 				E01E57F31C90EDA9008267EC /* Main.storyboard */,
 				E01E58011C90F80F008267EC /* PlantInfoViewController.swift */,
+				286AC2621C9258DA00970D53 /* Plant.swift */,
+				286AC2641C9258F100970D53 /* Database.swift */,
 			);
 			path = TTFFCamp;
 			sourceTree = "<group>";
@@ -130,7 +147,7 @@
 				TargetAttributes = {
 					E01E57EB1C90EDA9008267EC = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = WQ56QXLK4A;
+						DevelopmentTeam = 5Q7JKYA44W;
 					};
 				};
 			};
@@ -159,6 +176,7 @@
 			files = (
 				E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */,
 				E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */,
+				286AC2611C9258C900970D53 /* camera.png in Resources */,
 				E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */,
+				286AC2631C9258DA00970D53 /* Plant.swift in Sources */,
 				E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */,
+				286AC2651C9258F100970D53 /* Database.swift in Sources */,
 				E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,10 @@ var PlantSchema = new mongoose.Schema({
 		trim:true,
 	},
 	info:String,
+	filename:{
+		type:String,
+		trim:true,
+	},
 
 	created_at:Date,
 	updated_at:Date,

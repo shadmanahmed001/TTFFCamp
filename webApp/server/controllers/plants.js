@@ -69,6 +69,13 @@ module.exports = (function(){
 				}
 			})
 		},
+		upload:function(info,res){
+			Plant.findOne({_id:info.id },function (err, doc){
+			  doc.filename = info.filename;
+			  doc.updated_at = Date();
+			  doc.save();
+			});
+		},
 
 	}
 })()

@@ -2,19 +2,45 @@
 	<head>
 	 <title>edit</title>
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	 <style>
+		body{
+			margin: 10px;
+		}
+	 </style>
 	</head>
 	<body>
 	 <h3>Edit Plant <%=plant._id%> </h3>
 	 <form action='/updatePlant/<%=plant._id%>' method='post'>
-		Plant Name: <input type='text' name='name' value ="<%=plant.name%>">
-		Description: <input type='text' name='description' value ='<%=plant.description%>'>
-		Location: <input type='text' name='location' value ='<%=plant.location%>'>
-		Detailed Info: <input type="textarea" name = 'info' value ='<%=plant.info%>'>
-	  <input type='submit' value='Update'>
+	 	<div class = "form-group">
+	 		<label for="name">Plant Name</label>
+	 		<input type='text' class = "form-control" name='name' value ="<%=plant.name%>" id = "name">
+	 	</div>
+	 	<div class = "form-group">
+	 		<label for="description">Description</label>
+			<input type='text' class = "form-control" name='description' value ='<%=plant.description%>' id = "description">
+		</div>
+	 	<div class = "form-group">
+	 		<label for="location">Location</label>
+	 		<input type='text' class = "form-control" name='location' value ="<%=plant.location%>" id = "location">
+	 	</div>
+	 	<div class = "form-group">
+	 		<label for="name">Detailed Info</label>
+	 		<textarea class = "form-control" rows = "3" name='info' id = "info"><%=plant.info%></textarea>
+	 	</div>
+
+	 <button type="submit" class = "btn btn-default">Update</button> 
 	 </form>
+<hr>	 
+	 	<form action="/upload" method="POST" enctype="multipart/form-data" class = "form-inline">
+	 		<div class = "form-group">
+			  <label for="upl">Select an image to upload</label>
+			  <input type="hidden" name = "id" value = "<%=plant._id%>">
+			  <input type="file" name="upl" class = "form-control" id = "upl"> 
+			  <button type="submit" class = "btn btn-default">Upload Image</button> 
+		   </div>
+		</form>
+	
 	 
-	  <form action="/all">
-            <input type="submit" value = 'Display all plants'>
-     </form>
+
 	</body>
 </html

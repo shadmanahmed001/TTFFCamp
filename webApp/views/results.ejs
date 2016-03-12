@@ -8,7 +8,7 @@
       </div>
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
-        <li><a href="/new">Create new Plants</a></li>
+        <li><a href="/new">Create New Plants</a></li>
         <li class="active"><a href="#">Display All Plants</a></li> 
         <li><a href="#">Print Label</a></li> 
       </ul>
@@ -17,27 +17,29 @@
 
     <h2>All Plants</h2>
     <% if (results.length >0) { %>
-    <table class = "table">
+    <table class = "table table-condensed">
       <tr>
-        <th>id</th>
         <th>Name</th>
+        <th>id</th>
         <th>Description</th>
         <th>Location</th>
+        <th>Image Status</th>
         <th>Actions</th>
-        <th></th>
         <th></th>
       </tr>
        <% for (var x in results) { %>
        <tr>
+         <td><a href="/plants/<%=results[x]._id%>"><%= results[x].name%></a></td>
          <td><%= results[x]._id%></td>
-         <td><%= results[x].name%></td>
          <td><%= results[x].description%></td>
          <td><%= results[x].location%></td>
          <td>
-          <form action="/plants/<%=results[x]._id%>">
-              <input type="submit" value = 'get detail' class = "btn btn-info">
-          </form>
-        </td>
+           <% if (results[x].filename!=undefined){ %>
+            ready
+            <% }else {%>
+            not set
+            <%}%>
+         </td>
         <td>
           <form action="/edit/<%=results[x]._id%>">
                 <input type="submit" value = 'edit' class = "btn btn-primary">

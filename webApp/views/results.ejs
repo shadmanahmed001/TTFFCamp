@@ -1,27 +1,58 @@
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Plant Management System</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/new">Create new Plants</a></li>
+        <li class="active"><a href="#">Display All Plants</a></li> 
+        <li><a href="#">Print Label</a></li> 
+      </ul>
+    </div>
+  </nav>
+
     <h2>All Plants</h2>
     <% if (results.length >0) { %>
+    <table class = "table">
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Actions</th>
+        <th></th>
+        <th></th>
+      </tr>
        <% for (var x in results) { %>
-       	<p>id: <%= results[x].id%></p>
-      	<p>Name: <%= results[x].name%></p>
-      	<p>Description: <%= results[x].description%></p>
-      	<p>Location: <%= results[x].location%></p>
-      	<p>Detailed Info: <%= results[x].info%></p>
-      	<p>
-      		<form action="/destroy/<%=results[x].id%>">
-            	<input type="submit" value = 'delete'>
-     		</form>
- 		</p>
-      	<hr>
+       <tr>
+         <td><%= results[x]._id%></td>
+         <td><%= results[x].name%></td>
+         <td><%= results[x].description%></td>
+         <td><%= results[x].location%></td>
+         <td>
+          <form action="/plants/<%=results[x]._id%>">
+              <input type="submit" value = 'get detail' class = "btn btn-info">
+          </form>
+        </td>
+        <td>
+          <form action="/edit/<%=results[x]._id%>">
+                <input type="submit" value = 'edit' class = "btn btn-primary">
+          </form>
+        </td>
+        <td>
+          <form action="/removePlant/<%=results[x]._id%>" method = "post">
+                <input type="submit" value = 'delete' class = "btn btn-danger">
+          </form>
+        </td>
+       </tr>
+
      <% } %>
-     <form action="/destroy_all">
-            <input type="submit" value = 'destroy_all'>
-     </form>
+    </table>
      <% }%>
-     <form action="/">
-            <input type="submit" value = 'create more entries'>
-     </form>
      
      
 </body>

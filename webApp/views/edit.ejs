@@ -1,0 +1,20 @@
+<html>
+	<head>
+	 <title>edit</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	</head>
+	<body>
+	 <h3>Edit Plant <%=plant._id%> </h3>
+	 <form action='/updatePlant/<%=plant._id%>' method='post'>
+		Plant Name: <input type='text' name='name' value ="<%=plant.name%>">
+		Description: <input type='text' name='description' value ='<%=plant.description%>'>
+		Location: <input type='text' name='location' value ='<%=plant.location%>'>
+		Detailed Info: <input type="textarea" name = 'info' value ='<%=plant.info%>'>
+	  <input type='submit' value='Update'>
+	 </form>
+	 
+	  <form action="/all">
+            <input type="submit" value = 'Display all plants'>
+     </form>
+	</body>
+</html

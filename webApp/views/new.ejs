@@ -1,12 +1,7 @@
 <html>
 	<head>
-	 <title>index</title>
+	 <title>new</title>
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	 <style>
-		.block{
-			text-align: center;
-		}
-	 </style>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -22,9 +17,14 @@
 		      </ul>
 		    </div>
 		</nav>
-		<div class = "block">
-			<h3>Welcome to Plant Management System</h3>
-		</div>
+	 <h3>Create entry for new plants</h3>
+	 <form action='/plants' method='post'>
+		Plant Name: <input type='text' name='name'>
+		Description: <input type='text' name='description'>
+		Location: <input type='text' name='location'>
+		Detailed Info: <input type="textarea" name = 'info'>
+	  <input type='submit' value='Submit'>
+	 </form>
 	 
 	</body>
 </html

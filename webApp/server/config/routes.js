@@ -58,10 +58,11 @@ module.exports = function(app){
 	              size: 277056 }
 	 	*/
 		var plant_id = req.body.id;
-		var filename = req.file.filename;
 		var info = {
 			id:plant_id,
-			filename:filename,
+			filename:req.file.filename,
+			mimetype:req.file.mimetype,
+			originalname:req.file.originalname,
 		}
 		console.log(info);
 		plants.upload(info,res);

@@ -72,6 +72,8 @@ module.exports = (function(){
 		upload:function(info,res){
 			Plant.findOne({_id:info.id },function (err, doc){
 			  doc.filename = info.filename;
+			  doc.mimetype = info.mimetype;
+			  doc.originalname = info.originalname;
 			  doc.updated_at = Date();
 			  doc.save();
 			});

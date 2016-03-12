@@ -1,5 +1,13 @@
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  body{
+    margin: 10px;
+  }
+  th,tr{
+    text-align: center;
+  }
+</style>
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -33,13 +41,13 @@
          <td><%= results[x]._id%></td>
          <td><%= results[x].description%></td>
          <td><%= results[x].location%></td>
-         <td>
+         
            <% if (results[x].filename!=undefined){ %>
-            ready
+           <td class = "success">ready</td>
             <% }else {%>
-            not set
+            <td class = "danger">not set</td>
             <%}%>
-         </td>
+         
         <td>
           <form action="/edit/<%=results[x]._id%>">
                 <input type="submit" value = 'edit' class = "btn btn-primary">

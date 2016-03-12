@@ -41,7 +41,7 @@ module.exports = function(app){
 		plants.remove(req,res);
 	})
 
-	app.post('/upload', multer({ dest: './uploads/'}).single('upl'), function(req,res){
+	app.post('/upload', multer({ dest: '.public/uploads/'}).single('upl'), function(req,res){
 		console.log(req.body); //form fields
 		/* example output:
 		{ title: 'abc' }

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 var path = require('path');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use( express.static( path.join(__dirname,'./public') ) );
 app.set('views',path.join(__dirname,'./views'));
 app.set('view engine','ejs');
 

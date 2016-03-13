@@ -11,6 +11,9 @@ import AVFoundation
 
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
+    
+    @IBOutlet weak var Open: UIBarButtonItem!
+    
     var objCaptureSession: AVCaptureSession?
     var objCaptureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
     var vwQRCode: UIView?
@@ -22,6 +25,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
         self.initializeQRView()
+        
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
     }
     
     override func didReceiveMemoryWarning() {

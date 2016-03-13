@@ -41,13 +41,13 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         
         
-        Alamofire.request(.GET, "https://api.github.com/users/yanze")
-            .responseJSON { response in
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                    //                    self.plantTitleLabel.text = "\(JSON)!"
-                }
-        }
+//        Alamofire.request(.GET, "https://api.github.com/users/yanze")
+//            .responseJSON { response in
+//                if let JSON = response.result.value {
+//                    print("JSON: \(JSON)")
+//                    self.plantTitleLabel.text = "\(JSON)!"
+//                }
+//        }
         
         
     }

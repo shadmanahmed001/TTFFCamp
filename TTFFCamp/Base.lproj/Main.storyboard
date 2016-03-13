@@ -65,41 +65,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5j-G6-O7F">
-                                <rect key="frame" x="277" y="127" width="47" height="21"/>
+                                <rect key="frame" x="277" y="128" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When To Plant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXW-Z6-V1R">
-                                <rect key="frame" x="245" y="156" width="111" height="20"/>
+                                <rect key="frame" x="245" y="157" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cool Fact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpO-jv-ksW">
-                                <rect key="frame" x="264" y="184" width="73" height="21"/>
+                                <rect key="frame" x="264" y="186" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8J-LZ-CE3">
-                                <rect key="frame" x="258" y="213" width="85" height="20"/>
+                                <rect key="frame" x="258" y="215" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2He-Gl-X03">
-                                <rect key="frame" x="248" y="241" width="105" height="21"/>
+                                <rect key="frame" x="248" y="244" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ6-xv-jr5">
-                                <rect key="frame" x="268" y="99" width="65" height="20"/>
+                                <rect key="frame" x="267" y="99" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-Ia-fZf">
+                                <rect key="frame" x="268" y="328" width="64" height="64"/>
+                                <state key="normal" image="audio"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -107,7 +111,9 @@
                             <constraint firstItem="2He-Gl-X03" firstAttribute="top" secondItem="i8J-LZ-CE3" secondAttribute="bottom" constant="8" id="CD9-nj-0B5"/>
                             <constraint firstItem="z6W-54-VVS" firstAttribute="top" secondItem="uw2-9q-iY8" secondAttribute="bottom" constant="25" id="GsQ-f0-nWk"/>
                             <constraint firstItem="uw2-9q-iY8" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="HxD-Ic-Nry"/>
+                            <constraint firstItem="DAV-Ia-fZf" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="PY7-yi-4uQ"/>
                             <constraint firstItem="UpO-jv-ksW" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="Qib-XR-3dY"/>
+                            <constraint firstItem="DAV-Ia-fZf" firstAttribute="top" secondItem="2He-Gl-X03" secondAttribute="bottom" constant="63" id="Tqj-Pp-zSf"/>
                             <constraint firstItem="2He-Gl-X03" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="UqE-cg-EzJ"/>
                             <constraint firstItem="i8J-LZ-CE3" firstAttribute="top" secondItem="UpO-jv-ksW" secondAttribute="bottom" constant="8" id="XgF-bj-NdK"/>
                             <constraint firstItem="rXW-Z6-V1R" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="bPg-QE-SWA"/>
@@ -137,6 +143,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="audio" width="64" height="64"/>
         <image name="camera.png" width="150" height="150"/>
     </resources>
 </document>

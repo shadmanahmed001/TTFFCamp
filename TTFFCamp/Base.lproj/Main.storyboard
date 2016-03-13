@@ -103,6 +103,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-Ia-fZf">
                                 <rect key="frame" x="268" y="328" width="64" height="64"/>
                                 <state key="normal" image="audio"/>
+                                <connections>
+                                    <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="UMg-y9-Kev"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

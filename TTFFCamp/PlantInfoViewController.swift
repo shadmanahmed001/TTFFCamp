@@ -21,6 +21,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var moreFactsLabel: UILabel!
     @IBOutlet weak var imagesLabel: UILabel!
     
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+    
     
     var plantObj = Plant()
     
@@ -96,6 +99,16 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     
+    @IBAction func textToSpeech(sender: UIButton) {
+        if !synth.speaking{
+            myUtterance = AVSpeechUtterance(string: plantTitleLabel.text! )
+            myUtterance.rate = 0.5
+            synth.speakUtterance(myUtterance)
+        }
+        else{
+            synth.continueSpeaking()
+        }
+    }
     
     
 }

@@ -44,15 +44,18 @@ class Database {
     
     
     static func all() -> [Plant] {
+        let fakePlants = FakeService()
         var plants = [Plant]()
-        let path = Database.dataFilePath(Plant.schema)
-        if NSFileManager.defaultManager().fileExistsAtPath(path) {
-            if let data = NSData(contentsOfFile: path) {
-                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
-                unarchiver.finishDecoding()
-            }
-        }
+        plants = fakePlants.getFakePlants()
+        
+//        let path = Database.dataFilePath(Plant.schema)
+//        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+//            if let data = NSData(contentsOfFile: path) {
+//                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+//                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
+//                unarchiver.finishDecoding()
+//            }
+//        }
         return plants
     }
     

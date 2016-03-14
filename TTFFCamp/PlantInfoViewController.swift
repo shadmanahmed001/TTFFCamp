@@ -37,19 +37,27 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         // Test:  get all plant from fake service
-        var plants = Database.all()
+        let plants = Database.all()
         
+        print("Get all plants", plants)
+        
+        for var i = 0; i < plants.count; i++ {
+            if plants[i].plantName == detectedText {
+                print("found the correct plant ID", plants[i])
+                plantObj = plants[i]
+            }
+        }
         
 //        getPlantById(Int(detectedText)!)
         
 //        plantObj = retrievePlant(detectedText)
-//        plantTitleLabel.text = plantObj.plantName
-//        locationLabel.text = "Location: \(plantObj.location[0] as? String)"
-//        originLabel.text = "Origin: \(plantObj.origin)"
-//        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
-//        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
-//        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts[0] as? String)"
-//        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
+        plantTitleLabel.text = plantObj.plantName
+        locationLabel.text = "Location: \(plantObj.location[0] as? String)"
+        originLabel.text = "Origin: \(plantObj.origin)"
+        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
+        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
+        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts[0] as? String)"
+        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
         
         
     }
@@ -67,7 +75,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
 //    func getPlantById(plantId: Int){
 //        
 //    }
-    
     
     func retrievePlant(detectedPlant: String) -> Plant {
         

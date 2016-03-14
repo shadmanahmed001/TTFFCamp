@@ -10,7 +10,7 @@ import Foundation
 
 class FakeService{
     
-    func getFakePlants() -> [Plant] {
+    static func getFakePlants() -> [Plant] {
         let ttff1000001 = Plant()
         ttff1000001.plantName = "Forget Me Not"
         ttff1000001.location = ["Main Gate"]

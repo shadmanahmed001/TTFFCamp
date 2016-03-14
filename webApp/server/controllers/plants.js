@@ -96,6 +96,15 @@ module.exports = (function(){
 				}
 			})
 		},
+		getAllPlants:function(req,res){
+			Plant.find({},function(err,output){
+				if(err){
+					console.log(err);
+				}else{
+					res.json(output);
+				}
+			})
+		},
 
 	}
 })()

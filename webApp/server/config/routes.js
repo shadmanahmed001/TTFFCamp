@@ -74,6 +74,10 @@ module.exports = function(app){
 		plants.printToFile(req,res);
 	})
 
+	app.get('/getAllPlants',function(req,res){
+		plants.getAllPlants(req,res);
+	})
+
 
 
 }

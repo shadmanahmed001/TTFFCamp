@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import Auk
-import Alamofire
+
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -32,28 +32,36 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        plantTitleLabel.text = detectedText
-        plantObj = retrievePlant(detectedText)
-        plantTitleLabel.text = plantObj.plantName
-        locationLabel.text = "Location: \(plantObj.location[0] as? String)"
-        originLabel.text = "Origin: \(plantObj.origin)"
-        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
-        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
-        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts[0] as? String)"
-        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
+//        getPlantById(Int(detectedText)!)
         
-//        Alamofire.request(.GET, "https://api.github.com/users/yanze")
-//            .responseJSON { response in
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                    self.plantTitleLabel.text = "\(JSON)!"
-//                }
-//        }
+//        plantObj = retrievePlant(detectedText)
+//        plantTitleLabel.text = plantObj.plantName
+//        locationLabel.text = "Location: \(plantObj.location[0] as? String)"
+//        originLabel.text = "Origin: \(plantObj.origin)"
+//        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
+//        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
+//        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts[0] as? String)"
+//        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
         
         
     }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)    
+        self.navigationItem.setHidesBackButton(editing, animated: animated)
+    }
+    
+//    func getAllPlant(){
+//        
+//    }
+//    
+//    func getPlantById(plantId: Int){
+//        
+//    }
+    
     
     func retrievePlant(detectedPlant: String) -> Plant {
         

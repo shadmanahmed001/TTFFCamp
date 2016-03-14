@@ -7,39 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		286AC2611C9258C900970D53 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 286AC2601C9258C900970D53 /* camera.png */; };
-		286AC2631C9258DA00970D53 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286AC2621C9258DA00970D53 /* Plant.swift */; };
-		286AC2651C9258F100970D53 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286AC2641C9258F100970D53 /* Database.swift */; };
 		AA8A24DDDAA2005F137600CA /* Pods_TTFFCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */; };
 		E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57EF1C90EDA9008267EC /* AppDelegate.swift */; };
-		E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57F11C90EDA9008267EC /* ViewController.swift */; };
+		E01E57F21C90EDA9008267EC /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */; };
 		E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F31C90EDA9008267EC /* Main.storyboard */; };
 		E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F61C90EDA9008267EC /* Assets.xcassets */; };
 		E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */; };
 		E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E58011C90F80F008267EC /* PlantInfoViewController.swift */; };
 		E03A1B461C923569009DF6B3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E03A1B451C923569009DF6B3 /* Alamofire.framework */; };
-		E0D5717C1C9609BF005A7856 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D5717B1C9609BF005A7856 /* SWRevealViewController.m */; };
+		E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */; };
+		E0D571871C96365E005A7856 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D571851C96365E005A7856 /* SWRevealViewController.m */; };
+		E0D5718C1C963785005A7856 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D571891C963785005A7856 /* Database.swift */; };
+		E0D5718D1C963785005A7856 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5718A1C963785005A7856 /* FakeService.swift */; };
+		E0D5718E1C963785005A7856 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5718B1C963785005A7856 /* Plant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		286AC2601C9258C900970D53 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		286AC2621C9258DA00970D53 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		286AC2641C9258F100970D53 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		4A6EC689F3C0F53F9389C862 /* Pods-TTFFCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.release.xcconfig"; sourceTree = "<group>"; };
 		51C93434E05113EBB271C567 /* Pods-TTFFCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.debug.xcconfig"; sourceTree = "<group>"; };
 		C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTFFCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01E57EC1C90EDA9008267EC /* TTFFCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTFFCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01E57EF1C90EDA9008267EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E01E57F11C90EDA9008267EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		E01E57F41C90EDA9008267EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E01E57F61C90EDA9008267EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E01E57F91C90EDA9008267EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01E57FB1C90EDA9008267EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01E58011C90F80F008267EC /* PlantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantInfoViewController.swift; sourceTree = "<group>"; };
 		E03A1B451C923569009DF6B3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		E0D571791C9609BE005A7856 /* TTFFCamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTFFCamp-Bridging-Header.h"; sourceTree = "<group>"; };
-		E0D5717A1C9609BF005A7856 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		E0D5717B1C9609BF005A7856 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenMenuViewController.swift; sourceTree = "<group>"; };
+		E0D571841C96365E005A7856 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E0D571851C96365E005A7856 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E0D571861C96365E005A7856 /* TTFFCamp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTFFCamp-Bridging-Header.h"; sourceTree = "<group>"; };
+		E0D571891C963785005A7856 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		E0D5718A1C963785005A7856 /* FakeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeService.swift; sourceTree = "<group>"; };
+		E0D5718B1C963785005A7856 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +57,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		286AC25F1C9258BB00970D53 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				286AC2601C9258C900970D53 /* camera.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		B50A75765E25F1E1FC6FF4C2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,21 +87,38 @@
 		E01E57EE1C90EDA9008267EC /* TTFFCamp */ = {
 			isa = PBXGroup;
 			children = (
-				286AC25F1C9258BB00970D53 /* Images */,
-				E01E57FB1C90EDA9008267EC /* Info.plist */,
-				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
-				E01E57F11C90EDA9008267EC /* ViewController.swift */,
-				E01E57F61C90EDA9008267EC /* Assets.xcassets */,
-				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
-				E01E57F31C90EDA9008267EC /* Main.storyboard */,
+				E0D571881C963785005A7856 /* Models */,
+				E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */,
 				E01E58011C90F80F008267EC /* PlantInfoViewController.swift */,
-				286AC2621C9258DA00970D53 /* Plant.swift */,
-				286AC2641C9258F100970D53 /* Database.swift */,
-				E0D5717A1C9609BF005A7856 /* SWRevealViewController.h */,
-				E0D5717B1C9609BF005A7856 /* SWRevealViewController.m */,
-				E0D571791C9609BE005A7856 /* TTFFCamp-Bridging-Header.h */,
+				E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */,
+				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
+				E01E57FB1C90EDA9008267EC /* Info.plist */,
+				E01E57F31C90EDA9008267EC /* Main.storyboard */,
+				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
+				E01E57F61C90EDA9008267EC /* Assets.xcassets */,
+				E0D571831C96365E005A7856 /* SupportingFiles */,
 			);
 			path = TTFFCamp;
+			sourceTree = "<group>";
+		};
+		E0D571831C96365E005A7856 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E0D571841C96365E005A7856 /* SWRevealViewController.h */,
+				E0D571851C96365E005A7856 /* SWRevealViewController.m */,
+				E0D571861C96365E005A7856 /* TTFFCamp-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E0D571881C963785005A7856 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0D571891C963785005A7856 /* Database.swift */,
+				E0D5718A1C963785005A7856 /* FakeService.swift */,
+				E0D5718B1C963785005A7856 /* Plant.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FB6D80EE8EA74A24EA2C224E /* Frameworks */ = {
@@ -183,7 +194,6 @@
 			files = (
 				E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */,
 				E01E57F71C90EDA9008267EC /* Assets.xcassets in Resources */,
-				286AC2611C9258C900970D53 /* camera.png in Resources */,
 				E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,12 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D5718C1C963785005A7856 /* Database.swift in Sources */,
+				E0D5718D1C963785005A7856 /* FakeService.swift in Sources */,
 				E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */,
-				286AC2631C9258DA00970D53 /* Plant.swift in Sources */,
-				E01E57F21C90EDA9008267EC /* ViewController.swift in Sources */,
-				286AC2651C9258F100970D53 /* Database.swift in Sources */,
+				E0D571871C96365E005A7856 /* SWRevealViewController.m in Sources */,
+				E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */,
+				E0D5718E1C963785005A7856 /* Plant.swift in Sources */,
+				E01E57F21C90EDA9008267EC /* QRReaderViewController.swift in Sources */,
 				E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */,
-				E0D5717C1C9609BF005A7856 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.ttff.TTFFCamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "TTFFCamp/TTFFCamp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TTFFCamp/SupportingFiles/TTFFCamp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -396,7 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.ttff.TTFFCamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "TTFFCamp/TTFFCamp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TTFFCamp/SupportingFiles/TTFFCamp-Bridging-Header.h";
 			};
 			name = Release;
 		};

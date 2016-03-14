@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  QRReaderViewController.swift
 //  TTFFCamp
 //
 //  Created by yanze on 3/9/16.
@@ -9,10 +9,8 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    
-    @IBOutlet weak var Open: UIBarButtonItem!
     
     var objCaptureSession: AVCaptureSession?
     var objCaptureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -26,9 +24,10 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         self.addVideoPreviewLayer()
         self.initializeQRView()
         
-        Open.target = self.revealViewController()
-        Open.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

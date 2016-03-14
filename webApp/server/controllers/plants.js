@@ -18,7 +18,10 @@ module.exports = (function(){
 				name:req.body.name,
 				description:req.body.description,
 				location:req.body.location,
-				info:req.body.info,
+				moreFact:req.body.moreFact,
+				origin:req.body.origin,
+				whenToPlant:req.body.whenToPlant,
+				coolFact:req.body.coolFact,
 				created_at:Date(),
 				updated_at:Date(),
 			});
@@ -55,7 +58,10 @@ module.exports = (function(){
 			  doc.name = req.body.name;
 			  doc.description = req.body.description;
 			  doc.location = req.body.location;
-			  doc.info = req.body.info;
+			  doc.origin = req.body.origin;
+			  doc.whenToPlant = req.body.whenToPlant;
+			  doc.coolFact = req.body.coolFact;
+			  doc.moreFact = req.body.moreFact;
 			  doc.updated_at = Date();
 			  doc.save();
 			  res.redirect("/all");

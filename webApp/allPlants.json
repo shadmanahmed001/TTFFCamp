@@ -1,28 +1,34 @@
 [
     {
-        "_id": "56e72991e1e7b96a423ae664",
-        "name": "carrot",
-        "description": "this is carrot",
-        "location": "west gate",
-        "info": "carrot is a kind of plants.",
-        "created_at": "2016-03-14T21:13:53.000Z",
-        "updated_at": "2016-03-14T21:14:20.000Z",
+        "_id": "56e73996ca382eb1445d5040",
+        "name": "flower A",
+        "description": "hello world",
+        "location": "West Gate",
+        "moreFact": "1.it is cool.\r\n2.it is hot.",
+        "origin": "United States",
+        "whenToPlant": "Summer",
+        "coolFact": "this is cool",
+        "created_at": "2016-03-14T22:22:14.000Z",
+        "updated_at": "2016-03-14T22:22:50.000Z",
         "__v": 0,
-        "filename": "0821f47f375d33d17e321e44dea16c43",
+        "filename": "7200b7a6a11f6eaf3f764efae23e1741",
         "mimetype": "image/png",
-        "originalname": "zp_5_burned.png"
+        "originalname": "zp_1_burned.png"
     },
     {
-        "_id": "56e72cadee8c88db42f4b03c",
-        "name": "new plant",
-        "description": "new plant description",
-        "location": "main gate",
-        "info": "lalalala",
-        "created_at": "2016-03-14T21:27:09.000Z",
-        "updated_at": "2016-03-14T21:27:28.000Z",
+        "_id": "56e73a1bca382eb1445d5041",
+        "name": "flower B",
+        "description": "no description",
+        "location": "Main Gate",
+        "moreFact": "It has a long story...",
+        "origin": "United Kingdom",
+        "whenToPlant": "Spring",
+        "coolFact": "It smells good.",
+        "created_at": "2016-03-14T22:24:27.000Z",
+        "updated_at": "2016-03-14T22:24:50.000Z",
         "__v": 0,
-        "filename": "fa98610c37d6903a6a17c92100890f2f",
+        "filename": "5261d6f75deb841be35338a9524f4c17",
         "mimetype": "image/png",
-        "originalname": "zp_9_burned.png"
+        "originalname": "zp_2_burned.png"
     }
 ]

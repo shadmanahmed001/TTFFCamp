@@ -29,6 +29,18 @@
 	 		<input type='text' class = "form-control" name='name' value ="<%=plant.name%>" id = "name">
 	 	</div>
 	 	<div class = "form-group">
+	 		<label for="origin">Origin</label>
+			<input type='text' class = "form-control" name='origin' value ="<%=plant.origin%>" id = "origin">
+		</div>
+		<div class = "form-group">
+	 		<label for="whenToPlant">When To Plant</label>
+			<input type='text' class = "form-control" name='whenToPlant' value ="<%=plant.whenToPlant%>" id = "whenToPlant">
+		</div>
+		<div class = "form-group">
+	 		<label for="coolFact">Cool Fact</label>
+			<input type='text' class = "form-control" name='coolFact' value ="<%=plant.coolFact%>" id = "coolFact">
+		</div>
+	 	<div class = "form-group">
 	 		<label for="description">Description</label>
 			<input type='text' class = "form-control" name='description' value ='<%=plant.description%>' id = "description">
 		</div>
@@ -37,8 +49,8 @@
 	 		<input type='text' class = "form-control" name='location' value ="<%=plant.location%>" id = "location">
 	 	</div>
 	 	<div class = "form-group">
-	 		<label for="name">Detailed Info</label>
-	 		<textarea class = "form-control" rows = "3" name='info' id = "info"><%=plant.info%></textarea>
+	 		<label for="name">More Fact</label>
+	 		<textarea class = "form-control" rows = "3" name='moreFact' id = "moreFact"><%=plant.moreFact%></textarea>
 	 	</div>
 
 	 <button type="submit" class = "btn btn-default">Update</button> 

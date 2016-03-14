@@ -67,8 +67,16 @@ module.exports = function(app){
 		console.log(info);
 		plants.upload(info,res);
 
-	res.redirect("/all");
-});
+		res.redirect("/all");
+	})
+
+	app.get('/printToFile',function(req,res){
+		plants.printToFile(req,res);
+	})
+
+	app.get('/getAllPlants',function(req,res){
+		plants.getAllPlants(req,res);
+	})
 
 
 

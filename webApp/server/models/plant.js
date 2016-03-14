@@ -15,7 +15,19 @@ var PlantSchema = new mongoose.Schema({
 		type:String,
 		trim:true,
 	},
-	info:String,
+	origin:{
+		type:String,
+		trim:true,
+	},
+	whenToPlant:{
+		type:String,
+		trim:true,
+	},
+	coolFact:{
+		type:String,
+		trim:true,
+	},
+	moreFact:String,
 	filename:{
 		type:String,
 		trim:true,

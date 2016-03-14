@@ -55,11 +55,11 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
         
         plantTitleLabel.text = singlePlant.plantName
-        locationLabel.text = "Location: \(singlePlant.location[0] as? String)"
+        locationLabel.text = "Location: \(singlePlant.locations[0] as? String)"
         originLabel.text = "Origin: \(singlePlant.origin)"
         whenToPlantLabel.text = "When To Plant: \(singlePlant.whenToPlant)"
         coolFactLabel.text = "Cool Fact: \(singlePlant.coolFact)"
-        moreFactsLabel.text = "More Facts: \(singlePlant.moreFacts[0] as? String)"
+        moreFactsLabel.text = "More Facts: \(singlePlant.moreFacts)"
         imagesLabel.text = "Image Names: \(singlePlant.images[0] as? String)"
     }
     

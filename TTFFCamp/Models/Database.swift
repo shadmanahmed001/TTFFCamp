@@ -26,6 +26,7 @@ class Database {
         archiver.encodeObject(arrayOfObjects, forKey: "\(forKey)")
         archiver.finishEncoding()
         data.writeToFile(Database.dataFilePath(toSchema), atomically: true)
+        print("saved data", data)
     }
     
     
@@ -44,18 +45,19 @@ class Database {
     
     
     static func all() -> [Plant] {
-        let fakePlants = FakeService()
+//        let fakePlants = FakeService()
         var plants = [Plant]()
-        plants = fakePlants.getFakePlants()
+//        plants = fakePlants.getFakePlants()
         
-//        let path = Database.dataFilePath(Plant.schema)
-//        if NSFileManager.defaultManager().fileExistsAtPath(path) {
-//            if let data = NSData(contentsOfFile: path) {
-//                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-//                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
-//                unarchiver.finishDecoding()
-//            }
-//        }
+        let path = Database.dataFilePath(Plant.schema)
+        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+            if let data = NSData(contentsOfFile: path) {
+                print("retrieved data", data)
+                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
+                unarchiver.finishDecoding()
+            }
+        }
         return plants
     }
     

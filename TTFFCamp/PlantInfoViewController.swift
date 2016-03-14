@@ -25,40 +25,18 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     var myUtterance = AVSpeechUtterance(string: "")
     
     
-    var plantObj = Plant()
-    
+    var singlePlant = Plant()
+    var allPlants: [Plant] = []
     
     var detectedText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
-        
-        // Test:  get all plant from fake service
-        let plants = Database.all()
-        
-        print("Get all plants", plants)
-        
-        for var i = 0; i < plants.count; i++ {
-            if plants[i].plantName == detectedText {
-                print("found the correct plant ID", plants[i])
-                plantObj = plants[i]
-            }
-        }
-        
-//        getPlantById(Int(detectedText)!)
-        
-//        plantObj = retrievePlant(detectedText)
-        plantTitleLabel.text = plantObj.plantName
-        locationLabel.text = "Location: \(plantObj.locations[0] as? String)"
-        originLabel.text = "Origin: \(plantObj.origin)"
-        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
-        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
-        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts)"
-        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
-        
+
+        // get all plants from local storage
+        allPlants = Database.all()
+        getPlantByName(detectedText)
         
     }
     
@@ -67,6 +45,23 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
     
+    
+    func getPlantByName(plantName: String){
+        for var i = 0; i < allPlants.count; i++ {
+            if allPlants[i].plantName == plantName {
+                print("found the correct plant ID", allPlants[i])
+                singlePlant = allPlants[i]
+            }
+        }
+        
+        plantTitleLabel.text = singlePlant.plantName
+        locationLabel.text = "Location: \(singlePlant.location[0] as? String)"
+        originLabel.text = "Origin: \(singlePlant.origin)"
+        whenToPlantLabel.text = "When To Plant: \(singlePlant.whenToPlant)"
+        coolFactLabel.text = "Cool Fact: \(singlePlant.coolFact)"
+        moreFactsLabel.text = "More Facts: \(singlePlant.moreFacts[0] as? String)"
+        imagesLabel.text = "Image Names: \(singlePlant.images[0] as? String)"
+    }
     
     @IBAction func textToSpeech(sender: UIButton) {
         if !synth.speaking{

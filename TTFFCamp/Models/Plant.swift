@@ -72,26 +72,6 @@ class Plant: NSObject, NSCoding {
     }
     
     
-    static func retrievePlant(plantId: String) {
-        
-        // Uncomment out once we are ready to make queries to retrieve from actual database
-        //        var plants = [Plant]()
-        //        let path = Database.dataFilePath(Plant.schema)
-        //        if NSFileManager.defaultManager().fileExistsAtPath(path) {
-        //            if let data = NSData(contentsOfFile: path) {
-        //                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        //                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
-        //                unarchiver.finishDecoding()
-        //            }
-        //        }
-        
-        //        return plants
-    }
-    
-    static func sync() {
-        // sync function to make AJAX call to localhost server
-    }
-    
     
     
 }

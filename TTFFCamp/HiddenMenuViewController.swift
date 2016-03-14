@@ -22,9 +22,9 @@ class HiddenMenuViewController: UIViewController {
                 if let JSON = response.result.value {
                     // TODO: convert JSON content to an array of plants
                     // TODO: replace fake data with correct ajax return result
-                    let fakePlants = FakeService.getFakePlants()
                     
-                    Database.save(fakePlants, toSchema: Plant.schema, forKey: Plant.key)
+                    let fakePlants = FakeService.getFakePlants() // get all plants from db
+                    Database.save(fakePlants, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
                 }
         }
         

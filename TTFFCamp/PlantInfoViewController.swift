@@ -33,7 +33,12 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        // Test:  get all plant from fake service
+        var plants = Database.all()
+        
         
 //        getPlantById(Int(detectedText)!)
         
@@ -54,10 +59,11 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
     
-//    func getAllPlant(){
-//        
+    
+//    func getAllPlants() -> [Plant] {
+//        return Database.all(Plant.schema, forKey: Plant.key)
 //    }
-//    
+    
 //    func getPlantById(plantId: Int){
 //        
 //    }

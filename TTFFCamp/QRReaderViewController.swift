@@ -24,6 +24,8 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         self.addVideoPreviewLayer()
         self.initializeQRView()
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
     }
@@ -33,6 +35,11 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         super.didReceiveMemoryWarning()
     }
     
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.navigationItem.setHidesBackButton(editing, animated: animated)
+    }
     
     
     func configureVideoCapture() {

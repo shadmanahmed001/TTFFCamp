@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Plant: NSObject {
+class Plant: NSObject, NSCoding {
     
     // Add NSCoding Protocol back once we are ready to use local database file
     
     //variable declaration
-    static var key = "Plant"
+    static var key = "Plants"
     static var schema = "PlantSchema"
     var plantName: String
     var location: NSArray
@@ -46,31 +46,30 @@ class Plant: NSObject {
         createdAt = NSDate()
     }
     
-    // MARK: - NSCoding Protocol
+    // MARK: - NSCoding protocol
     // used for encoding (saving) objects
-    //    func encodeWithCoder(aCoder: NSCoder) {
-    //        aCoder.encodeObject(plantName, forKey: "plantName")
-    //        aCoder.encodeObject(location, forKey: "location")
-    //        aCoder.encodeObject(origin, forKey: "orgin")
-    //        aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
-    //        aCoder.encodeObject(coolFact, forKey: "coolFact")
-    //        aCoder.encodeObject(moreFacts, forKey: "moreFacts")
-    //        aCoder.encodeObject(images, forKey: "images")
-    //        aCoder.encodeObject(createdAt, forKey:  "createdAt")
-    //    }
-    //
-    //    // used for decoding (loading) objects
-    //    required init?(coder aDecoder: NSCoder) {
-    //        plantName = aDecoder.decodeObjectForKey("plantName") as! String
-    //        location = aDecoder.decodeObjectForKey("location") as! NSArray
-    //        origin = aDecoder.decodeObjectForKey("origin") as! String
-    //        whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
-    //        coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
-    //        moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! NSArray
-    //        images = aDecoder.decodeObjectForKey("images") as! NSArray
-    //        createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
-    //        super.init()
-    //    }
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(plantName, forKey: "plantName")
+        aCoder.encodeObject(location, forKey: "location")
+        aCoder.encodeObject(origin, forKey: "origin")
+        aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
+        aCoder.encodeObject(coolFact, forKey: "coolFact")
+        aCoder.encodeObject(moreFacts, forKey: "moreFacts")
+        aCoder.encodeObject(images, forKey: "images")
+        aCoder.encodeObject(createdAt, forKey:  "createdAt")
+    }
+    // used for decoding (loading) objects
+    required init?(coder aDecoder: NSCoder) {
+        plantName = aDecoder.decodeObjectForKey("plantName") as! String
+        location = aDecoder.decodeObjectForKey("location") as! NSArray
+        origin = aDecoder.decodeObjectForKey("origin") as! String
+        whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
+        coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
+        moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! NSArray
+        images = aDecoder.decodeObjectForKey("images") as! NSArray
+        createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
+        super.init()
+    }
     
     
     static func retrievePlant(plantId: String) {

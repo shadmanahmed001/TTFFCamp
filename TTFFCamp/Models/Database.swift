@@ -28,17 +28,32 @@ class Database {
         data.writeToFile(Database.dataFilePath(toSchema), atomically: true)
     }
     
-    static func all(toSchema: String, forKey: String) -> [AnyObject] {
-        var items = [AnyObject]()
-        let path = Database.dataFilePath(toSchema)
+    
+//    static func all(toSchema: String, forKey: String) -> [AnyObject] {
+//        var items = [AnyObject]()
+//        let path = Database.dataFilePath(toSchema)
+//        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+//            if let data = NSData(contentsOfFile: path) {
+//                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+//                items = unarchiver.decodeObjectForKey(forKey) as! [AnyObject]
+//                unarchiver.finishDecoding()
+//            }
+//        }
+//        return items
+//    }
+    
+    
+    static func all() -> [Plant] {
+        var plants = [Plant]()
+        let path = Database.dataFilePath(Plant.schema)
         if NSFileManager.defaultManager().fileExistsAtPath(path) {
             if let data = NSData(contentsOfFile: path) {
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-                items = unarchiver.decodeObjectForKey(forKey) as! [AnyObject]
+                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
                 unarchiver.finishDecoding()
             }
         }
-        return items
+        return plants
     }
     
 }

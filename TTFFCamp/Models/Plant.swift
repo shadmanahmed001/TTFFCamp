@@ -16,11 +16,11 @@ class Plant: NSObject, NSCoding {
     static var key = "Plants"
     static var schema = "PlantSchema"
     var plantName: String
-    var location: NSArray
+    var locations: NSArray
     var origin: String
     var whenToPlant: String
     var coolFact: String
-    var moreFacts: NSArray
+    var moreFacts: String
     var images: NSArray
     var createdAt: NSDate
     
@@ -37,11 +37,11 @@ class Plant: NSObject, NSCoding {
     //    }
     override init (){
         self.plantName = ""
-        self.location = []
+        self.locations = []
         self.origin = ""
         self.whenToPlant = ""
         self.coolFact = ""
-        self.moreFacts = []
+        self.moreFacts = ""
         self.images = []
         createdAt = NSDate()
     }
@@ -50,7 +50,7 @@ class Plant: NSObject, NSCoding {
     // used for encoding (saving) objects
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(plantName, forKey: "plantName")
-        aCoder.encodeObject(location, forKey: "location")
+        aCoder.encodeObject(locations, forKey: "locations")
         aCoder.encodeObject(origin, forKey: "origin")
         aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
         aCoder.encodeObject(coolFact, forKey: "coolFact")
@@ -61,37 +61,16 @@ class Plant: NSObject, NSCoding {
     // used for decoding (loading) objects
     required init?(coder aDecoder: NSCoder) {
         plantName = aDecoder.decodeObjectForKey("plantName") as! String
-        location = aDecoder.decodeObjectForKey("location") as! NSArray
+        locations = aDecoder.decodeObjectForKey("locations") as! NSArray
         origin = aDecoder.decodeObjectForKey("origin") as! String
         whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
         coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
-        moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! NSArray
+        moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! String
         images = aDecoder.decodeObjectForKey("images") as! NSArray
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
         super.init()
     }
-    
-    
-    static func retrievePlant(plantId: String) {
         
-        // Uncomment out once we are ready to make queries to retrieve from actual database
-        //        var plants = [Plant]()
-        //        let path = Database.dataFilePath(Plant.schema)
-        //        if NSFileManager.defaultManager().fileExistsAtPath(path) {
-        //            if let data = NSData(contentsOfFile: path) {
-        //                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        //                plants = unarchiver.decodeObjectForKey(Plant.key) as! [Plant]
-        //                unarchiver.finishDecoding()
-        //            }
-        //        }
-        
-        //        return plants
-    }
-    
-    static func sync() {
-        // sync function to make AJAX call to localhost server
-    }
-    
     
     
 }

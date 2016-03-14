@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Plant = mongoose.model('plants');
+var fs = require('fs');
 
 module.exports = (function(){
 	return{
@@ -77,6 +78,23 @@ module.exports = (function(){
 			  doc.updated_at = Date();
 			  doc.save();
 			});
+		},
+		printToFile:function(req,res){
+			Plant.find({},function(err,output){
+				if(err){
+					console.log(err);
+				}else{
+					var outputFilename = 'allPlants.json';
+					fs.writeFile(outputFilename, JSON.stringify(output, null, 4), function(err) {
+					    if(err) {
+					      console.log(err);
+					    } else {
+					      console.log("JSON saved to " + outputFilename);
+					      res.redirect("/all");
+					    }
+					}); 
+				}
+			})
 		},
 
 	}

@@ -16,7 +16,7 @@ module.exports = (function(){
 			var newPlant = new Plant({
 				name:req.body.name,
 				description:req.body.description,
-				location:req.body.description,
+				location:req.body.location,
 				info:req.body.info,
 				created_at:Date(),
 				updated_at:Date(),

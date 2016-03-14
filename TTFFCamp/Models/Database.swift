@@ -43,6 +43,5 @@ class Database {
         }
         return plants
     }
-    
-    
+
 }

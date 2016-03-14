@@ -70,8 +70,7 @@ class Plant: NSObject, NSCoding {
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
         super.init()
     }
-    
-    
+
     
     
 }

@@ -10,6 +10,28 @@ import UIKit
 import AVFoundation
 import Auk
 
+func getDocumentsURL() -> NSURL {
+    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+    print("getDocumentsURL", documentsURL)
+    
+    let filemgr = NSFileManager.defaultManager()
+    if filemgr.fileExistsAtPath("/Applications") {
+        print("File exists", filemgr.description)
+        
+    } else {
+        print("File not found", filemgr)
+    }
+    
+    return documentsURL
+}
+
+func fileInDocumentsDirectory(filename: String) -> String {
+    
+    let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
+    return fileURL.path!
+    
+}
+
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -19,7 +41,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var whenToPlantLabel: UILabel!
     @IBOutlet weak var coolFactLabel: UILabel!
     @IBOutlet weak var moreFactsLabel: UILabel!
-    @IBOutlet weak var imagesLabel: UILabel!
+    @IBOutlet weak var plantImageView: UIImageView!
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
@@ -52,13 +74,15 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
 //        plantObj = retrievePlant(detectedText)
         plantTitleLabel.text = plantObj.plantName
-        locationLabel.text = "Location: \(plantObj.locations[0] as? String)"
+        locationLabel.text = "Location: \(plantObj.location)"
         originLabel.text = "Origin: \(plantObj.origin)"
         whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
         coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
         moreFactsLabel.text = "More Facts: \(plantObj.moreFacts)"
-        imagesLabel.text = "Image Names: \(plantObj.images[0] as? String)"
         
+        // Get Doc URL path to image file
+        
+        getDocumentsURL()
         
     }
     

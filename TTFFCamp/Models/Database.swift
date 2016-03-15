@@ -45,9 +45,7 @@ class Database {
     
     
     static func all() -> [Plant] {
-//        let fakePlants = FakeService()
         var plants = [Plant]()
-//        plants = fakePlants.getFakePlants()
         
         let path = Database.dataFilePath(Plant.schema)
         if NSFileManager.defaultManager().fileExistsAtPath(path) {

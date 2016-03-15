@@ -21,15 +21,29 @@ class HiddenMenuViewController: UIViewController {
             
             .responseJSON { response in
                 if let JSON = response.result.value {
-                    // TODO: convert JSON content to an array of plants
-                    // TODO: replace fake data with correct ajax return result
-                    
                     print("json data", JSON)
                     
-                    let fakePlants = FakeService.getFakePlants() // get all plants from db
+                    var plantArray = [Plant]()
                     
-                    print("fakePlants", fakePlants)
-                    Database.save(fakePlants, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
+                    // parse JSON data and create new Plant objs and Plant array
+                    for anItem in JSON as! [Dictionary<String, AnyObject>] {
+                        let plantObj = Plant()
+                        plantObj.plantName = anItem["name"] as! String
+                        plantObj.location = anItem["location"] as! String
+                        plantObj.origin = anItem["origin"] as! String
+                        plantObj.whenToPlant = anItem["whenToPlant"] as! String
+                        plantObj.coolFact = anItem["coolFact"] as! String
+                        plantObj.moreFacts = anItem["moreFact"] as! String
+                        plantObj.images = anItem["filename"] as! String
+                        
+                        plantArray.append(plantObj)
+                        
+                    }
+                    
+                    print("new plant array", plantArray)
+                    
+                    
+                    Database.save(plantArray, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
                 }
                 
                 

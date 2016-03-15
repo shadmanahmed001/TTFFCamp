@@ -172,13 +172,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeH-3U-qXH">
-                                <rect key="frame" x="50" y="145" width="157" height="15"/>
+                                <rect key="frame" x="50" y="145" width="156.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to synchronize with the server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-sE-Vtx">
-                                <rect key="frame" x="50" y="173" width="171" height="15"/>
+                                <rect key="frame" x="50" y="172" width="170.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -200,6 +200,12 @@
                                     <action selector="clickToSynchronize:" destination="qpO-Dn-Eob" eventType="touchUpInside" id="KMd-PV-jo8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-G4-NTZ">
+                                <rect key="frame" x="101" y="352" width="69" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,7 +214,9 @@
                             <constraint firstItem="q3c-VT-i5p" firstAttribute="leading" secondItem="l4A-sE-Vtx" secondAttribute="leading" id="8G7-AS-QyX"/>
                             <constraint firstItem="l4A-sE-Vtx" firstAttribute="leading" secondItem="FeH-3U-qXH" secondAttribute="leading" id="QpD-2W-1xv"/>
                             <constraint firstItem="J5v-Lv-Pgo" firstAttribute="width" secondItem="q3c-VT-i5p" secondAttribute="width" id="S8z-Nh-8RM"/>
+                            <constraint firstItem="a7X-G4-NTZ" firstAttribute="top" secondItem="J5v-Lv-Pgo" secondAttribute="bottom" constant="40" id="Ysk-cN-Oky"/>
                             <constraint firstItem="q3c-VT-i5p" firstAttribute="top" secondItem="l4A-sE-Vtx" secondAttribute="bottom" constant="38" id="cZg-cN-6bn"/>
+                            <constraint firstItem="a7X-G4-NTZ" firstAttribute="leading" secondItem="oip-J5-S69" secondAttribute="leadingMargin" constant="81" id="coH-2P-Gtk"/>
                             <constraint firstItem="q3c-VT-i5p" firstAttribute="width" secondItem="l4A-sE-Vtx" secondAttribute="width" id="egA-gS-vTD"/>
                             <constraint firstItem="J5v-Lv-Pgo" firstAttribute="top" secondItem="q3c-VT-i5p" secondAttribute="bottom" constant="29" id="mL7-yl-8cT"/>
                             <constraint firstItem="J5v-Lv-Pgo" firstAttribute="centerX" secondItem="q3c-VT-i5p" secondAttribute="centerX" id="nb8-dE-CfC"/>
@@ -216,6 +224,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="a7X-G4-NTZ" id="GLn-4r-TJJ"/>
                         <outlet property="userInputLabel" destination="q3c-VT-i5p" id="Arz-Bj-YLW"/>
                         <segue destination="BYZ-38-t0r" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="qZe-dZ-gid"/>
                     </connections>

@@ -35,6 +35,8 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
         // get all plants from local storage
         allPlants = Database.all()

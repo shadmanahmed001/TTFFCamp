@@ -21,17 +21,17 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var moreFactsButton: UIButton!
     @IBOutlet weak var imagesNamesLabel: UILabel!
 
-    
-    
-    
+    //MARK: NSSpeech
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
-    
+    //MARK:
     var singlePlant = Plant()
     var allPlants: [Plant] = []
     
     var detectedText = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         super.setEditing(editing, animated: animated)    
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
-    
     
     
     func getPlantByName(plantName: String){
@@ -68,8 +67,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     
     @IBAction func textToSpeech(sender: UIButton) {
-        print(sender.tag)
-
         if !synth.speaking{
             if sender.tag == 0 {
                 myUtterance = AVSpeechUtterance(string: plantNameButton.titleLabel!.text!)

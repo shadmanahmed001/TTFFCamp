@@ -28,7 +28,9 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
+        
     }
+    
 
     
     override func didReceiveMemoryWarning() {

@@ -70,6 +70,9 @@ module.exports = function(app){
 		res.redirect("/all");
 	})
 
+	//try to encode img as base64 string
+	
+
 	app.get('/printToFile',function(req,res){
 		plants.printToFile(req,res);
 	})

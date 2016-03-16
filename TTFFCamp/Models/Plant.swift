@@ -72,6 +72,4 @@ class Plant: NSObject, NSCoding {
     }
     
     
-    
-    
 }

@@ -35,54 +35,37 @@ func fileInDocumentsDirectory(filename: String) -> String {
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBOutlet weak var plantTitleLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var originLabel: UILabel!
-    @IBOutlet weak var whenToPlantLabel: UILabel!
-    @IBOutlet weak var coolFactLabel: UILabel!
-    @IBOutlet weak var moreFactsLabel: UILabel!
-    @IBOutlet weak var plantImageView: UIImageView!
-    
+    @IBOutlet weak var plantNameButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var originButton: UIButton!
+    @IBOutlet weak var whenToPlantButton: UIButton!
+    @IBOutlet weak var coolFactButton: UIButton!
+    @IBOutlet weak var moreFactsButton: UIButton!
+    @IBOutlet weak var imagesNamesLabel: UILabel!
+
+    //MARK: NSSpeech
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
-    
-    var plantObj = Plant()
-    
+    //MARK:
+    var singlePlant = Plant()
+    var allPlants: [Plant] = []
     
     var detectedText = ""
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        // Test:  get all plant from fake service
-        let plants = Database.all()
+        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
         
-        print("Get all plants", plants)
-        
-        for var i = 0; i < plants.count; i++ {
-            if plants[i].plantName == detectedText {
-                print("found the correct plant ID", plants[i])
-                plantObj = plants[i]
-            }
-        }
-        
-//        getPlantById(Int(detectedText)!)
-        
-//        plantObj = retrievePlant(detectedText)
-        plantTitleLabel.text = plantObj.plantName
-        locationLabel.text = "Location: \(plantObj.location)"
-        originLabel.text = "Origin: \(plantObj.origin)"
-        whenToPlantLabel.text = "When To Plant: \(plantObj.whenToPlant)"
-        coolFactLabel.text = "Cool Fact: \(plantObj.coolFact)"
-        moreFactsLabel.text = "More Facts: \(plantObj.moreFacts)"
-        
-        // Get Doc URL path to image file
-        
-        getDocumentsURL()
+        // get all plants from local storage
+        allPlants = Database.all()
+        getPlantByName(detectedText)
         
     }
     
@@ -92,9 +75,45 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     
+    func getPlantByName(plantName: String){
+        for var i = 0; i < allPlants.count; i++ {
+            if allPlants[i].plantName == plantName {
+                print("found the correct plant ID", allPlants[i])
+                singlePlant = allPlants[i]
+            }
+        }
+
+        plantNameButton.setTitle(singlePlant.plantName, forState: UIControlState.Normal)
+        locationButton.setTitle("Location: \(singlePlant.location)", forState: UIControlState.Normal)
+        originButton.setTitle("Origin: \(singlePlant.origin)", forState: UIControlState.Normal)
+        whenToPlantButton.setTitle("When To Plant: \(singlePlant.whenToPlant)", forState: UIControlState.Normal)
+        coolFactButton.setTitle("Cool Fact: \(singlePlant.coolFact)", forState: UIControlState.Normal)
+        moreFactsButton.setTitle("More Facts: \(singlePlant.moreFacts)", forState: UIControlState.Normal)
+        imagesNamesLabel.text = "Image Names: \(singlePlant.images)"
+    }
+    
+    
     @IBAction func textToSpeech(sender: UIButton) {
         if !synth.speaking{
-            myUtterance = AVSpeechUtterance(string: plantTitleLabel.text! )
+            if sender.tag == 0 {
+                myUtterance = AVSpeechUtterance(string: plantNameButton.titleLabel!.text!)
+            }
+            if sender.tag == 1 {
+                myUtterance = AVSpeechUtterance(string: locationButton.titleLabel!.text!)
+            }
+            if sender.tag == 2 {
+                myUtterance = AVSpeechUtterance(string: originButton.titleLabel!.text!)
+            }
+            if sender.tag == 3 {
+                myUtterance = AVSpeechUtterance(string: whenToPlantButton.titleLabel!.text!)
+            }
+            if sender.tag == 4 {
+                myUtterance = AVSpeechUtterance(string: coolFactButton.titleLabel!.text!)
+            }
+            if sender.tag == 5 {
+                myUtterance = AVSpeechUtterance(string: moreFactsButton.titleLabel!.text!)
+            }
+            
             myUtterance.rate = 0.5
             synth.speakUtterance(myUtterance)
         }
@@ -102,6 +121,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             synth.continueSpeaking()
         }
     }
+    
+
+    
     
     
 }

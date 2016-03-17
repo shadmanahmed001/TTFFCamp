@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 
 class HiddenMenuViewController: UIViewController {

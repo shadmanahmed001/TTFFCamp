@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Taylor Family Foundation Garden Guide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oy-Iv-OAg">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Taylor Family Foundation Garden Guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oy-Iv-OAg">
                                 <rect key="frame" x="40" y="40" width="520" height="20.5"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +64,6 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heB-4A-uHZ">
                                 <rect key="frame" x="278" y="136" width="42" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Origin"/>
                                 <connections>
                                     <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="cov-Dp-4em"/>
@@ -73,7 +71,6 @@
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHf-DY-3jb">
                                 <rect key="frame" x="248" y="174" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="When To Plant"/>
                                 <connections>
                                     <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="3md-UK-hjv"/>
@@ -81,7 +78,6 @@
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbU-lC-1Wg">
                                 <rect key="frame" x="261" y="252" width="76" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="More Facts"/>
                                 <connections>
                                     <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="LBF-nf-Fnd"/>
@@ -89,7 +85,6 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH7-v8-AYU">
                                 <rect key="frame" x="270" y="98" width="59" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Location"/>
                                 <connections>
@@ -104,7 +99,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-WB-nDG">
                                 <rect key="frame" x="261" y="60" width="79" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Plant Name"/>
                                 <connections>
@@ -113,7 +107,6 @@
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mx-Gn-yvs">
                                 <rect key="frame" x="268" y="212" width="65" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cool Fact"/>
                                 <connections>
                                     <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="YXU-FE-1o7"/>
@@ -139,7 +132,7 @@
                             <constraint firstItem="faK-j7-oET" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="Pwb-cr-Yzu"/>
                             <constraint firstItem="faK-j7-oET" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="UnH-1J-n5L"/>
                             <constraint firstItem="3mx-Gn-yvs" firstAttribute="top" secondItem="EHf-DY-3jb" secondAttribute="bottom" constant="10" id="XPj-ZP-wQC"/>
-                            <constraint firstItem="yH7-v8-AYU" firstAttribute="top" secondItem="SVE-WB-nDG" secondAttribute="bottom" constant="10" id="boZ-X3-Vjx"/>
+                            <constraint firstItem="yH7-v8-AYU" firstAttribute="top" secondItem="SVE-WB-nDG" secondAttribute="bottom" constant="20" id="boZ-X3-Vjx"/>
                             <constraint firstItem="3mx-Gn-yvs" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="nRr-pf-h9t"/>
                             <constraint firstItem="heB-4A-uHZ" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="piL-cb-vAk"/>
                             <constraint firstItem="z6W-54-VVS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qf4-A6-ZfJ" secondAttribute="bottom" constant="8" symbolic="YES" id="rvg-KI-cNN"/>

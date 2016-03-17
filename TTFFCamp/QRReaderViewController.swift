@@ -18,8 +18,6 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var vwQRCode: UIView?
     var detectedText = ""
     
-    @IBOutlet weak var testLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureVideoCapture()
@@ -90,6 +88,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureVideoPreviewLayer?.frame = view.layer.bounds
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
+        customBanner()
         self.view.bringSubviewToFront(welcomeBannerLabel)
 
     }
@@ -125,6 +124,15 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
         }
+    }
+    
+    func customBanner() {
+        welcomeBannerLabel.layer.backgroundColor = UIColor.greenColor().CGColor
+        welcomeBannerLabel.textColor = UIColor.whiteColor()
+        welcomeBannerLabel.layer.cornerRadius = 10
+        welcomeBannerLabel.font = UIFont(name: "Chalkduster", size: 45)
+        welcomeBannerLabel.layer.borderWidth = 2
+        welcomeBannerLabel.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
 

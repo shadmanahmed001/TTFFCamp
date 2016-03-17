@@ -61,12 +61,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        locationButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        originButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        whenToPlantButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        coolFactButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        moreFactsButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        customButtons()
         
         // get all plants from local storage
         allPlants = Database.all()
@@ -135,7 +130,55 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
     }
     
-
+    func customButtons() {
+        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        plantNameButton.titleLabel?.textColor = UIColor.whiteColor()
+        plantNameButton.backgroundColor = UIColor.greenColor()
+        plantNameButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
+        plantNameButton.layer.cornerRadius = 8
+        plantNameButton.layer.borderWidth = 2
+        plantNameButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        locationButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        locationButton.titleLabel?.textColor = UIColor.whiteColor()
+        locationButton.backgroundColor = UIColor.greenColor()
+        locationButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        locationButton.layer.cornerRadius = 8
+        locationButton.layer.borderWidth = 2
+        locationButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        originButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        originButton.titleLabel?.textColor = UIColor.whiteColor()
+        originButton.backgroundColor = UIColor.greenColor()
+        originButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        originButton.layer.cornerRadius = 8
+        originButton.layer.borderWidth = 2
+        originButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        whenToPlantButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        whenToPlantButton.titleLabel?.textColor = UIColor.whiteColor()
+        whenToPlantButton.backgroundColor = UIColor.greenColor()
+        whenToPlantButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        whenToPlantButton.layer.cornerRadius = 8
+        whenToPlantButton.layer.borderWidth = 2
+        whenToPlantButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        coolFactButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        coolFactButton.titleLabel?.textColor = UIColor.whiteColor()
+        coolFactButton.backgroundColor = UIColor.greenColor()
+        coolFactButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        coolFactButton.layer.cornerRadius = 8
+        coolFactButton.layer.borderWidth = 2
+        coolFactButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        moreFactsButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        moreFactsButton.titleLabel?.textColor = UIColor.whiteColor()
+        moreFactsButton.backgroundColor = UIColor.greenColor()
+        moreFactsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        moreFactsButton.layer.cornerRadius = 8
+        moreFactsButton.layer.borderWidth = 2
+        moreFactsButton.layer.borderColor = UIColor.blackColor().CGColor
+    }
     
     
     

@@ -1,0 +1,96 @@
+<html>
+	<head>
+	 <title>new</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	 <style>
+		body{
+			margin: 10px;
+		}
+	 </style>
+	 <script type='text/javascript'>
+		function encodeImageFileAsURL(){
+
+		    var filesSelected = document.getElementById("inputFileToLoad").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent) {
+		            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+		            var newImage = document.createElement('img');
+		            newImage.src = srcData;
+
+		            document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+
+		            var str = document.getElementById("imgTest").innerHTML;
+		            var index = str.indexOf(",");
+		            var str2 = str.slice(index+1,str.length-2);
+		            document.getElementById("imgStr").value = str2;
+		            console.log(str2);
+		        }
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+</script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default">
+		    <div class="container-fluid">
+		      <div class="navbar-header">
+		        <a class="navbar-brand" href="#">Plant Management System</a>
+		      </div>
+		      <ul class="nav navbar-nav">
+		        <li><a href="/">Home</a></li>
+		        <li class="active"><a href="#">Create New Plants</a></li>
+		        <li><a href="/all">Display All Plants</a></li> 
+		        <li><a href="#">Print Label</a></li> 
+		      </ul>
+		    </div>
+		</nav>
+	 <h3>Create entry for new plants</h3>
+	 <form action='/plants' method='post'>
+		<div class = "form-group">
+	 		<label for="name">Plant Name</label>
+	 		<input type='text' class = "form-control" name='name' id = "name">
+	 	</div>
+	 	<div class = "form-group">
+	 		<label for="origin">Origin</label>
+			<input type='text' class = "form-control" name='origin' id = "origin">
+		</div>
+		<div class = "form-group">
+	 		<label for="whenToPlant">When To Plant</label>
+			<input type='text' class = "form-control" name='whenToPlant' id = "whenToPlant">
+		</div>
+		<div class = "form-group">
+	 		<label for="coolFact">Cool Fact</label>
+			<input type='text' class = "form-control" name='coolFact' id = "coolFact">
+		</div>
+	 	<div class = "form-group">
+	 		<label for="description">Description</label>
+			<input type='text' class = "form-control" name='description' id = "description">
+		</div>
+	 	<div class = "form-group">
+	 		<label for="location">Location</label>
+	 		<input type='text' class = "form-control" name='location' id = "location">
+	 	</div>
+	 	<div class = "form-group">
+	 		<label for="moreFact">More Fact</label>
+	 		<textarea class = "form-control" rows = "3" name='moreFact' id = "moreFact"></textarea>
+	 	</div>
+	 	<input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
+		<div id="imgTest"></div>
+		<input type="text" name = "imgStr" value = "" id = "imgStr">
+
+	 <button type="submit" class = "btn btn-success">Submit</button>
+	 </form>
+
+
+
+	</body>
+</html

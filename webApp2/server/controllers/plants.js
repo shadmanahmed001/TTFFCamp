@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Plant = mongoose.model('plants');
+// var mongoose = require('mongoose');
+// var Plant = mongoose.model('plants');
 var fs = require('fs');
 
 //
@@ -255,6 +255,11 @@ module.exports = (function(){
 		getAllPlants:function(req,res){
 			console.log('success!!');
 			get_all(function(data){
+				res.json(data);
+			})
+		},
+		show:function(req,res){
+			get_by_id(req.params.name, function(data){
 				res.json(data);
 			})
 		},

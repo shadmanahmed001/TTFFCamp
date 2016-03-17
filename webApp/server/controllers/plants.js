@@ -22,6 +22,7 @@ module.exports = (function(){
 				origin:req.body.origin,
 				whenToPlant:req.body.whenToPlant,
 				coolFact:req.body.coolFact,
+				imgStr:req.body.imgStr,
 				created_at:Date(),
 				updated_at:Date(),
 			});
@@ -112,11 +113,6 @@ module.exports = (function(){
 				}
 			})
 		},
-		// saveImg:function(req,res){
-		// 	Plant.findOne({_id:req.body.id},function(err,doc){
-
-		// 	})
-		// },
 
 	}
 })()

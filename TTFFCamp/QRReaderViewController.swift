@@ -12,19 +12,17 @@ import AVFoundation
 class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     
+    @IBOutlet weak var welcomeBannerLabel: UILabel!
     var objCaptureSession: AVCaptureSession?
     var objCaptureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
     var vwQRCode: UIView?
     var detectedText = ""
-    
-    @IBOutlet weak var testLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
         self.initializeQRView()
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -90,7 +88,9 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureVideoPreviewLayer?.frame = view.layer.bounds
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
-        self.view.bringSubviewToFront(testLabel)
+        customBanner()
+        self.view.bringSubviewToFront(welcomeBannerLabel)
+
     }
     
     func initializeQRView() {
@@ -124,6 +124,15 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
         }
+    }
+    
+    func customBanner() {
+        welcomeBannerLabel.layer.backgroundColor = UIColor.greenColor().CGColor
+        welcomeBannerLabel.textColor = UIColor.whiteColor()
+        welcomeBannerLabel.layer.cornerRadius = 10
+        welcomeBannerLabel.font = UIFont(name: "Chalkduster", size: 45)
+        welcomeBannerLabel.layer.borderWidth = 2
+        welcomeBannerLabel.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
 

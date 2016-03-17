@@ -21,7 +21,7 @@ class Plant: NSObject, NSCoding {
     var whenToPlant: String
     var coolFact: String
     var moreFacts: String
-    var images: String
+    var image: String
     var createdAt: NSDate
     
     //init method for new obj instances
@@ -42,7 +42,7 @@ class Plant: NSObject, NSCoding {
         self.whenToPlant = ""
         self.coolFact = ""
         self.moreFacts = ""
-        self.images = ""
+        self.image = ""
         createdAt = NSDate()
     }
     
@@ -55,7 +55,7 @@ class Plant: NSObject, NSCoding {
         aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
         aCoder.encodeObject(coolFact, forKey: "coolFact")
         aCoder.encodeObject(moreFacts, forKey: "moreFacts")
-        aCoder.encodeObject(images, forKey: "images")
+        aCoder.encodeObject(image, forKey: "images")
         aCoder.encodeObject(createdAt, forKey:  "createdAt")
     }
     // used for decoding (loading) objects
@@ -66,7 +66,7 @@ class Plant: NSObject, NSCoding {
         whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
         coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
         moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! String
-        images = aDecoder.decodeObjectForKey("images") as! String
+        image = aDecoder.decodeObjectForKey("images") as! String
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
         super.init()
     }

@@ -35,18 +35,10 @@ class HiddenMenuViewController: UIViewController {
 
         // http://192.168.1.192:8000/getAllPlants
         
-        if userInputLabel.text == "yanze" {
-            messageLabel.hidden = true
-            Alamofire.request(.GET, "https://api.github.com/users/\(userInputLabel.text!)")
-                .responseJSON { response in
-                    if let JSON = response.result.value {
-                        // TODO: convert JSON content to an array of plants
-                        // TODO: replace fake data with correct ajax return result
-//                        print("\(JSON)")
-                        let fakePlants = FakeService.getFakePlants() // get all plants from db
-                        Database.save(fakePlants, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
-                    }
-            }
+        socket.connect()
+        socket.on("connection") { data, ack in
+            //print(data)
+            print("iOS::we are using sockets")
             
         }
         

@@ -41,7 +41,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
     @IBOutlet weak var moreFactsButton: UIButton!
-    @IBOutlet weak var imagesNamesLabel: UILabel!
+    @IBOutlet weak var plantImage: UIImageView!
 
     //MARK: NSSpeech
     let synth = AVSpeechSynthesizer()
@@ -61,7 +61,12 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
+        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        locationButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        originButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        whenToPlantButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        coolFactButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
+        moreFactsButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         
         // get all plants from local storage
         allPlants = Database.all()
@@ -80,6 +85,8 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             if allPlants[i].plantName == plantName {
                 print("found the correct plant ID", allPlants[i])
                 singlePlant = allPlants[i]
+                print(singlePlant.plantName)
+                
             }
         }
 
@@ -89,7 +96,13 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         whenToPlantButton.setTitle("When To Plant: \(singlePlant.whenToPlant)", forState: UIControlState.Normal)
         coolFactButton.setTitle("Cool Fact: \(singlePlant.coolFact)", forState: UIControlState.Normal)
         moreFactsButton.setTitle("More Facts: \(singlePlant.moreFacts)", forState: UIControlState.Normal)
-        imagesNamesLabel.text = "Image Names: \(singlePlant.images)"
+        
+        let receivedData = singlePlant.image
+        
+        let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
+        let image = UIImage(data: imageData!)
+        
+        plantImage.image = image
     }
     
     

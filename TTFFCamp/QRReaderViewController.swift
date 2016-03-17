@@ -12,6 +12,7 @@ import AVFoundation
 class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     
+    @IBOutlet weak var welcomeBannerLabel: UILabel!
     var objCaptureSession: AVCaptureSession?
     var objCaptureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
     var vwQRCode: UIView?
@@ -23,7 +24,6 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
         self.initializeQRView()
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -89,6 +89,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureVideoPreviewLayer?.frame = view.layer.bounds
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
+        self.view.bringSubviewToFront(welcomeBannerLabel)
     }
     
     func initializeQRView() {

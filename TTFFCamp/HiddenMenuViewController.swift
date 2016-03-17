@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+
 
 
 class HiddenMenuViewController: UIViewController {
@@ -23,12 +23,6 @@ class HiddenMenuViewController: UIViewController {
         messageLabel.hidden = true
         messageLabel.textColor = UIColor.redColor()
         
-//        socket.connect()
-//        socket.on("connection") { data, ack in
-//            //print(data)
-//            print("iOS::we are using sockets")
-//            
-//        }
     }
     
     @IBAction func clickToSynchronize(sender: UIButton) {
@@ -41,7 +35,7 @@ class HiddenMenuViewController: UIViewController {
             print("iOS::we are using sockets")
             
         }
-        
+
 //        socket.on("image") { data, ack in
 //            
 //            print("data", data)
@@ -55,6 +49,7 @@ class HiddenMenuViewController: UIViewController {
 //            
 //            
 //        }
+
         
         
         

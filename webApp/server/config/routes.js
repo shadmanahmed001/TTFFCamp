@@ -1,5 +1,6 @@
 var plants = require('./../controllers/plants.js');
 var multer = require('multer');
+var fs = require('fs');
 
 module.exports = function(app){
 	//root
@@ -69,6 +70,12 @@ module.exports = function(app){
 
 		res.redirect("/all");
 	})
+
+	//try to encode img as base64 string
+	// app.post('/saveImg',function(req,res){
+	// 	plants.saveImg(req,res);
+
+	// })
 
 	app.get('/printToFile',function(req,res){
 		plants.printToFile(req,res);

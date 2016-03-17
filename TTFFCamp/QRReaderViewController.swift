@@ -17,6 +17,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var vwQRCode: UIView?
     var detectedText = ""
     
+    @IBOutlet weak var testLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +90,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureVideoPreviewLayer?.frame = view.layer.bounds
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
+        self.view.bringSubviewToFront(testLabel)
     }
     
     func initializeQRView() {

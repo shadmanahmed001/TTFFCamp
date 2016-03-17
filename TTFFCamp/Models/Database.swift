@@ -26,11 +26,13 @@ class Database {
         archiver.encodeObject(arrayOfObjects, forKey: "\(forKey)")
         archiver.finishEncoding()
         data.writeToFile(Database.dataFilePath(toSchema), atomically: true)
+        print("saved data", data)
     }
     
     
     static func all() -> [Plant] {
         var plants = [Plant]()
+        
         let path = Database.dataFilePath(Plant.schema)
         if NSFileManager.defaultManager().fileExistsAtPath(path) {
             if let data = NSData(contentsOfFile: path) {

@@ -40,6 +40,10 @@ var PlantSchema = new mongoose.Schema({
 		type:String,
 		trim:true,
 	},
+	imgStr:{
+		type:String,
+		trim:true,
+	},
 
 	created_at:Date,
 	updated_at:Date,

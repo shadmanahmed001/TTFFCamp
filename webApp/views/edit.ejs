@@ -1,5 +1,35 @@
 <html>
 	<head>
+<script type='text/javascript'>
+		function encodeImageFileAsURL(){
+
+		    var filesSelected = document.getElementById("inputFileToLoad").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent) {
+		            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+		            var newImage = document.createElement('img');
+		            newImage.src = srcData;
+
+		            document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+
+		            var str = document.getElementById("imgTest").innerHTML;
+		            var index = str.indexOf(",");
+		            var str2 = str.slice(index+1,str.length-2);
+		            document.getElementById("imgStr").value = str2;
+		            console.log(str2);
+		        }
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+</script>
 	 <title>edit</title>
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	 <style>
@@ -53,19 +83,25 @@
 	 		<textarea class = "form-control" rows = "3" name='moreFact' id = "moreFact"><%=plant.moreFact%></textarea>
 	 	</div>
 
+	 	<input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
+		<div id="imgTest"></div>
+		<input type="text" name = "imgStr" value = "" id = "imgStr">
+
 	 <button type="submit" class = "btn btn-default">Update</button> 
 	 </form>
 <hr>	 
-	 	<form action="/upload" method="POST" enctype="multipart/form-data" class = "form-inline">
+
+
+<!-- 	 	<form action="/upload" method="POST" enctype="multipart/form-data" class = "form-inline">
 	 		<div class = "form-group">
 			  <label for="upl">Select an image to upload</label>
 			  <input type="hidden" name = "id" value = "<%=plant._id%>">
 			  <input type="file" name="upl" class = "form-control" id = "upl"> 
 			  <button type="submit" class = "btn btn-default">Upload Image</button> 
 		   </div>
-		</form>
+		</form> -->
 
-	<img src="uploads/<%=plant.filename%>" alt="">
+
 
 	 
 

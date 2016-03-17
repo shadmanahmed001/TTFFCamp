@@ -10,6 +10,28 @@ import UIKit
 import AVFoundation
 import Auk
 
+func getDocumentsURL() -> NSURL {
+    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+    print("getDocumentsURL", documentsURL)
+    
+    let filemgr = NSFileManager.defaultManager()
+    if filemgr.fileExistsAtPath("/Applications") {
+        print("File exists", filemgr.description)
+        
+    } else {
+        print("File not found", filemgr)
+    }
+    
+    return documentsURL
+}
+
+func fileInDocumentsDirectory(filename: String) -> String {
+    
+    let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
+    return fileURL.path!
+    
+}
+
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -38,6 +60,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
+        
         // get all plants from local storage
         allPlants = Database.all()
         getPlantByName(detectedText)
@@ -59,12 +84,12 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
 
         plantNameButton.setTitle(singlePlant.plantName, forState: UIControlState.Normal)
-        locationButton.setTitle("Location: \(singlePlant.locations[0] as! String)", forState: UIControlState.Normal)
+        locationButton.setTitle("Location: \(singlePlant.location)", forState: UIControlState.Normal)
         originButton.setTitle("Origin: \(singlePlant.origin)", forState: UIControlState.Normal)
         whenToPlantButton.setTitle("When To Plant: \(singlePlant.whenToPlant)", forState: UIControlState.Normal)
         coolFactButton.setTitle("Cool Fact: \(singlePlant.coolFact)", forState: UIControlState.Normal)
         moreFactsButton.setTitle("More Facts: \(singlePlant.moreFacts)", forState: UIControlState.Normal)
-        imagesNamesLabel.text = "Image Names: \(singlePlant.images[0] as? String)"
+        imagesNamesLabel.text = "Image Names: \(singlePlant.images)"
     }
     
     

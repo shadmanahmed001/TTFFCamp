@@ -16,12 +16,12 @@ class Plant: NSObject, NSCoding {
     static var key = "Plants"
     static var schema = "PlantSchema"
     var plantName: String
-    var locations: NSArray
+    var location: String
     var origin: String
     var whenToPlant: String
     var coolFact: String
     var moreFacts: String
-    var images: NSArray
+    var images: String
     var createdAt: NSDate
     
     //init method for new obj instances
@@ -37,12 +37,12 @@ class Plant: NSObject, NSCoding {
     //    }
     override init (){
         self.plantName = ""
-        self.locations = []
+        self.location = ""
         self.origin = ""
         self.whenToPlant = ""
         self.coolFact = ""
         self.moreFacts = ""
-        self.images = []
+        self.images = ""
         createdAt = NSDate()
     }
     
@@ -50,7 +50,7 @@ class Plant: NSObject, NSCoding {
     // used for encoding (saving) objects
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(plantName, forKey: "plantName")
-        aCoder.encodeObject(locations, forKey: "locations")
+        aCoder.encodeObject(location, forKey: "location")
         aCoder.encodeObject(origin, forKey: "origin")
         aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
         aCoder.encodeObject(coolFact, forKey: "coolFact")
@@ -61,16 +61,15 @@ class Plant: NSObject, NSCoding {
     // used for decoding (loading) objects
     required init?(coder aDecoder: NSCoder) {
         plantName = aDecoder.decodeObjectForKey("plantName") as! String
-        locations = aDecoder.decodeObjectForKey("locations") as! NSArray
+        location = aDecoder.decodeObjectForKey("location") as! String
         origin = aDecoder.decodeObjectForKey("origin") as! String
         whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
         coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
         moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! String
-        images = aDecoder.decodeObjectForKey("images") as! NSArray
+        images = aDecoder.decodeObjectForKey("images") as! String
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
         super.init()
     }
-        
     
     
 }

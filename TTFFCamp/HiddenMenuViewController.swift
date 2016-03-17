@@ -16,7 +16,6 @@ class HiddenMenuViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var testImage: UIImageView!
     
-//    let socket = SocketIOClient(socketURL: "http://192.168.1.192:8000")
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,8 +26,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-        
+       
     }
     
 

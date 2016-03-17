@@ -86,7 +86,7 @@
 	 		<label for="name">More Fact</label>
 	 		<textarea class = "form-control" rows = "3" name='moreFact' id = "moreFact"><%=plant.moreFact%></textarea>
 	 	</div>
-
+		<input type="hidden" name = "created_at" value = "<%=plant.created_at%>">
 	 	<input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
 		<div id="imgTest"></div>
 		<input type="text" name = "imgStr" value = "" id = "imgStr">

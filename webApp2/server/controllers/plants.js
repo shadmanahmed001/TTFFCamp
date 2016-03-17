@@ -171,15 +171,15 @@ module.exports = (function(){
 			// 	}
 			// })
 		},
-		show:function(req,res){
-			Plant.findOne({_id:req.params.id },function(err,output){
-				if(err){
-					console.log(err);
-				}else{
-					res.json(output);
-				}
-			})
-		},
+		// show:function(req,res){
+		// 	Plant.findOne({_id:req.params.id },function(err,output){
+		// 		if(err){
+		// 			console.log(err);
+		// 		}else{
+		// 			res.json(output);
+		// 		}
+		// 	})
+		// },
 		remove:function(req,res){
 			delete_by_id(req.params.name, function(data){
 				res.redirect("/all");
@@ -203,6 +203,7 @@ module.exports = (function(){
 				whenToPlant: req.body.whenToPlant,
 				coolFact: req.body.coolFact,
 				moreFact: req.body.moreFact,
+				created_at:req.body.created_at,
 				updated_at: Date()
 			}
 			if(req.body.imgStr !== ''){

@@ -42,7 +42,7 @@
          <td><%= results[x].description%></td>
          <td><%= results[x].location%></td>
 
-           <% if (results[x].imgStr!=undefined){ %>
+           <% if (results[x].imgStr!=undefined && results[x].imgStr.length != 0){ %>
            <td class = "success">ready</td>
             <% }else {%>
             <td class = "danger">not set</td>

@@ -16,7 +16,7 @@ class HiddenMenuViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var testImage: UIImageView!
     
-    let socket = SocketIOClient(socketURL: "http://192.168.1.192:8000")
+//    let socket = SocketIOClient(socketURL: "http://192.168.1.192:8000")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,33 +26,6 @@ class HiddenMenuViewController: UIViewController {
     }
     
     @IBAction func clickToSynchronize(sender: UIButton) {
-
-        // http://192.168.1.192:8000/getAllPlants
-        
-        socket.connect()
-        socket.on("connection") { data, ack in
-            //print(data)
-            print("iOS::we are using sockets")
-            
-        }
-
-//        socket.on("image") { data, ack in
-//            
-//            print("data", data)
-//            
-//            let receivedData = data[0]["buffer"] as! String
-//            let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
-//            
-//            let image = UIImage(data: imageData!)
-//            
-//            self.testImage.image = image
-//            
-//            
-//        }
-
-        
-        
-        
         
         if userInputLabel.text == "yanze" {
             messageLabel.hidden = true

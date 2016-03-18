@@ -27,7 +27,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
-        
+        if self.revealViewController() != nil {
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        }
     }
     
 

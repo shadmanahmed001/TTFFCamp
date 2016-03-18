@@ -10,28 +10,6 @@ import UIKit
 import AVFoundation
 import Auk
 
-func getDocumentsURL() -> NSURL {
-    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-    print("getDocumentsURL", documentsURL)
-    
-    let filemgr = NSFileManager.defaultManager()
-    if filemgr.fileExistsAtPath("/Applications") {
-        print("File exists", filemgr.description)
-        
-    } else {
-        print("File not found", filemgr)
-    }
-    
-    return documentsURL
-}
-
-func fileInDocumentsDirectory(filename: String) -> String {
-    
-    let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
-    return fileURL.path!
-    
-}
-
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     

@@ -227,7 +227,7 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
 // By default, the panGestureRecognizer is added to the view containing the front controller view. To keep this default behavior
 // you still need to call this method, just don't add it to any of your views. The default setup allows you to dissable
 // user interactions on your controller views without affecting the recognizer.
-- (UIPanGestureRecognizer*)panGestureRecognizer;
+- (UIScreenEdgePanGestureRecognizer*)panGestureRecognizer;
 
 // The following method will provide a tapGestureRecognizer suitable to be added to any view on the frontController
 // for concealing the rear views. By default no tap recognizer is created or added to any view, however if you call this method after

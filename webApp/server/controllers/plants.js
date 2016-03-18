@@ -22,6 +22,7 @@ module.exports = (function(){
 				origin:req.body.origin,
 				whenToPlant:req.body.whenToPlant,
 				coolFact:req.body.coolFact,
+				imgStr:req.body.imgStr,
 				created_at:Date(),
 				updated_at:Date(),
 			});
@@ -63,6 +64,7 @@ module.exports = (function(){
 			  doc.coolFact = req.body.coolFact;
 			  doc.moreFact = req.body.moreFact;
 			  doc.imgStr = req.body.imgStr;
+			  doc.created_at = req.body.imgStr;
 			  doc.updated_at = Date();
 			  doc.save();
 			  res.redirect("/all");
@@ -112,11 +114,6 @@ module.exports = (function(){
 				}
 			})
 		},
-		// saveImg:function(req,res){
-		// 	Plant.findOne({_id:req.body.id},function(err,doc){
-
-		// 	})
-		// },
 
 	}
 })()

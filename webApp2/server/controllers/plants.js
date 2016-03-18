@@ -264,6 +264,11 @@ module.exports = (function(){
 				res.json(data);
 			})
 		},
+		toPrintPage:function(req,res){
+			get_by_id(req.params.name, function(data){
+				res.render('print', {plant: data});
+			})
+		}
 
 	}
 })()

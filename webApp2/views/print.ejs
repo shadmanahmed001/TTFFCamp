@@ -1,0 +1,87 @@
+<html>
+	<head>
+
+	 <title>print</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	 <style>
+		body{
+			margin: 10px;
+		}
+		.final{
+			width: 300px;
+			height: 300px;
+			margin: 0 auto;
+			border: 1px solid gray;
+			text-align: center;
+		}
+		#qrcode{
+			margin: 10px auto;
+		}
+	 </style>
+	<script type="text/javascript" src="/build/jquery.min.js"></script>
+	<script type="text/javascript" src="/build/qrcode.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		    <div class="container-fluid">
+		      <div class="navbar-header">
+		        <a class="navbar-brand" href="#">Plant Management System</a>
+		      </div>
+		      <ul class="nav navbar-nav">
+		        <li><a href="/">Home</a></li>
+		        <li><a href="/new">Create New Plants</a></li>
+		        <li><a href="/all">Display All Plants</a></li> 
+		        <li class="active"><a href="#">Print Label</a></li> 
+		      </ul>
+		    </div>
+		</nav>
+		<div class = "block">
+			<h3>print labels</h3>
+			<label for="name">plant name: </label>
+			<input id="name" type="text" value="<%=plant.name%>" style="width:80%" /><br />
+			<label for="name">location: </label>
+			<input id="name" type="text" value="<%=plant.location%>" style="width:80%" /><br />
+
+			<div class = "final">
+				<div><h3><%=plant.name%></h3></div>
+				<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+				<div><p><%=plant.location%></p></div>
+			</div>
+			
+
+			<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode"), {
+				width : 100,
+				height : 100
+			});
+
+			function makeCode () {		
+				var elText = document.getElementById("name");
+				
+				if (!elText.value) {
+					alert("Input a text");
+					elText.focus();
+					return;
+				}
+				
+				qrcode.makeCode(elText.value);
+			}
+
+			makeCode();
+
+			$("#text").
+				on("blur", function () {
+					makeCode();
+				}).
+				on("keydown", function (e) {
+					if (e.keyCode == 13) {
+						makeCode();
+					}
+				});
+			</script>
+
+
+		</div>
+	 
+	</body>
+</html

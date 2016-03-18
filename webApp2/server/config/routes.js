@@ -1,6 +1,7 @@
 var plants = require('./../controllers/plants.js');
 var multer = require('multer');
 var fs = require('fs');
+var QRCode = require('qrcode');
 
 module.exports = function(app){
 	//root
@@ -10,6 +11,10 @@ module.exports = function(app){
 
 	app.get('/new',function(req,res){
 		res.render('new');
+	});
+
+	app.post('/toPrintPage/:name',function(req,res){
+		plants.toPrintPage(req,res);
 	});
 
 	app.get('/edit/:name',function(req,res){
@@ -60,6 +65,12 @@ module.exports = function(app){
 		plants.getAllPlants(req,res);
 	})
 
+	app.post('/getQR/:name',function(req,res){
+		var name = req.params.name;
+		QRCode.toDataURL(name,function(err,url){
+			res.json(url);
+		});
+	})
 
 
 }

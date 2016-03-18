@@ -261,9 +261,14 @@ module.exports = (function(){
 		},
 		show:function(req,res){
 			get_by_id(req.params.name, function(data){
-				res.json(data);
+				res.render("show",{plant:data});
 			})
 		},
+		toPrintPage:function(req,res){
+			get_by_id(req.params.name, function(data){
+				res.render('print', {plant: data});
+			})
+		}
 
 	}
 })()

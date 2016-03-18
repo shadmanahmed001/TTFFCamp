@@ -12,5 +12,3 @@ A garden guide app built with a node.js server backend and an iOS front end made
 - Download and unzip this repo.
 - Navigate to webApp2 within the TTFFCamp folder, and run 'npm install'.
 - Once npm install finishes, run 'node server.js' to start the server, and leave the terminal window open.
-Testing
-- Testing

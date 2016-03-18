@@ -15,12 +15,17 @@ class HiddenMenuViewController: UIViewController {
     @IBOutlet weak var userInputLabel: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet weak var passwordInput: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         messageLabel.hidden = true
         messageLabel.textColor = UIColor.redColor()
+        userInputLabel.attributedPlaceholder = NSAttributedString(string:"Please enter your IP address",
+            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        passwordInput.attributedPlaceholder = NSAttributedString(string:"Please enter your password",
+            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
         
     }
     
@@ -79,5 +84,8 @@ class HiddenMenuViewController: UIViewController {
         }
         
     }
+    
+
+    
     
 }

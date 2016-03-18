@@ -29,9 +29,10 @@
       <tr>
         <th>Name</th>
         <!-- <th>id</th> -->
-        <th>Description</th>
+        <th>Origin</th>
+        <th>When To Plant</th>
         <th>Location</th>
-        <th>Image Status</th>
+        <th>Image</th>
         <th>Actions</th>
         <th></th>
       </tr>
@@ -39,13 +40,13 @@
        <tr>
          <td><a href="/plants/<%=results[x].name%>"><%= results[x].name%></a></td>
          <!-- <td><%= results[x]._id%></td> -->
-         <td><%= results[x].description%></td>
+         <td><%= results[x].origin%></td>
+         <td><%= results[x].whenToPlant%></td>
          <td><%= results[x].location%></td>
-
-           <% if (results[x].imgStr!=undefined){ %>
+           <% if (results[x].imgStr!=undefined && results[x].imgStr.length != 0){ %>
            <td class = "success">ready</td>
             <% }else {%>
-            <td class = "danger">not set</td>
+            <td class = "danger">N/A</td>
             <%}%>
 
         <td>

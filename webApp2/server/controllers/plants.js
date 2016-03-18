@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Plant = mongoose.model('plants');
+// var mongoose = require('mongoose');
+// var Plant = mongoose.model('plants');
 var fs = require('fs');
 
 //
@@ -171,15 +171,15 @@ module.exports = (function(){
 			// 	}
 			// })
 		},
-		show:function(req,res){
-			Plant.findOne({_id:req.params.id },function(err,output){
-				if(err){
-					console.log(err);
-				}else{
-					res.json(output);
-				}
-			})
-		},
+		// show:function(req,res){
+		// 	Plant.findOne({_id:req.params.id },function(err,output){
+		// 		if(err){
+		// 			console.log(err);
+		// 		}else{
+		// 			res.json(output);
+		// 		}
+		// 	})
+		// },
 		remove:function(req,res){
 			delete_by_id(req.params.name, function(data){
 				res.redirect("/all");
@@ -203,6 +203,7 @@ module.exports = (function(){
 				whenToPlant: req.body.whenToPlant,
 				coolFact: req.body.coolFact,
 				moreFact: req.body.moreFact,
+				created_at:req.body.created_at,
 				updated_at: Date()
 			}
 			if(req.body.imgStr !== ''){
@@ -253,12 +254,14 @@ module.exports = (function(){
 			})
 		},
 		getAllPlants:function(req,res){
-			Plant.find({},function(err,output){
-				if(err){
-					console.log(err);
-				}else{
-					res.json(output);
-				}
+			console.log('success!!');
+			get_all(function(data){
+				res.json(data);
+			})
+		},
+		show:function(req,res){
+			get_by_id(req.params.name, function(data){
+				res.json(data);
 			})
 		},
 

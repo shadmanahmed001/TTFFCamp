@@ -30,7 +30,7 @@ module.exports = function(app){
 	//get plant by id
 	app.get('/plants/:name',function(req,res){
 		//console.log(req.params.id);
-		res.end();
+		plants.show(req,res);
 		//plants.show(req,res);
 	});
 
@@ -45,34 +45,6 @@ module.exports = function(app){
 		plants.remove(req,res);
 	})
 
-	app.post('/upload', multer({ dest: './public/uploads/'}).single('upl'), function(req,res){
-		console.log(req.body); //form fields
-		/* example output:
-		{ title: 'abc' }
-		 */
-		console.log(req.file); //form files
-		/* example output:
-	            { fieldname: 'upl',
-	              originalname: 'grumpy.png',
-	              encoding: '7bit',
-	              mimetype: 'image/png',
-	              destination: './uploads/',
-	              filename: '436ec561793aa4dc475a88e84776b1b9',
-	              path: 'uploads/436ec561793aa4dc475a88e84776b1b9',
-	              size: 277056 }
-	 	*/
-		var plant_name = req.body.name;
-		var info = {
-			id:plant_name,
-			filename:req.file.filename,
-			mimetype:req.file.mimetype,
-			originalname:req.file.originalname,
-		}
-		console.log(info);
-		plants.upload(info,res);
-
-		res.redirect("/all");
-	})
 
 	//try to encode img as base64 string
 	// app.post('/saveImg',function(req,res){

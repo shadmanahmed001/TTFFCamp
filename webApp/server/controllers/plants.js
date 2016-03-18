@@ -64,6 +64,7 @@ module.exports = (function(){
 			  doc.coolFact = req.body.coolFact;
 			  doc.moreFact = req.body.moreFact;
 			  doc.imgStr = req.body.imgStr;
+			  doc.created_at = req.body.imgStr;
 			  doc.updated_at = Date();
 			  doc.save();
 			  res.redirect("/all");

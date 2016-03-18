@@ -42,7 +42,6 @@
 		E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */; };
 		E0D571871C96365E005A7856 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D571851C96365E005A7856 /* SWRevealViewController.m */; };
 		E0D5718C1C963785005A7856 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D571891C963785005A7856 /* Database.swift */; };
-		E0D5718D1C963785005A7856 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5718A1C963785005A7856 /* FakeService.swift */; };
 		E0D5718E1C963785005A7856 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5718B1C963785005A7856 /* Plant.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +89,6 @@
 		E0D571851C96365E005A7856 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		E0D571861C96365E005A7856 /* TTFFCamp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTFFCamp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0D571891C963785005A7856 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		E0D5718A1C963785005A7856 /* FakeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeService.swift; sourceTree = "<group>"; };
 		E0D5718B1C963785005A7856 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				E0D571891C963785005A7856 /* Database.swift */,
-				E0D5718A1C963785005A7856 /* FakeService.swift */,
 				E0D5718B1C963785005A7856 /* Plant.swift */,
 			);
 			path = Models;
@@ -342,7 +339,6 @@
 				2837A6A61C98BD30001A002D /* SocketClientSpec.swift in Sources */,
 				2837A6AE1C98BD30001A002D /* SocketFixUTF8.swift in Sources */,
 				E0D5718C1C963785005A7856 /* Database.swift in Sources */,
-				E0D5718D1C963785005A7856 /* FakeService.swift in Sources */,
 				E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */,
 				2837A6A31C98BD30001A002D /* SocketAckEmitter.swift in Sources */,
 				2837A6A51C98BD30001A002D /* SocketAnyEvent.swift in Sources */,

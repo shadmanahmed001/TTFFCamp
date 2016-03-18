@@ -18,6 +18,7 @@ class Plant: NSObject, NSCoding {
     var plantName: String
     var location: String
     var origin: String
+    var plantDescription: String
     var whenToPlant: String
     var coolFact: String
     var moreFacts: String
@@ -39,6 +40,7 @@ class Plant: NSObject, NSCoding {
         self.plantName = ""
         self.location = ""
         self.origin = ""
+        self.plantDescription = ""
         self.whenToPlant = ""
         self.coolFact = ""
         self.moreFacts = ""
@@ -52,6 +54,7 @@ class Plant: NSObject, NSCoding {
         aCoder.encodeObject(plantName, forKey: "plantName")
         aCoder.encodeObject(location, forKey: "location")
         aCoder.encodeObject(origin, forKey: "origin")
+        aCoder.encodeObject(plantDescription, forKey: "plantDescription")
         aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
         aCoder.encodeObject(coolFact, forKey: "coolFact")
         aCoder.encodeObject(moreFacts, forKey: "moreFacts")
@@ -63,6 +66,7 @@ class Plant: NSObject, NSCoding {
         plantName = aDecoder.decodeObjectForKey("plantName") as! String
         location = aDecoder.decodeObjectForKey("location") as! String
         origin = aDecoder.decodeObjectForKey("origin") as! String
+        plantDescription = aDecoder.decodeObjectForKey("plantDescription") as! String
         whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
         coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
         moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! String

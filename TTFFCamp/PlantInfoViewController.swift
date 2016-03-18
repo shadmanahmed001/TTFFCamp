@@ -38,6 +38,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var plantNameButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var originButton: UIButton!
+    @IBOutlet weak var descriptionButton: UIButton!
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
     @IBOutlet weak var moreFactsButton: UIButton!
@@ -88,6 +89,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         plantNameButton.setTitle(singlePlant.plantName, forState: UIControlState.Normal)
         locationButton.setTitle("Location: \(singlePlant.location)", forState: UIControlState.Normal)
         originButton.setTitle("Origin: \(singlePlant.origin)", forState: UIControlState.Normal)
+        descriptionButton.setTitle("Description: \(singlePlant.plantDescription)", forState: UIControlState.Normal)
         whenToPlantButton.setTitle("When To Plant: \(singlePlant.whenToPlant)", forState: UIControlState.Normal)
         coolFactButton.setTitle("Cool Fact: \(singlePlant.coolFact)", forState: UIControlState.Normal)
         moreFactsButton.setTitle("More Facts: \(singlePlant.moreFacts)", forState: UIControlState.Normal)

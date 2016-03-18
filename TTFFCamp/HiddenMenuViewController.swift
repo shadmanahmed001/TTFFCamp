@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Foundation
 
 
 class HiddenMenuViewController: UIViewController {
@@ -21,47 +22,24 @@ class HiddenMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         messageLabel.hidden = true
-        messageLabel.textColor = UIColor.redColor()
+        
         
     }
     
     @IBAction func clickToSynchronize(sender: UIButton) {
-
-        // http://192.168.1.192:8000/getAllPlants
         
-        socket.connect()
-        socket.on("connection") { data, ack in
-            //print(data)
-            print("iOS::we are using sockets")
+        let ipCheck = regExIpAddressCheck(userInputLabel.text!)
+        
+//        if userInputLabel.text == "yanze" {
+        if ipCheck {
+            messageLabel.text = "Downloading..."
+            messageLabel.textColor = UIColor.blueColor()
+            messageLabel.hidden = false
             
-        }
-
-//        socket.on("image") { data, ack in
-//            
-//            print("data", data)
-//            
-//            let receivedData = data[0]["buffer"] as! String
-//            let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
-//            
-//            let image = UIImage(data: imageData!)
-//            
-//            self.testImage.image = image
-//            
-//            
-//        }
-
-        
-        
-        
-        
-        if userInputLabel.text == "yanze" {
-            messageLabel.hidden = true
 //            Alamofire.request(.GET, "https://api.github.com/users/\(userInputLabel.text!)")
             Alamofire.request(.GET, "http://192.168.1.192:8000/getAllPlants")
                 .responseJSON { response in
                     if let JSON = response.result.value {
-                        print("json data", JSON)
-                    
                         var plantArray = [Plant]()
                     
                         // parse JSON data and create new Plant objs and Plant array
@@ -76,6 +54,9 @@ class HiddenMenuViewController: UIViewController {
                             if let newOrigin = anItem["origin"] {
                                 plantObj.origin = newOrigin as! String
                             }
+                            if let newDesc = anItem["description"] {
+                                plantObj.plantDescription = newDesc as! String
+                            }
                             if let newWTP = anItem["whenToPlant"] {
                                 plantObj.whenToPlant = newWTP as! String
                             }
@@ -88,13 +69,13 @@ class HiddenMenuViewController: UIViewController {
                             if let newImage = anItem["imgStr"] {
                                 plantObj.image = newImage as! String
                             }
-                            
-                    
+
                             plantArray.append(plantObj)
                                             
                         }
                                         
                     print("new plant array", plantArray)
+                    self.messageLabel.text = "COMPLETE"
                                         
                                         
                     Database.save(plantArray, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
@@ -102,8 +83,23 @@ class HiddenMenuViewController: UIViewController {
                 }
         }
         else {
-            messageLabel.hidden = false
             messageLabel.text = "Wrong Entry"
+            messageLabel.hidden = false
+            messageLabel.textColor = UIColor.redColor()
+        }
+        
+    }
+    
+    
+    func regExIpAddressCheck(ipAddress: String) -> Bool {
+        let validIpAddressRegex = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+        
+        if ipAddress.rangeOfString(validIpAddressRegex, options: .RegularExpressionSearch) != nil {
+            print("IP is valid")
+            return true
+        } else {
+            print("IP is NOT valid")
+            return false
         }
         
     }

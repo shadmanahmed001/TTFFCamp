@@ -26,7 +26,7 @@ class Database {
         archiver.encodeObject(arrayOfObjects, forKey: "\(forKey)")
         archiver.finishEncoding()
         data.writeToFile(Database.dataFilePath(toSchema), atomically: true)
-        print("saved data", data)
+        //print("saved data", data)
     }
     
     

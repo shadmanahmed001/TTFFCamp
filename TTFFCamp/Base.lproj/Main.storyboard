@@ -78,9 +78,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="faK-j7-oET">
                                 <rect key="frame" x="178" y="290" width="242" height="127"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="SHt-CZ-tde"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="330" id="nth-mV-La8">
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="SHt-CZ-tde">
                                         <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="330" id="nth-mV-La8">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="350"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="default">
@@ -173,7 +175,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4am-ee-nhn">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -182,44 +184,35 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-yo-9mN">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csO-eM-cgI">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="144" y="217" width="125" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When To Plant Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3i-MS-52T">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cool Fact Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba7-FS-res">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="144" y="335" width="109" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Facts Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9u-8t-feZ">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="144" y="415" width="122" height="21"/>
-                                </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-9q-iY8">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-9q-iY8">
                                 <rect key="frame" x="225" y="425" width="150" height="150"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
@@ -264,7 +257,6 @@
                             </constraint>
                             <constraint firstItem="EHf-DY-3jb" firstAttribute="trailing" secondItem="3mx-Gn-yvs" secondAttribute="trailing" id="Hqe-vJ-Ur8"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="faK-j7-oET" secondAttribute="trailing" constant="10" id="Hrj-TC-CWh"/>
-                            <constraint firstItem="SVE-WB-nDG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GzH-3d-Jcb" secondAttribute="trailing" constant="101" id="IwE-rS-O8i"/>
                             <constraint firstItem="Ba7-FS-res" firstAttribute="top" secondItem="3mx-Gn-yvs" secondAttribute="top" id="J2m-iQ-qRy"/>
                             <constraint firstItem="EHf-DY-3jb" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="JTc-ow-sDN"/>
                             <constraint firstItem="SVE-WB-nDG" firstAttribute="centerX" secondItem="676-XP-zZ6" secondAttribute="centerX" id="JgH-MF-8b9"/>
@@ -292,8 +284,11 @@
                             <constraint firstItem="aAW-yo-9mN" firstAttribute="leading" secondItem="yH7-v8-AYU" secondAttribute="trailing" constant="8" id="Uvf-pS-WuB">
                                 <variation key="heightClass=regular-widthClass=regular" constant="14"/>
                             </constraint>
-                            <constraint firstItem="faK-j7-oET" firstAttribute="top" secondItem="gbU-lC-1Wg" secondAttribute="bottom" constant="15" id="ViK-3r-oAx">
+                            <constraint firstItem="SVE-WB-nDG" firstAttribute="leading" secondItem="GzH-3d-Jcb" secondAttribute="trailing" constant="150" id="Vff-iR-rwH">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="faK-j7-oET" firstAttribute="top" secondItem="gbU-lC-1Wg" secondAttribute="bottom" constant="15" id="ViK-3r-oAx">
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                             </constraint>
                             <constraint firstItem="j9u-8t-feZ" firstAttribute="centerY" secondItem="gbU-lC-1Wg" secondAttribute="centerY" id="X8P-AX-n05"/>
                             <constraint firstItem="3mx-Gn-yvs" firstAttribute="top" secondItem="EHf-DY-3jb" secondAttribute="bottom" constant="10" id="XPj-ZP-wQC">
@@ -304,7 +299,7 @@
                             </constraint>
                             <constraint firstItem="yH7-v8-AYU" firstAttribute="trailing" secondItem="jMg-OZ-LeY" secondAttribute="trailing" id="asN-Kg-eFO"/>
                             <constraint firstItem="EHf-DY-3jb" firstAttribute="top" secondItem="jMg-OZ-LeY" secondAttribute="bottom" constant="8" id="fI3-Hd-pvo">
-                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="j9u-8t-feZ" firstAttribute="leading" secondItem="gbU-lC-1Wg" secondAttribute="trailing" constant="8" id="geu-Q1-rzC">
                                 <variation key="heightClass=regular-widthClass=regular" constant="14"/>
@@ -403,7 +398,7 @@
                                 <exclude reference="TFQ-oU-zOf"/>
                                 <exclude reference="nD0-Yg-Vm2"/>
                                 <exclude reference="wCn-Fb-iWK"/>
-                                <exclude reference="IwE-rS-O8i"/>
+                                <exclude reference="Vff-iR-rwH"/>
                                 <exclude reference="pdb-9J-3We"/>
                                 <exclude reference="uu3-sG-Qw0"/>
                                 <exclude reference="T9A-pZ-hPi"/>
@@ -475,7 +470,7 @@
                                 <include reference="TFQ-oU-zOf"/>
                                 <exclude reference="nD0-Yg-Vm2"/>
                                 <include reference="wCn-Fb-iWK"/>
-                                <include reference="IwE-rS-O8i"/>
+                                <include reference="Vff-iR-rwH"/>
                                 <exclude reference="JiU-73-lSa"/>
                                 <include reference="pdb-9J-3We"/>
                                 <include reference="uu3-sG-Qw0"/>

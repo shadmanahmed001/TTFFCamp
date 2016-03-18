@@ -39,6 +39,7 @@ class HiddenMenuViewController: UIViewController {
             messageLabel.text = "Downloading..."
             messageLabel.textColor = UIColor.blueColor()
             messageLabel.hidden = false
+            var successCheck = false
             
             Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
                 .responseJSON { response in
@@ -76,12 +77,19 @@ class HiddenMenuViewController: UIViewController {
                             plantArray.append(plantObj)
                                             
                         }
+                        
+                        print("new plant array", plantArray)
                                         
-                    print("new plant array", plantArray)
-                    self.messageLabel.text = "COMPLETE"
-                                        
-                                        
-                    Database.save(plantArray, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
+                        Database.save(plantArray, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage
+                        
+                        successCheck = true
+                    }
+                    if successCheck {
+                        self.messageLabel.text = "COMPLETE"
+                        successCheck = false
+                    } else {
+                        self.messageLabel.text = "ERROR"
+                        self.messageLabel.textColor = UIColor.redColor()
                     }
                 }
         }

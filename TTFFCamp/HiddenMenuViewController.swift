@@ -35,15 +35,12 @@ class HiddenMenuViewController: UIViewController {
         
         let ipCheck = regExIpAddressCheck(userInputLabel.text!)
 
-        
-//        if userInputLabel.text == "yanze" {
-        if ipCheck {
+        if ipCheck && passwordInput.text == "ttff" {
             messageLabel.text = "Downloading..."
             messageLabel.textColor = UIColor.blueColor()
             messageLabel.hidden = false
             
-//            Alamofire.request(.GET, "https://api.github.com/users/\(userInputLabel.text!)")
-            Alamofire.request(.GET, "http://192.168.1.192:8000/getAllPlants")
+            Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
                 .responseJSON { response in
                     if let JSON = response.result.value {
                         var plantArray = [Plant]()

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -65,14 +66,14 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="XrI-xr-u7O"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heB-4A-uHZ">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heB-4A-uHZ">
                                 <rect key="frame" x="278" y="136" width="42" height="30"/>
                                 <state key="normal" title="Origin"/>
                                 <connections>
                                     <action selector="textToSpeech:" destination="1Di-Ed-h0D" eventType="touchUpInside" id="cov-Dp-4em"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yH7-v8-AYU">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yH7-v8-AYU">
                                 <rect key="frame" x="270" y="98" width="59" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Location"/>
@@ -217,13 +218,13 @@
                                 <exclude reference="jMg-OZ-LeY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Chg-1q-MLY"/>
-                                <exclude reference="Mg5-Ig-wEc"/>
                                 <exclude reference="ECh-ZP-Mtl"/>
                                 <exclude reference="EuP-DH-zet"/>
                                 <exclude reference="iX1-Xd-rgU"/>
                                 <exclude reference="mpI-D0-hCH"/>
+                                <exclude reference="Mg5-Ig-wEc"/>
                                 <exclude reference="S2m-it-zcQ"/>
+                                <exclude reference="Chg-1q-MLY"/>
                                 <exclude reference="Hrj-TC-CWh"/>
                                 <exclude reference="UnH-1J-n5L"/>
                                 <exclude reference="4M4-2F-bDN"/>
@@ -235,13 +236,13 @@
                                 <include reference="jMg-OZ-LeY"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Chg-1q-MLY"/>
-                                <include reference="Mg5-Ig-wEc"/>
                                 <include reference="ECh-ZP-Mtl"/>
                                 <include reference="EuP-DH-zet"/>
                                 <include reference="iX1-Xd-rgU"/>
                                 <include reference="mpI-D0-hCH"/>
+                                <include reference="Mg5-Ig-wEc"/>
                                 <include reference="S2m-it-zcQ"/>
+                                <include reference="Chg-1q-MLY"/>
                                 <exclude reference="4M4-2F-bDN"/>
                             </mask>
                         </variation>
@@ -301,13 +302,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-VT-i5p">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3c-VT-i5p">
                                 <rect key="frame" x="50" y="268" width="171" height="30"/>
                                 <color key="backgroundColor" red="0.82646743339481243" green="1" blue="0.86384991326080951" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-G4-NTZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-G4-NTZ">
                                 <rect key="frame" x="94" y="472" width="69" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -316,13 +317,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ttff" translatesAutoresizingMaskIntoConstraints="NO" id="6Mb-TS-hhk">
                                 <rect key="frame" x="20" y="70" width="191" height="93"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKp-7S-lNx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKp-7S-lNx">
                                 <rect key="frame" x="50" y="317" width="171" height="30"/>
                                 <color key="backgroundColor" red="0.82646743339999995" green="1" blue="0.86384991330000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-Lv-Pgo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-Lv-Pgo">
                                 <rect key="frame" x="50" y="393" width="171" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>

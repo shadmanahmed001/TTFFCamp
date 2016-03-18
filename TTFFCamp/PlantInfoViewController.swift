@@ -22,6 +22,15 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var moreFactsButton: UIButton!
     @IBOutlet weak var plantImage: UIImageView!
 
+    @IBOutlet weak var originTextLabel: UILabel!
+    @IBOutlet weak var locationTextLabel: UILabel!
+    @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak var whenToPlantTextLabel: UILabel!
+    @IBOutlet weak var coolFactTextLabel: UILabel!
+    @IBOutlet weak var moreFactsTextLabel: UILabel!
+    
+    
+    
     //MARK: NSSpeech
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
@@ -65,13 +74,20 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
 
         plantNameButton.setTitle(singlePlant.plantName, forState: UIControlState.Normal)
-        locationButton.setTitle("Location: \(singlePlant.location)", forState: UIControlState.Normal)
-        originButton.setTitle("Origin: \(singlePlant.origin)", forState: UIControlState.Normal)
-        descriptionButton.setTitle("Description: \(singlePlant.plantDescription)", forState: UIControlState.Normal)
+        originTextLabel.text = singlePlant.origin
+        originTextLabel.numberOfLines = 0
+        locationTextLabel.text = singlePlant.location
+        locationTextLabel.numberOfLines = 0
+        descriptionTextLabel.text = singlePlant.plantDescription
+        descriptionTextLabel.numberOfLines = 0
+        whenToPlantTextLabel.text = singlePlant.whenToPlant
+        whenToPlantTextLabel.numberOfLines = 0
+        coolFactTextLabel.text = singlePlant.coolFact
+        coolFactTextLabel.numberOfLines = 0
+        moreFactsTextLabel.text = singlePlant.moreFacts
+        moreFactsTextLabel.numberOfLines = 0
         
-        whenToPlantButton.setTitle("When To Plant: \(singlePlant.whenToPlant)", forState: UIControlState.Normal)
-        coolFactButton.setTitle("Cool Fact: \(singlePlant.coolFact)", forState: UIControlState.Normal)
-        moreFactsButton.setTitle("More Facts: \(singlePlant.moreFacts)", forState: UIControlState.Normal)
+        
         
         let receivedData = singlePlant.image
         
@@ -79,6 +95,8 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         let image = UIImage(data: imageData!)
         
         plantImage.image = image
+        plantImage.layer.borderWidth = 3
+        plantImage.layer.borderColor = UIColor.greenColor().CGColor
     }
     
     
@@ -88,22 +106,22 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                 myUtterance = AVSpeechUtterance(string: plantNameButton.titleLabel!.text!)
             }
             if sender.tag == 1 {
-                myUtterance = AVSpeechUtterance(string: originButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "Origin: \(singlePlant.origin)")
             }
             if sender.tag == 2 {
-                myUtterance = AVSpeechUtterance(string: locationButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "Location: \(singlePlant.location)")
             }
             if sender.tag == 3 {
-                myUtterance = AVSpeechUtterance(string: descriptionButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "Description: \(singlePlant.plantDescription)")
             }
             if sender.tag == 4 {
-                myUtterance = AVSpeechUtterance(string: whenToPlantButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "When To Plant: \(singlePlant.whenToPlant)")
             }
             if sender.tag == 5 {
-                myUtterance = AVSpeechUtterance(string: coolFactButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "Cool Fact: \(singlePlant.coolFact)")
             }
             if sender.tag == 6 {
-                myUtterance = AVSpeechUtterance(string: moreFactsButton.titleLabel!.text!)
+                myUtterance = AVSpeechUtterance(string: "More Facts: \(singlePlant.moreFacts)")
             }
             
             myUtterance.rate = 0.5
@@ -115,63 +133,49 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     }
     
     func customButtons() {
-        plantNameButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        plantNameButton.titleLabel?.textColor = UIColor.whiteColor()
-        plantNameButton.backgroundColor = UIColor.greenColor()
-        plantNameButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
-        plantNameButton.layer.cornerRadius = 8
-        plantNameButton.layer.borderWidth = 2
-        plantNameButton.layer.borderColor = UIColor.blackColor().CGColor
+        plantNameButton.titleLabel?.textColor = UIColor.greenColor()
+        plantNameButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 40)
         plantNameButton.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         plantNameButton.titleLabel?.textAlignment = NSTextAlignment.Center
         
         originButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        originButton.titleLabel?.textColor = UIColor.whiteColor()
-        originButton.backgroundColor = UIColor.greenColor()
-        originButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        originButton.backgroundColor = UIColor.lightGrayColor()
+        originButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
         originButton.layer.cornerRadius = 8
         originButton.layer.borderWidth = 2
         originButton.layer.borderColor = UIColor.blackColor().CGColor
         
         locationButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        locationButton.titleLabel?.textColor = UIColor.whiteColor()
-        locationButton.backgroundColor = UIColor.greenColor()
-        locationButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        locationButton.backgroundColor = UIColor.lightGrayColor()
+        locationButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
         locationButton.layer.cornerRadius = 8
         locationButton.layer.borderWidth = 2
         locationButton.layer.borderColor = UIColor.blackColor().CGColor
         
         descriptionButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        descriptionButton.titleLabel?.textColor = UIColor.whiteColor()
-        descriptionButton.backgroundColor = UIColor.greenColor()
-        descriptionButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        descriptionButton.backgroundColor = UIColor.lightGrayColor()
+        descriptionButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
         descriptionButton.layer.cornerRadius = 8
         descriptionButton.layer.borderWidth = 2
         descriptionButton.layer.borderColor = UIColor.blackColor().CGColor
-        descriptionButton.titleLabel?.numberOfLines = 0
-        descriptionButton.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        descriptionButton.
         
         whenToPlantButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        whenToPlantButton.titleLabel?.textColor = UIColor.whiteColor()
-        whenToPlantButton.backgroundColor = UIColor.greenColor()
-        whenToPlantButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        whenToPlantButton.backgroundColor = UIColor.lightGrayColor()
+        whenToPlantButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 16)
         whenToPlantButton.layer.cornerRadius = 8
         whenToPlantButton.layer.borderWidth = 2
         whenToPlantButton.layer.borderColor = UIColor.blackColor().CGColor
         
         coolFactButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        coolFactButton.titleLabel?.textColor = UIColor.whiteColor()
-        coolFactButton.backgroundColor = UIColor.greenColor()
-        coolFactButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        coolFactButton.backgroundColor = UIColor.lightGrayColor()
+        coolFactButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
         coolFactButton.layer.cornerRadius = 8
         coolFactButton.layer.borderWidth = 2
         coolFactButton.layer.borderColor = UIColor.blackColor().CGColor
         
         moreFactsButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        moreFactsButton.titleLabel?.textColor = UIColor.whiteColor()
-        moreFactsButton.backgroundColor = UIColor.greenColor()
-        moreFactsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        moreFactsButton.backgroundColor = UIColor.lightGrayColor()
+        moreFactsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
         moreFactsButton.layer.cornerRadius = 8
         moreFactsButton.layer.borderWidth = 2
         moreFactsButton.layer.borderColor = UIColor.blackColor().CGColor

@@ -52,7 +52,7 @@
          <td><%= results[x].origin%></td>
          <td><%= results[x].whenToPlant%></td>
          <td><%= results[x].location%></td>
-           <% if (results[x].imgStr1!=undefined && results[x].imgStr1.length != 0){ %>
+           <% if (results[x].imgStr1!=undefined && results[x].imgStr1.length != 0 || results[x].imgStr2!=undefined && results[x].imgStr2.length != 0 || results[x].imgStr3!=undefined && results[x].imgStr3.length != 0 || results[x].imgStr4!=undefined && results[x].imgStr4.length != 0){ %>
            <td class = "success">ready</td>
             <% }else {%>
             <td class = "danger">N/A</td>

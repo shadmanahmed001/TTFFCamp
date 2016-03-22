@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="575" y="395"/>
         </scene>
-        <!--Table View Controller-->
+        <!--PlantListTableViewController-->
         <scene sceneID="lSB-Dm-gcr">
             <objects>
-                <tableViewController id="UJq-sL-lAS" sceneMemberID="viewController">
+                <tableViewController id="UJq-sL-lAS" userLabel="PlantListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7rU-Wa-Fys">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

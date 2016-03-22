@@ -61,11 +61,29 @@
 		div.logo{
 			text-align: center;
 		}
-		#image {
+		#image1 {
 			width: 70%;
    			margin: 10px auto; 
-            min-height: 200px;
-            background: url(data:image/png;base64,<%=plant.imgStr%>) no-repeat;
+            min-height: 160px;
+            background: url(data:image/png;base64,<%=plant.imgStr1%>) no-repeat;
+        }
+        #image2 {
+			width: 70%;
+   			margin: 10px auto; 
+            min-height: 160px;
+            background: url(data:image/png;base64,<%=plant.imgStr2%>) no-repeat;
+        }
+        #image3 {
+			width: 70%;
+   			margin: 10px auto; 
+            min-height: 160px;
+            background: url(data:image/png;base64,<%=plant.imgStr3%>) no-repeat;
+        }
+        #image4 {
+			width: 70%;
+   			margin: 10px auto; 
+            min-height: 160px;
+            background: url(data:image/png;base64,<%=plant.imgStr4%>) no-repeat;
         }
 	 </style>
 	<script type="text/javascript" src="/build/jquery.min.js"></script>
@@ -93,7 +111,10 @@
 				</div>
 				<div class = "header"><h3><%=plant.name%></h3></div>
 
-				<div id="image"></div>
+				<div id="image1"></div>
+				<div id="image2"></div>
+				<div id="image3"></div>
+				<div id="image4"></div>
 
 				<div id = "origin">
 					<span class = "orange">Origin: </span><%=plant.origin%>

@@ -8,6 +8,16 @@
     text-align: center;
   }
 </style>
+<script>
+  function ConfirmDelete()
+    {
+      var x = confirm("Are you sure you want to delete?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+</script>
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -55,7 +65,7 @@
         </td>
         <td>
           <form action="/removePlant/<%=results[x].name%>" method = "post">
-                <input type="submit" value = 'delete' class = "btn btn-danger">
+                <input type="submit" Onclick="return ConfirmDelete();" value = 'delete' class = "btn btn-danger">
           </form>
         </td>
         <td>

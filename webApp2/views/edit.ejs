@@ -1,9 +1,8 @@
 <html>
 	<head>
 <script type='text/javascript'>
-		function encodeImageFileAsURL(){
-
-		    var filesSelected = document.getElementById("inputFileToLoad").files;
+		function encodeImageFileAsURL1(){
+		    var filesSelected = document.getElementById("inputFileToLoad1").files;
 		    if (filesSelected.length > 0)
 		    {
 		        var fileToLoad = filesSelected[0];
@@ -16,14 +15,95 @@
 		            var newImage = document.createElement('img');
 		            newImage.src = srcData;
 
-		            document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+		            document.getElementById("imgTest1").innerHTML = newImage.outerHTML;
 		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
 		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
 
-		            var str = document.getElementById("imgTest").innerHTML;
+		            var str = document.getElementById("imgTest1").innerHTML;
 		            var index = str.indexOf(",");
 		            var str2 = str.slice(index+1,str.length-2);
-		            document.getElementById("imgStr").value = str2;
+		            document.getElementById("imgStr1").value = str2;
+		            console.log(str2);
+		        }
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+		function encodeImageFileAsURL2(){
+		    var filesSelected = document.getElementById("inputFileToLoad2").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent) {
+		            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+		            var newImage = document.createElement('img');
+		            newImage.src = srcData;
+
+		            document.getElementById("imgTest2").innerHTML = newImage.outerHTML;
+		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+
+		            var str = document.getElementById("imgTest2").innerHTML;
+		            var index = str.indexOf(",");
+		            var str2 = str.slice(index+1,str.length-2);
+		            document.getElementById("imgStr2").value = str2;
+		            console.log(str2);
+		        }
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+		function encodeImageFileAsURL3(){
+		    var filesSelected = document.getElementById("inputFileToLoad3").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent) {
+		            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+		            var newImage = document.createElement('img');
+		            newImage.src = srcData;
+
+		            document.getElementById("imgTest3").innerHTML = newImage.outerHTML;
+		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+
+		            var str = document.getElementById("imgTest3").innerHTML;
+		            var index = str.indexOf(",");
+		            var str2 = str.slice(index+1,str.length-2);
+		            document.getElementById("imgStr3").value = str2;
+		            console.log(str2);
+		        }
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+		function encodeImageFileAsURL4(){
+		    var filesSelected = document.getElementById("inputFileToLoad4").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent) {
+		            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+		            var newImage = document.createElement('img');
+		            newImage.src = srcData;
+
+		            document.getElementById("imgTest4").innerHTML = newImage.outerHTML;
+		            // alert("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+		            // console.log("Converted Base64 version is "+document.getElementById("imgTest").innerHTML);
+
+		            var str = document.getElementById("imgTest4").innerHTML;
+		            var index = str.indexOf(",");
+		            var str2 = str.slice(index+1,str.length-2);
+		            document.getElementById("imgStr4").value = str2;
 		            console.log(str2);
 		        }
 		        fileReader.readAsDataURL(fileToLoad);
@@ -77,18 +157,45 @@
 	 		<label for="location">Location</label>
 	 		<input type='text' class = "form-control" name='location' value ="<%=plant.location%>" id = "location">
 	 	</div>
+
 		<div class = "form-group">
 			<!-- <label for="location">Location</label> -->
-			<input type='hidden' class = "form-control" name='original_imgStr' value ="<%=plant.imgStr%>" id = "original_imgStr">
+			<input type='hidden' class = "form-control" name='original_imgStr1' value ="<%=plant.imgStr1%>" id = "original_imgStr1">
 		</div>
+		<div class = "form-group">
+			<!-- <label for="location">Location</label> -->
+			<input type='hidden' class = "form-control" name='original_imgStr2' value ="<%=plant.imgStr2%>" id = "original_imgStr2">
+		</div>
+		<div class = "form-group">
+			<!-- <label for="location">Location</label> -->
+			<input type='hidden' class = "form-control" name='original_imgStr3' value ="<%=plant.imgStr3%>" id = "original_imgStr3">
+		</div>
+		<div class = "form-group">
+			<!-- <label for="location">Location</label> -->
+			<input type='hidden' class = "form-control" name='original_imgStr4' value ="<%=plant.imgStr4%>" id = "original_imgStr4">
+		</div>
+
 	 	<div class = "form-group">
 	 		<label for="name">More Fact</label>
 	 		<textarea class = "form-control" rows = "3" name='moreFact' id = "moreFact"><%=plant.moreFact%></textarea>
 	 	</div>
 		<input type="hidden" name = "created_at" value = "<%=plant.created_at%>">
-	 	<input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
-		<div id="imgTest"></div>
-		<input type="text" name = "imgStr" value = "" id = "imgStr">
+
+	 	<input id="inputFileToLoad1" type="file" onchange="encodeImageFileAsURL1();" />
+		<div id="imgTest1"></div>
+		<input type="text" name = "imgStr1" value = "" id = "imgStr1">
+
+		<input id="inputFileToLoad2" type="file" onchange="encodeImageFileAsURL2();" />
+		<div id="imgTest2"></div>
+		<input type="text" name = "imgStr2" value = "" id = "imgStr2">
+
+		<input id="inputFileToLoad3" type="file" onchange="encodeImageFileAsURL3();" />
+		<div id="imgTest3"></div>
+		<input type="text" name = "imgStr3" value = "" id = "imgStr3">
+
+		<input id="inputFileToLoad4" type="file" onchange="encodeImageFileAsURL4();" />
+		<div id="imgTest4"></div>
+		<input type="text" name = "imgStr4" value = "" id = "imgStr4">
 
 	 <button type="submit" class = "btn btn-default">Update</button>
 	 </form>

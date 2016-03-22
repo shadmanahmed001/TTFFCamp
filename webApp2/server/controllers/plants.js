@@ -137,7 +137,10 @@ module.exports = (function(){
 				origin:req.body.origin,
 				whenToPlant:req.body.whenToPlant,
 				coolFact:req.body.coolFact,
-				imgStr:req.body.imgStr,
+				imgStr1:req.body.imgStr1,
+				imgStr2:req.body.imgStr2,
+				imgStr3:req.body.imgStr3,
+				imgStr4:req.body.imgStr4,
 				created_at:Date(),
 				updated_at:Date(),
 			};
@@ -150,51 +153,17 @@ module.exports = (function(){
 					res.redirect('/new');
 				}
 			})
-			// var newPlant = new Plant({
-			// 	name:req.body.name,
-			// 	description:req.body.description,
-			// 	location:req.body.location,
-			// 	moreFact:req.body.moreFact,
-			// 	origin:req.body.origin,
-			// 	whenToPlant:req.body.whenToPlant,
-			// 	coolFact:req.body.coolFact,
-			// 	imgStr:req.body.imgStr,
-			// 	created_at:Date(),
-			// 	updated_at:Date(),
-			// });
-			// newPlant.save(function(err,output){
-			// 	if(err){
-			// 		console.log(err);
-			// 	}else{
-			// 		console.log('add plant successfully.');
-			// 		res.redirect("/new");
-			// 	}
-			// })
+
 		},
-		// show:function(req,res){
-		// 	Plant.findOne({_id:req.params.id },function(err,output){
-		// 		if(err){
-		// 			console.log(err);
-		// 		}else{
-		// 			res.json(output);
-		// 		}
-		// 	})
-		// },
+
 		remove:function(req,res){
 			delete_by_id(req.params.name, function(data){
 				res.redirect("/all");
 			})
-			// Plant.remove({_id:req.params.id },function(err,status){
-			// 	if(err){
-			// 		console.log(err);
-			// 	}else{
-			// 		console.log('remove successfully');
-			// 		res.redirect("/all");
-			// 	}
-			// })
+
 		},
 		update:function(req,res){
-			console.log('1')
+			// console.log('1')
 			var updated_plant = {
 				name: req.body.name,
 				description: req.body.description,
@@ -206,20 +175,51 @@ module.exports = (function(){
 				created_at:req.body.created_at,
 				updated_at: Date()
 			}
-			if(req.body.imgStr !== ''){
-				// console.log('2')
-				updated_plant.imgStr = req.body.imgStr;
+			if(req.body.imgStr1 !== ''){
+				updated_plant.imgStr1 = req.body.imgStr1;
 				edit_by_id(req.body.name, updated_plant, function(data){
-					// console.log('3')
-					res.redirect('/all');
+					// res.redirect('/all');
 				})
 			}else{
-				updated_plant.imgStr = req.body.original_imgStr;
+				updated_plant.imgStr1 = req.body.original_imgStr1;
 				edit_by_id(req.body.name, updated_plant, function(data){
-					// console.log('3')
-					res.redirect('/all');
+					// res.redirect('/all');
 				})
 			}
+			if(req.body.imgStr2 !== ''){
+				updated_plant.imgStr2 = req.body.imgStr2;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}else{
+				updated_plant.imgStr2 = req.body.original_imgStr2;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}
+			if(req.body.imgStr3 !== ''){
+				updated_plant.imgStr3 = req.body.imgStr3;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}else{
+				updated_plant.imgStr3 = req.body.original_imgStr3;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}
+			if(req.body.imgStr4 !== ''){
+				updated_plant.imgStr4 = req.body.imgStr4;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}else{
+				updated_plant.imgStr4 = req.body.original_imgStr4;
+				edit_by_id(req.body.name, updated_plant, function(data){
+					// res.redirect('/all');
+				})
+			}
+			res.redirect('/all');
 		},
 		edit:function(req,res){
 			get_by_id(req.params.name, function(data){

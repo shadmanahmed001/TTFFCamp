@@ -18,6 +18,9 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var vwQRCode: UIView?
     var detectedText = ""
     
+    @IBOutlet weak var planListButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureVideoCapture()
@@ -92,7 +95,9 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
         objCaptureSession?.startRunning()
         customBanner()
+        customPlantListButton()
         self.view.bringSubviewToFront(welcomeBannerLabel)
+        self.view.bringSubviewToFront(planListButton)
 
     }
     
@@ -137,6 +142,21 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         welcomeBannerLabel.layer.borderWidth = 2
         welcomeBannerLabel.layer.borderColor = UIColor.whiteColor().CGColor
     }
+    
+    
+    @IBAction func clickToPlantList(sender: UIButton) {
+        
+    }
+    
+    func customPlantListButton(){
+        planListButton.layer.backgroundColor = UIColor.greenColor().CGColor
+        planListButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        planListButton.layer.cornerRadius = 10
+        planListButton.titleLabel!.font =  UIFont(name: "Chalkduster", size: 36)
+        planListButton.layer.borderWidth = 2
+        planListButton.layer.borderColor = UIColor.whiteColor().CGColor
+    }
+
     
 
     

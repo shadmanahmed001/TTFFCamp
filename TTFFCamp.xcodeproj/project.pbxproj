@@ -30,6 +30,7 @@
 		2837A6B71C98BD30001A002D /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2837A6A11C98BD30001A002D /* SwiftRegex.swift */; };
 		2837A6B81C98BD30001A002D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2837A6A21C98BD30001A002D /* WebSocket.swift */; };
 		AA8A24DDDAA2005F137600CA /* Pods_TTFFCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */; };
+		E01A31C91CA1B181001EB74A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A31C81CA1B181001EB74A /* TableViewController.swift */; };
 		E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57EF1C90EDA9008267EC /* AppDelegate.swift */; };
 		E01E57F21C90EDA9008267EC /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */; };
 		E01E57F51C90EDA9008267EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F31C90EDA9008267EC /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		4A6EC689F3C0F53F9389C862 /* Pods-TTFFCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.release.xcconfig"; sourceTree = "<group>"; };
 		51C93434E05113EBB271C567 /* Pods-TTFFCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.debug.xcconfig"; sourceTree = "<group>"; };
 		C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTFFCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E01A31C81CA1B181001EB74A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		E01E57EC1C90EDA9008267EC /* TTFFCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTFFCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01E57EF1C90EDA9008267EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				E01E57F11C90EDA9008267EC /* QRReaderViewController.swift */,
 				E01E58011C90F80F008267EC /* PlantInfoViewController.swift */,
 				E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */,
+				E01A31C81CA1B181001EB74A /* TableViewController.swift */,
 				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
 				E01E57FB1C90EDA9008267EC /* Info.plist */,
 				E01E57F31C90EDA9008267EC /* Main.storyboard */,
@@ -248,7 +251,7 @@
 				TargetAttributes = {
 					E01E57EB1C90EDA9008267EC = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 5Q7JKYA44W;
+						DevelopmentTeam = WQ56QXLK4A;
 					};
 				};
 			};
@@ -349,6 +352,7 @@
 				2837A6A81C98BD30001A002D /* SocketEngineClient.swift in Sources */,
 				2837A6B11C98BD30001A002D /* SocketIOClientStatus.swift in Sources */,
 				E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */,
+				E01A31C91CA1B181001EB74A /* TableViewController.swift in Sources */,
 				2837A6B21C98BD30001A002D /* SocketLogger.swift in Sources */,
 				2837A6B51C98BD30001A002D /* SocketStringReader.swift in Sources */,
 				2837A6B31C98BD30001A002D /* SocketPacket.swift in Sources */,

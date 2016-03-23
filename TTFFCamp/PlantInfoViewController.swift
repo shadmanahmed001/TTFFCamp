@@ -35,7 +35,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
-    //MARK:
     var singlePlant = Plant()
     var allPlants: [Plant] = []
     
@@ -64,6 +63,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     
     func getPlantByName(plantName: String){
+        // loop through all plants in the local database to find the specific plant scanned or chosen from the list
         for var i = 0; i < allPlants.count; i++ {
             if allPlants[i].plantName == plantName {
                 print("found the correct plant ID", allPlants[i])
@@ -72,7 +72,8 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                 
             }
         }
-
+        
+        // Set UILabel properties of a single plant from database
         plantNameButton.setTitle(singlePlant.plantName, forState: UIControlState.Normal)
         originTextLabel.text = singlePlant.origin
         originTextLabel.numberOfLines = 0
@@ -88,18 +89,22 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         moreFactsTextLabel.numberOfLines = 0
         
         
-        
+        // Received image data comes in as Base64 string
         let receivedData = singlePlant.image
         
+        // Decode Base64 string into NSData
         let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
+        
+        // Set image variable to UIImage from raw data
         let image = UIImage(data: imageData!)
         
+        // Set layout parameters for image
         plantImage.image = image
         plantImage.layer.borderWidth = 3
         plantImage.layer.borderColor = UIColor.greenColor().CGColor
     }
     
-    
+    // Function for text-to-speech
     @IBAction func textToSpeech(sender: UIButton) {
         if !synth.speaking{
             if sender.tag == 0 {
@@ -132,6 +137,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
     }
     
+    // Formatting of the buttons used for text-to-speech
     func customButtons() {
         plantNameButton.titleLabel?.textColor = UIColor.greenColor()
         plantNameButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 40)

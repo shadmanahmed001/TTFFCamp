@@ -8,6 +8,16 @@
     text-align: center;
   }
 </style>
+<script>
+  function ConfirmDelete()
+    {
+      var x = confirm("Are you sure you want to delete?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+</script>
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -42,7 +52,7 @@
          <td><%= results[x].origin%></td>
          <td><%= results[x].whenToPlant%></td>
          <td><%= results[x].location%></td>
-           <% if (results[x].imgStr!=undefined && results[x].imgStr.length != 0){ %>
+           <% if (results[x].imgStr1!=undefined && results[x].imgStr1.length != 0 || results[x].imgStr2!=undefined && results[x].imgStr2.length != 0 || results[x].imgStr3!=undefined && results[x].imgStr3.length != 0 || results[x].imgStr4!=undefined && results[x].imgStr4.length != 0){ %>
            <td class = "success">ready</td>
             <% }else {%>
             <td class = "danger">N/A</td>
@@ -55,7 +65,7 @@
         </td>
         <td>
           <form action="/removePlant/<%=results[x].name%>" method = "post">
-                <input type="submit" value = 'delete' class = "btn btn-danger">
+                <input type="submit" Onclick="return ConfirmDelete();" value = 'delete' class = "btn btn-danger">
           </form>
         </td>
         <td>

@@ -10,8 +10,6 @@ import Foundation
 
 class Plant: NSObject, NSCoding {
     
-    // Add NSCoding Protocol back once we are ready to use local database file
-    
     //variable declaration
     static var key = "Plants"
     static var schema = "PlantSchema"
@@ -26,16 +24,6 @@ class Plant: NSObject, NSCoding {
     var createdAt: NSDate
     
     //init method for new obj instances
-    //    init (plantName: String, location: NSArray, origin: String, whenToPlant: String, coolFact: String, moreFacts: NSArray, images: NSArray){
-    //        self.plantName = plantName
-    //        self.location = location
-    //        self.origin = origin
-    //        self.whenToPlant = whenToPlantgit
-    //        self.coolFact = coolFact
-    //        self.moreFacts = moreFacts
-    //        self.images = images
-    //        createdAt = NSDate()
-    //    }
     override init (){
         self.plantName = ""
         self.location = ""

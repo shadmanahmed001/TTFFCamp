@@ -81,4 +81,8 @@ module.exports = function(app){
 		plants.archive(req,res);
 	})
 
+	app.post('/restore/:name',function(req,res){
+		plants.restore(req,res);
+	})
+
 }

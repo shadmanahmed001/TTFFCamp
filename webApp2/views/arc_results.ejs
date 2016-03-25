@@ -33,8 +33,8 @@
     </div>
   </nav>
 
-    <h2>All Plants <a href="/printToFile" class = "btn btn-success">print to file</a></h2>
-    <% if (results.length >0) { %>
+    <h2>All Plants</h2>
+    <% if (results) { %>
     <table class = "table table-condensed">
       <tr>
         <th>Name</th>
@@ -44,7 +44,6 @@
         <th>Location</th>
         <th>Image</th>
         <th>Actions</th>
-        <th></th>
       </tr>
        <% for (var x in results) { %>
        <tr>
@@ -60,20 +59,11 @@
             <%}%>
 
         <td>
-          <form action="/edit/<%=results[x].name%>">
-                <input type="submit" value = 'edit' class = "btn btn-primary">
+          <form action="/restore/<%=results[x].name%>" method = "post">
+                <input type="submit" value = 'restore' class = "btn btn-default">
           </form>
         </td>
-        <td>
-          <form action="/archive/<%=results[x].name%>" method = "post">
-                <input type="submit" Onclick="return ConfirmDelete();" value = 'archive' class = "btn btn-danger">
-          </form>
-        </td>
-        <td>
-          <form action="/toPrintPage/<%=results[x].name%>" method = "post">
-                <input type="submit" value = 'print label' class = "btn btn-success">
-          </form>
-        </td>
+
        </tr>
 
 

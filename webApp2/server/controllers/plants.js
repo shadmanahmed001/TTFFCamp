@@ -273,7 +273,11 @@ module.exports = (function(){
 									var arc_plants = JSON.parse(data);
 									arc_plants.push(arc_plant);
 									fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
-										
+										if(err){
+											console.log('failed to write in archivedPlants.json');
+										}else{
+											console.log('success');
+										}
 									})
 								})
 							 })
@@ -302,7 +306,11 @@ module.exports = (function(){
 									var res_plants = JSON.parse(data);
 									res_plants.push(restored_plant);
 									fs.writeFile('allPlants.json', JSON.stringify(res_plants, null, 4), function(err){
-										
+										if(err){
+											console.log('failed to write in allPlants.json');
+										}else{
+											console.log('success');
+										}
 									})
 								})
 						 	})

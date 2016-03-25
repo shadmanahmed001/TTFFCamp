@@ -20,7 +20,10 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
     @IBOutlet weak var moreFactsButton: UIButton!
-    @IBOutlet weak var plantImage: UIImageView!
+//    @IBOutlet weak var plantImage: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
 
     @IBOutlet weak var originTextLabel: UILabel!
     @IBOutlet weak var locationTextLabel: UILabel!
@@ -96,12 +99,18 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
         
         // Set image variable to UIImage from raw data
-        let image = UIImage(data: imageData!)
+//        let image = UIImage(data: imageData!)
         
         // Set layout parameters for image
-        plantImage.image = image
-        plantImage.layer.borderWidth = 3
-        plantImage.layer.borderColor = UIColor.greenColor().CGColor
+        
+        let image = UIImage(data: imageData!)
+        scrollView.auk.show(image: image!)
+        scrollView.layer.borderWidth = 3
+        
+        
+//        plantImage.image = image
+//        plantImage.layer.borderWidth = 3
+//        plantImage.layer.borderColor = UIColor.greenColor().CGColor
     }
     
     // Function for text-to-speech

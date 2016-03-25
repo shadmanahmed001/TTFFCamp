@@ -32,6 +32,11 @@ module.exports = function(app){
 		plants.index(req,res);
 	});
 
+	//get all plants
+	app.get('/getArchived',function(req,res){
+		plants.getArchived(req,res);
+	});
+
 	//get plant by id
 	app.get('/plants/:name',function(req,res){
 		//console.log(req.params.id);
@@ -71,6 +76,13 @@ module.exports = function(app){
 	// 		res.json(url);
 	// 	});
 	// })
+	
+	app.post('/archive/:name',function(req,res){
+		plants.archive(req,res);
+	})
 
+	app.post('/restore/:name',function(req,res){
+		plants.restore(req,res);
+	})
 
 }

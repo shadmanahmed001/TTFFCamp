@@ -8,7 +8,7 @@ function get_all(callback){
 		var plants = JSON.parse(data);
 		var somePlants = [];
 		for(var plant in plants){
-			if(plants[plant].archived == false){
+			if(!plants[plant].archived){
 				somePlants.push(plants[plant]);
 			}
 		}
@@ -139,13 +139,6 @@ module.exports = (function(){
 			get_all(function(data){
 				res.render('results', {results: data});
 			})
-			// Plant.find({},function(err,output){
-			// 	if(err){
-			// 		console.log(err);
-			// 	}else{
-			// 		res.render('results',{results:output});
-			// 	}
-			// })
 		},
 		getArchived:function(req,res){
 			get_archived(function(data){
@@ -168,6 +161,10 @@ module.exports = (function(){
 				created_at:Date(),
 				updated_at:Date(),
 				archived:false,
+				imgname1:req.body.imgname1,
+				imgname2:req.body.imgname2,
+				imgname3:req.body.imgname3,
+				imgname4:req.body.imgname4,
 			};
 
 			create_unique(newPlant, function(data){
@@ -204,6 +201,10 @@ module.exports = (function(){
 				imgStr2 : (req.body.imgStr2 !== '')?req.body.imgStr2:req.body.original_imgStr2,
 				imgStr3 : (req.body.imgStr3 !== '')?req.body.imgStr3:req.body.original_imgStr3,
 				imgStr4 : (req.body.imgStr4 !== '')?req.body.imgStr4:req.body.original_imgStr4,
+				imgname1:req.body.imgname1,
+				imgname2:req.body.imgname2,
+				imgname3:req.body.imgname3,
+				imgname4:req.body.imgname4,
 
 			}
 
@@ -278,6 +279,10 @@ module.exports = (function(){
 					imgStr2 : data.imgStr2,
 					imgStr3 : data.imgStr3,
 					imgStr4 : data.imgStr4,
+					imgname1: data.imgname1,
+					imgname2: data.imgname2,
+					imgname3: data.imgname3,
+					imgname4: data.imgname4,
 
 				}
 
@@ -305,6 +310,10 @@ module.exports = (function(){
 					imgStr2 : data.imgStr2,
 					imgStr3 : data.imgStr3,
 					imgStr4 : data.imgStr4,
+					imgname1: data.imgname1,
+					imgname2: data.imgname2,
+					imgname3: data.imgname3,
+					imgname4: data.imgname4,
 
 				}
 

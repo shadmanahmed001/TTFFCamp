@@ -105,6 +105,7 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
             let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
         }
+        // the issue might be: need another segue identifier for going back to QRreader view controller to avoid show 2 views
     }
 
 

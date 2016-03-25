@@ -161,10 +161,10 @@ module.exports = (function(){
 				created_at:Date(),
 				updated_at:Date(),
 				archived:false,
-				imgname1:req.body.imgname1,
-				imgname2:req.body.imgname2,
-				imgname3:req.body.imgname3,
-				imgname4:req.body.imgname4,
+				imgname1:(req.body.imgname1!="")?req.body.imgname1:"img1",
+				imgname2:(req.body.imgname2!="")?req.body.imgname2:"img2",
+				imgname3:(req.body.imgname3!="")?req.body.imgname3:"img3",
+				imgname4:(req.body.imgname4!="")?req.body.imgname4:"img4",
 			};
 
 			create_unique(newPlant, function(data){

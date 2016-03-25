@@ -1,7 +1,7 @@
 // var mongoose = require('mongoose');
 // var Plant = mongoose.model('plants');
 var fs = require('fs');
-
+var fsex = require('fs-extra');
 
 function get_all(callback){
 	fs.readFile('allPlants.json', 'utf8', function(err, data){
@@ -249,7 +249,14 @@ module.exports = (function(){
 
 		archive:function(req,res){
 			//back up data in case of crash
-			fs.createReadStream('allPlants.json').pipe(fs.createWriteStream('allPlants_copy.json'));
+			// var stats = fs.statSync("allPlants.json")
+ 		// 	var fileSizeInBytes = stats["size"]
+ 		// 	var stats2 = fs.statSync("allPlants_copy.json")
+ 		// 	var fileSizeInBytes2 = stats["size"]
+ 		// 	if(fileSizeInBytes > fileSizeInBytes2){
+ 		// 		fsex.copySync('allPlants.json', 'allPlants_copy.json');
+ 		// 	}
+
 			var arc_plant;
 			var name = req.params.name;
 			var arc_flag = false;
@@ -279,7 +286,6 @@ module.exports = (function(){
 
 		},
 		restore:function(req,res){
-			fs.createReadStream('allPlants.json').pipe(fs.createWriteStream('allPlants_copy.json'));
 			var restored_plant;
 			var name = req.params.name;
 			var res_flag = false;

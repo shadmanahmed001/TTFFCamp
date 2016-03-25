@@ -142,7 +142,7 @@ module.exports = (function(){
 		},
 		add:function(req,res){
 			var newPlant = {
-				name:req.body.name,
+				name:(req.body.name !="")?req.body.name:"untitled",
 				description:req.body.description,
 				location:req.body.location,
 				moreFact:req.body.moreFact,
@@ -248,7 +248,8 @@ module.exports = (function(){
 		},
 
 		archive:function(req,res){
-			//delete from allPlants.json
+			//back up data in case of crash
+			fs.createReadStream('allPlants.json').pipe(fs.createWriteStream('allPlants_copy.json'));
 			var arc_plant;
 			var name = req.params.name;
 			var arc_flag = false;
@@ -278,7 +279,7 @@ module.exports = (function(){
 
 		},
 		restore:function(req,res){
-			//delete from archivedPlants.json
+			fs.createReadStream('allPlants.json').pipe(fs.createWriteStream('allPlants_copy.json'));
 			var restored_plant;
 			var name = req.params.name;
 			var res_flag = false;

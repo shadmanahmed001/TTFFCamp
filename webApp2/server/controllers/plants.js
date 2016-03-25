@@ -185,53 +185,18 @@ module.exports = (function(){
 				coolFact: req.body.coolFact,
 				moreFact: req.body.moreFact,
 				created_at:req.body.created_at,
-				updated_at: Date()
+				updated_at: Date(),
+				imgStr1 : (req.body.imgStr1 !== '')?req.body.imgStr1:req.body.original_imgStr1,
+				imgStr2 : (req.body.imgStr2 !== '')?req.body.imgStr2:req.body.original_imgStr2,
+				imgStr3 : (req.body.imgStr3 !== '')?req.body.imgStr3:req.body.original_imgStr3,
+				imgStr4 : (req.body.imgStr4 !== '')?req.body.imgStr4:req.body.original_imgStr4,
+
 			}
-			if(req.body.imgStr1 !== ''){
-				updated_plant.imgStr1 = req.body.imgStr1;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}else{
-				updated_plant.imgStr1 = req.body.original_imgStr1;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}
-			if(req.body.imgStr2 !== ''){
-				updated_plant.imgStr2 = req.body.imgStr2;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}else{
-				updated_plant.imgStr2 = req.body.original_imgStr2;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}
-			if(req.body.imgStr3 !== ''){
-				updated_plant.imgStr3 = req.body.imgStr3;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}else{
-				updated_plant.imgStr3 = req.body.original_imgStr3;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}
-			if(req.body.imgStr4 !== ''){
-				updated_plant.imgStr4 = req.body.imgStr4;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}else{
-				updated_plant.imgStr4 = req.body.original_imgStr4;
-				edit_by_id(req.body.name, updated_plant, function(data){
-					// res.redirect('/all');
-				})
-			}
-			res.redirect('/all');
+
+			edit_by_id(req.body.name, updated_plant, function(data){
+				res.redirect('/all');
+			})
+			
 		},
 		edit:function(req,res){
 			get_by_id(req.params.name, function(data){
@@ -291,25 +256,24 @@ module.exports = (function(){
 				var plants = JSON.parse(data);
 				for(var plant in plants){
 					if(plants[plant].name == name){
-							arc_plant = (JSON.parse(JSON.stringify(plants[plant])));
-							arc_flag = true;
-							if(arc_flag){
-								plants.splice(plant, 1);
-							 	fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-							 		fs.readFile('archivedPlants.json', 'utf8', function(err, data){
-										var arc_plants = JSON.parse(data);
-										arc_plants.push(arc_plant);
-										fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
-											res.redirect("/all");
-										})
+						arc_plant = (JSON.parse(JSON.stringify(plants[plant])));
+						arc_flag = true;
+						if(arc_flag){
+							plants.splice(plant, 1);
+							 fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
+							 	fs.readFile('archivedPlants.json', 'utf8', function(err, data){
+									var arc_plants = JSON.parse(data);
+									arc_plants.push(arc_plant);
+									fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
+										
 									})
-							 	})
-							}
+								})
+							 })
+						}
 					}
 				}
 			})
-			
-			
+			res.redirect("/all");
 			
 
 		},
@@ -331,7 +295,7 @@ module.exports = (function(){
 									var res_plants = JSON.parse(data);
 									res_plants.push(restored_plant);
 									fs.writeFile('allPlants.json', JSON.stringify(res_plants, null, 4), function(err){
-										res.redirect("/getArchived");
+										
 									})
 								})
 						 	})
@@ -341,10 +305,8 @@ module.exports = (function(){
 					}
 				}
 			})
+			res.redirect("/getArchived");
 			
-			
-			
-
 		},
 
 	}//return

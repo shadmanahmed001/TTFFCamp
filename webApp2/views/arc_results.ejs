@@ -9,9 +9,9 @@
   }
 </style>
 <script>
-  function ConfirmDelete()
+  function ConfirmRestore()
     {
-      var x = confirm("Are you sure you want to archive?");
+      var x = confirm("Are you sure you want to restore this plant?");
       if (x)
           return true;
       else
@@ -33,7 +33,7 @@
     </div>
   </nav>
 
-    <h2>All Plants</h2>
+    <h2>Archived Plants</h2>
     <% if (results) { %>
     <table class = "table table-condensed">
       <tr>
@@ -60,7 +60,7 @@
 
         <td>
           <form action="/restore/<%=results[x].name%>" method = "post">
-                <input type="submit" value = 'restore' class = "btn btn-default">
+                <input type="submit" Onclick="return ConfirmRestore();" value = 'restore' class = "btn btn-default">
           </form>
         </td>
 

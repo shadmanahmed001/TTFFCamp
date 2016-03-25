@@ -2,9 +2,16 @@
 // var Plant = mongoose.model('plants');
 var fs = require('fs');
 
-//
+
 function get_all(callback){
 	fs.readFile('allPlants.json', 'utf8', function(err, data){
+		var plants = JSON.parse(data);
+		return callback(plants);
+	})
+}
+
+function get_archived(callback){
+	fs.readFile('archivedPlants.json', 'utf8', function(err, data){
 		var plants = JSON.parse(data);
 		return callback(plants);
 	})
@@ -127,6 +134,11 @@ module.exports = (function(){
 			// 		res.render('results',{results:output});
 			// 	}
 			// })
+		},
+		getArchived:function(req,res){
+			get_archived(function(data){
+				res.render('arc_results', {results: data});
+			})
 		},
 		add:function(req,res){
 			var newPlant = {
@@ -268,7 +280,37 @@ module.exports = (function(){
 			get_by_id(req.params.name, function(data){
 				res.render('print', {plant: data});
 			})
-		}
+		},
 
-	}
+		archive:function(req,res){
+			//delete from allPlants.json
+			var arc_plant;
+			var name = req.params.name;
+			var arc_flag = false;
+			fs.readFile('allPlants.json', 'utf8', function(err, data){
+				var plants = JSON.parse(data);
+				for(var plant in plants){
+					if(plants[plant].name == name){
+							arc_plant = (JSON.parse(JSON.stringify(plants[plant])));
+							arc_flag = true;
+						if(arc_flag){
+							plants.splice(plant, 1);
+						 	fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
+						 	})
+						}	
+					 	
+					}
+				}
+			})
+			fs.readFile('archivedPlants.json', 'utf8', function(err, data){
+				var arc_plants = JSON.parse(data);
+				arc_plants.push(arc_plant);
+				fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
+				})
+			})
+			res.redirect("/all");
+
+		},
+
+	}//return
 })()

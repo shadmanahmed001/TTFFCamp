@@ -1,5 +1,5 @@
 //
-//  plantInfoViewController.swift
+//  PlantInfoViewController.swift
 //  TTFFCamp
 //
 //  Created by yanze on 3/9/16.
@@ -64,7 +64,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     func getPlantByName(plantName: String){
         // loop through all plants in the local database to find the specific plant scanned or chosen from the list
-        for var i = 0; i < allPlants.count; i++ {
+        for i in 0 ..< allPlants.count {
             if allPlants[i].plantName == plantName {
                 print("found the correct plant ID", allPlants[i])
                 singlePlant = allPlants[i]

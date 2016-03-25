@@ -286,29 +286,31 @@ module.exports = (function(){
 			//delete from allPlants.json
 			var arc_plant;
 			var name = req.params.name;
-			
+			var arc_flag = false;
 			fs.readFile('allPlants.json', 'utf8', function(err, data){
 				var plants = JSON.parse(data);
 				for(var plant in plants){
 					if(plants[plant].name == name){
 							arc_plant = (JSON.parse(JSON.stringify(plants[plant])));
-							
-						
-							plants.splice(plant, 1);
-						 	fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-						 	})
-							
-					 	
+							arc_flag = true;
+							if(arc_flag){
+								plants.splice(plant, 1);
+							 	fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
+							 		fs.readFile('archivedPlants.json', 'utf8', function(err, data){
+										var arc_plants = JSON.parse(data);
+										arc_plants.push(arc_plant);
+										fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
+											res.redirect("/all");
+										})
+									})
+							 	})
+							}
 					}
 				}
 			})
-			fs.readFile('archivedPlants.json', 'utf8', function(err, data){
-				var arc_plants = JSON.parse(data);
-				arc_plants.push(arc_plant);
-				fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
-				})
-			})
-			res.redirect("/all");
+			
+			
+			
 
 		},
 		restore:function(req,res){
@@ -325,19 +327,23 @@ module.exports = (function(){
 						if(res_flag){
 							plants.splice(plant, 1);
 						 	fs.writeFile('archivedPlants.json', JSON.stringify(plants, null, 4), function(err){
+						 		fs.readFile('allPlants.json', 'utf8', function(err, data){
+									var res_plants = JSON.parse(data);
+									res_plants.push(restored_plant);
+									fs.writeFile('allPlants.json', JSON.stringify(res_plants, null, 4), function(err){
+										res.redirect("/getArchived");
+									})
+								})
 						 	})
+							
 						}	
 					 	
 					}
 				}
 			})
-			fs.readFile('allPlants.json', 'utf8', function(err, data){
-				var res_plants = JSON.parse(data);
-				res_plants.push(restored_plant);
-				fs.writeFile('allPlants.json', JSON.stringify(res_plants, null, 4), function(err){
-				})
-			})
-			res.redirect("/getArchived");
+			
+			
+			
 
 		},
 

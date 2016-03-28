@@ -3,7 +3,6 @@
 var fs = require('fs');
 var all = require("./../../allPlants.json");
 
-
 function get_all(callback){
 	var somePlants = [];
 	for(var plant in all){

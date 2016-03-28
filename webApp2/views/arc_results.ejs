@@ -9,9 +9,9 @@
   }
 </style>
 <script>
-  function ConfirmDelete()
+  function ConfirmRestore()
     {
-      var x = confirm("Are you sure you want to archive?");
+      var x = confirm("Are you sure you want to restore this plant?");
       if (x)
           return true;
       else
@@ -27,13 +27,13 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/new">Create New Plants</a></li>
-        <li class="active"><a href="#">Display All Plants</a></li>
-        <li><a href="/getArchived">Archived Plants</a></li>
+        <li><a href="/all">Display All Plants</a></li>
+        <li class="active"><a href="#">Archived Plants</a></li>
       </ul>
     </div>
   </nav>
 
-    <h2>All Plants </h2>
+    <h2>Archived Plants</h2>
     <% if (results) { %>
     <table class = "table table-condensed">
       <tr>
@@ -44,7 +44,6 @@
         <th>Location</th>
         <th>Image</th>
         <th>Actions</th>
-        <th></th>
       </tr>
        <% for (var x in results) { %>
        <tr>
@@ -60,26 +59,11 @@
             <%}%>
 
         <td>
-          <form action="/edit/<%=results[x].name%>">
-                <input type="submit" value = 'edit' class = "btn btn-primary">
+          <form action="/restore/<%=results[x].name%>" method = "post">
+                <input type="submit" Onclick="return ConfirmRestore();" value = 'restore' class = "btn btn-default">
           </form>
         </td>
-        <td>
-          <form action="/archive/<%=results[x].name%>" method = "post">
-                <input type="submit" Onclick="return ConfirmDelete();" value = 'archive' class = "btn btn-warning">
-                
-          </form>
-        </td>
-        <td>
-          <form action="/removePlant/<%=results[x].name%>" method = "post">
-                <input type="submit" Onclick="return ConfirmDelete();" value = 'delete' class = "btn btn-danger">
-          </form>
-        </td>
-        <td>
-          <form action="/toPrintPage/<%=results[x].name%>" method = "post">
-                <input type="submit" value = 'print label' class = "btn btn-success">
-          </form>
-        </td>
+
        </tr>
 
 

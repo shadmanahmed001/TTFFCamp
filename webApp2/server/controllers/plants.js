@@ -1,136 +1,109 @@
 // var mongoose = require('mongoose');
 // var Plant = mongoose.model('plants');
 var fs = require('fs');
-var fsex = require('fs-extra');
+var all = require("./../../allPlants.json");
+
 
 function get_all(callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		var somePlants = [];
-		for(var plant in plants){
-			if(!plants[plant].archived){
-				somePlants.push(plants[plant]);
-			}
+	var somePlants = [];
+	for(var plant in all){
+		if(!all[plant].archived){
+			somePlants.push(all[plant]);
 		}
-		return callback(somePlants);
-	})
+	}
+	return callback(somePlants);
+
 }
 
 function get_archived(callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		var archivedPlants = [];
-		for(var plant in plants){
-			if(plants[plant].archived){
-				archivedPlants.push(plants[plant]);
-			}
+	var archivedPlants = [];
+	for(var plant in all){
+		if(all[plant].archived){
+			archivedPlants.push(all[plant]);
 		}
-		return callback(archivedPlants);
-	})
+	}
+	return callback(archivedPlants);
 }
 
 function create(new_plant, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		plants.push(new_plant);
-		fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-			return callback(plants);
-		})
+	all.push(new_plant);
+	fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+		return callback(all);
 	})
 }
 
 function create_unique(new_plant, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == new_plant.name){
-				return callback(null);
-			}
+	for(var plant in all){
+		if(all[plant].name == new_plant.name){
+			return callback(null);
 		}
-		plants.push(new_plant);
-		fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-			return callback(plants);
-		})
+	}
+	all.push(new_plant);
+	fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+		return callback(all);
 	})
 }
 
 function get_by_id(name, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				return callback(plants[plant])
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			return callback(all[plant])
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 function delete_by_id(name, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-			 plants.splice(plant, 1);
-			 fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-				 return callback(plants);
-			 })
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			all.splice(plant, 1);
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all);
+			})
 		}
-		// return callback(null);
-	})
+	}
+
 }
 
 function edit_by_id(name, edit, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				plants[plant] = edit;
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			all[plant] = edit;
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		// console.log('5');
-		// return callback(null);
-	})
+	}
 }
 
 function add_img_by_id(name, data, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				var edit_plant = plants[plant];
-				for(var e in data){
-					edit_plant[e] = data[e];
-				}
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
+	for(var plant in all){
+		if(all[plant].name == name){
+			var edit_plant = all[plant];
+			for(var e in data){
+				edit_plant[e] = data[e];
 			}
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 function better_update_by_id(name, data, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				var edit_plant = plants[plant];
-				for(var e in data){
-					edit_plant[e] = data[e];
-				}
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
+	for(var plant in all){
+		if(all[plant].name == name){
+			var edit_plant = all[plant];
+			for(var e in data){
+				edit_plant[e] = data[e];
 			}
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 module.exports = (function(){

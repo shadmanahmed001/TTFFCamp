@@ -76,22 +76,6 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
         return allPlants.count
     }
     
-    // Select the plant from a list to show more details on the selected plant
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if searchController.active && searchController.searchBar.text != "" {
-            let plant = filteredPlants[indexPath.row]
-            detectedText = plant.plantName
-            
-            self.performSegueWithIdentifier("showInfoFromList", sender: nil)
-        } else {
-            let plant = allPlants[indexPath.row]
-            detectedText = plant.plantName
-            
-            self.performSegueWithIdentifier("showInfoFromList", sender: nil)
-        }
-        
-    }
     
     // SEARCH BAR FUNCTIONS
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -110,10 +94,19 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
     // Prepare segue to Plant Info View
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier! == "showInfoFromList"){
+            
             let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
-            plantInfoVC.detectedText = detectedText
+            
+            // Sender is the cell that gets selected by the user
+            let cell = sender as! UITableViewCell
+            
+            // Unwrap the text from the cell and pass it through the segue to the PlantInfoViewController
+            if let text = cell.textLabel!.text {
+                print("unwrapped sender", text)
+                plantInfoVC.detectedText = text
+            }
+
         }
-        // the issue might be: need another segue identifier for going back to QRreader view controller to avoid show 2 views
     }
 
 

@@ -78,10 +78,18 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
     
     // Select the plant from a list to show more details on the selected plant
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let plant = allPlants[indexPath.row]
-        detectedText = plant.plantName
         
-        self.performSegueWithIdentifier("showInfoFromList", sender: nil)
+        if searchController.active && searchController.searchBar.text != "" {
+            let plant = filteredPlants[indexPath.row]
+            detectedText = plant.plantName
+            
+            self.performSegueWithIdentifier("showInfoFromList", sender: nil)
+        } else {
+            let plant = allPlants[indexPath.row]
+            detectedText = plant.plantName
+            
+            self.performSegueWithIdentifier("showInfoFromList", sender: nil)
+        }
         
     }
     
@@ -105,6 +113,7 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
             let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
         }
+        // the issue might be: need another segue identifier for going back to QRreader view controller to avoid show 2 views
     }
 
 

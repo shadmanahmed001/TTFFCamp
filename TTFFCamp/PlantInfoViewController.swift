@@ -19,16 +19,13 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var descriptionButton: UIButton!
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
-    @IBOutlet weak var moreFactsButton: UIButton!
     @IBOutlet weak var plantImage: UIImageView!
-
+    
     @IBOutlet weak var originTextLabel: UILabel!
     @IBOutlet weak var locationTextLabel: UILabel!
-    @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var whenToPlantTextLabel: UILabel!
-    @IBOutlet weak var coolFactTextLabel: UILabel!
-    @IBOutlet weak var moreFactsTextLabel: UILabel!
-    
+    @IBOutlet weak var coolFactsTextView: UITextView!
     
     
     //MARK: NSSpeech
@@ -79,14 +76,13 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         originTextLabel.numberOfLines = 0
         locationTextLabel.text = singlePlant.location
         locationTextLabel.numberOfLines = 0
-        descriptionTextLabel.text = singlePlant.plantDescription
-        descriptionTextLabel.numberOfLines = 0
+        descriptionTextView.text = singlePlant.plantDescription
         whenToPlantTextLabel.text = singlePlant.whenToPlant
         whenToPlantTextLabel.numberOfLines = 0
-        coolFactTextLabel.text = singlePlant.coolFact
-        coolFactTextLabel.numberOfLines = 0
-        moreFactsTextLabel.text = singlePlant.moreFacts
-        moreFactsTextLabel.numberOfLines = 0
+        coolFactsTextView.text = singlePlant.coolFact
+        descriptionTextView.editable = false;
+        coolFactsTextView.editable = false;
+
         
         
         // Received image data comes in as Base64 string
@@ -124,9 +120,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             }
             if sender.tag == 5 {
                 myUtterance = AVSpeechUtterance(string: "Cool Fact: \(singlePlant.coolFact)")
-            }
-            if sender.tag == 6 {
-                myUtterance = AVSpeechUtterance(string: "More Facts: \(singlePlant.moreFacts)")
             }
             
             myUtterance.rate = 0.5
@@ -179,12 +172,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         coolFactButton.layer.borderWidth = 2
         coolFactButton.layer.borderColor = UIColor.blackColor().CGColor
         
-        moreFactsButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
-        moreFactsButton.backgroundColor = UIColor.lightGrayColor()
-        moreFactsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
-        moreFactsButton.layer.cornerRadius = 8
-        moreFactsButton.layer.borderWidth = 2
-        moreFactsButton.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     

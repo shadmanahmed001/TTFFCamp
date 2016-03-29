@@ -1,124 +1,108 @@
 // var mongoose = require('mongoose');
 // var Plant = mongoose.model('plants');
 var fs = require('fs');
-var fsex = require('fs-extra');
+var all = require("./../../allPlants.json");
 
 function get_all(callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		return callback(plants);
-	})
+	var somePlants = [];
+	for(var plant in all){
+		if(!all[plant].archived){
+			somePlants.push(all[plant]);
+		}
+	}
+	return callback(somePlants);
+
 }
 
 function get_archived(callback){
-	fs.readFile('archivedPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		return callback(plants);
-	})
+	var archivedPlants = [];
+	for(var plant in all){
+		if(all[plant].archived){
+			archivedPlants.push(all[plant]);
+		}
+	}
+	return callback(archivedPlants);
 }
 
 function create(new_plant, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		plants.push(new_plant);
-		fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-			return callback(plants);
-		})
+	all.push(new_plant);
+	fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+		return callback(all);
 	})
 }
 
 function create_unique(new_plant, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == new_plant.name){
-				return callback(null);
-			}
+	for(var plant in all){
+		if(all[plant].name == new_plant.name){
+			return callback(null);
 		}
-		plants.push(new_plant);
-		fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-			return callback(plants);
-		})
+	}
+	all.push(new_plant);
+	fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+		return callback(all);
 	})
 }
 
 function get_by_id(name, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				return callback(plants[plant])
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			return callback(all[plant])
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 function delete_by_id(name, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-			 plants.splice(plant, 1);
-			 fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-				 return callback(plants);
-			 })
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			all.splice(plant, 1);
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all);
+			})
 		}
-		// return callback(null);
-	})
+	}
+
 }
 
 function edit_by_id(name, edit, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				plants[plant] = edit;
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
-			}
+	for(var plant in all){
+		if(all[plant].name == name){
+			all[plant] = edit;
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		// console.log('5');
-		// return callback(null);
-	})
+	}
 }
 
 function add_img_by_id(name, data, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				var edit_plant = plants[plant];
-				for(var e in data){
-					edit_plant[e] = data[e];
-				}
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
+	for(var plant in all){
+		if(all[plant].name == name){
+			var edit_plant = all[plant];
+			for(var e in data){
+				edit_plant[e] = data[e];
 			}
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 function better_update_by_id(name, data, callback){
-	fs.readFile('allPlants.json', 'utf8', function(err, data){
-		var plants = JSON.parse(data);
-		for(var plant in plants){
-			if(plants[plant].name == name){
-				var edit_plant = plants[plant];
-				for(var e in data){
-					edit_plant[e] = data[e];
-				}
-				fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-					return callback(plants)
-				})
+	for(var plant in all){
+		if(all[plant].name == name){
+			var edit_plant = all[plant];
+			for(var e in data){
+				edit_plant[e] = data[e];
 			}
+			fs.writeFile('allPlants.json', JSON.stringify(all, null, 4), function(err){
+				return callback(all)
+			})
 		}
-		return callback(null);
-	})
+	}
+	return callback(null);
 }
 
 module.exports = (function(){
@@ -127,13 +111,6 @@ module.exports = (function(){
 			get_all(function(data){
 				res.render('results', {results: data});
 			})
-			// Plant.find({},function(err,output){
-			// 	if(err){
-			// 		console.log(err);
-			// 	}else{
-			// 		res.render('results',{results:output});
-			// 	}
-			// })
 		},
 		getArchived:function(req,res){
 			get_archived(function(data){
@@ -155,6 +132,11 @@ module.exports = (function(){
 				imgStr4:req.body.imgStr4,
 				created_at:Date(),
 				updated_at:Date(),
+				archived:false,
+				imgname1:(req.body.imgname1!="")?req.body.imgname1:"img1",
+				imgname2:(req.body.imgname2!="")?req.body.imgname2:"img2",
+				imgname3:(req.body.imgname3!="")?req.body.imgname3:"img3",
+				imgname4:(req.body.imgname4!="")?req.body.imgname4:"img4",
 			};
 
 			create_unique(newPlant, function(data){
@@ -186,10 +168,15 @@ module.exports = (function(){
 				moreFact: req.body.moreFact,
 				created_at:req.body.created_at,
 				updated_at: Date(),
+				archived: false,
 				imgStr1 : (req.body.imgStr1 !== '')?req.body.imgStr1:req.body.original_imgStr1,
 				imgStr2 : (req.body.imgStr2 !== '')?req.body.imgStr2:req.body.original_imgStr2,
 				imgStr3 : (req.body.imgStr3 !== '')?req.body.imgStr3:req.body.original_imgStr3,
 				imgStr4 : (req.body.imgStr4 !== '')?req.body.imgStr4:req.body.original_imgStr4,
+				imgname1:req.body.imgname1,
+				imgname2:req.body.imgname2,
+				imgname3:req.body.imgname3,
+				imgname4:req.body.imgname4,
 
 			}
 
@@ -230,6 +217,7 @@ module.exports = (function(){
 				}
 			})
 		},
+		//get all unarchived plants
 		getAllPlants:function(req,res){
 			console.log('success!!');
 			get_all(function(data){
@@ -248,72 +236,64 @@ module.exports = (function(){
 		},
 
 		archive:function(req,res){
-			//back up data in case of crash
-			// var stats = fs.statSync("allPlants.json")
- 		// 	var fileSizeInBytes = stats["size"]
- 		// 	var stats2 = fs.statSync("allPlants_copy.json")
- 		// 	var fileSizeInBytes2 = stats["size"]
- 		// 	if(fileSizeInBytes > fileSizeInBytes2){
- 		// 		fsex.copySync('allPlants.json', 'allPlants_copy.json');
- 		// 	}
+			get_by_id(req.params.name, function(data){
+				var updated_plant = {
+					name: data.name,
+					description: data.description,
+					location: data.location,
+					origin: data.origin,
+					whenToPlant: data.whenToPlant,
+					coolFact: data.coolFact,
+					moreFact: data.moreFact,
+					created_at:data.created_at,
+					updated_at: Date(),
+					archived: true,
+					imgStr1 : data.imgStr1,
+					imgStr2 : data.imgStr2,
+					imgStr3 : data.imgStr3,
+					imgStr4 : data.imgStr4,
+					imgname1: data.imgname1,
+					imgname2: data.imgname2,
+					imgname3: data.imgname3,
+					imgname4: data.imgname4,
 
-			var arc_plant;
-			var name = req.params.name;
-			var arc_flag = false;
-			fs.readFile('allPlants.json', 'utf8', function(err, data){
-				var plants = JSON.parse(data);
-				for(var plant in plants){
-					if(plants[plant].name == name){
-						arc_plant = (JSON.parse(JSON.stringify(plants[plant])));
-						arc_flag = true;
-						if(arc_flag){
-							plants.splice(plant, 1);
-							 fs.writeFile('allPlants.json', JSON.stringify(plants, null, 4), function(err){
-							 	fs.readFile('archivedPlants.json', 'utf8', function(err, data){
-									var arc_plants = JSON.parse(data);
-									arc_plants.push(arc_plant);
-									fs.writeFile('archivedPlants.json', JSON.stringify(arc_plants, null, 4), function(err){
-										
-									})
-								})
-							 })
-						}
-					}
 				}
+
+				edit_by_id(req.params.name, updated_plant, function(data){
+					res.redirect('/all');
+				})
 			})
-			res.redirect("/all");
 			
 
 		},
 		restore:function(req,res){
-			var restored_plant;
-			var name = req.params.name;
-			var res_flag = false;
-			fs.readFile('archivedPlants.json', 'utf8', function(err, data){
-				var plants = JSON.parse(data);
-				for(var plant in plants){
-					if(plants[plant].name == name){
-							restored_plant = (JSON.parse(JSON.stringify(plants[plant])));
-							res_flag = true;
-						if(res_flag){
-							plants.splice(plant, 1);
-						 	fs.writeFile('archivedPlants.json', JSON.stringify(plants, null, 4), function(err){
-						 		fs.readFile('allPlants.json', 'utf8', function(err, data){
-									var res_plants = JSON.parse(data);
-									res_plants.push(restored_plant);
-									fs.writeFile('allPlants.json', JSON.stringify(res_plants, null, 4), function(err){
-										
-									})
-								})
-						 	})
-							
-						}	
-					 	
-					}
+			get_by_id(req.params.name, function(data){
+				var updated_plant = {
+					name: data.name,
+					description: data.description,
+					location: data.location,
+					origin: data.origin,
+					whenToPlant: data.whenToPlant,
+					coolFact: data.coolFact,
+					moreFact: data.moreFact,
+					created_at:data.created_at,
+					updated_at: Date(),
+					archived: false,
+					imgStr1 : data.imgStr1,
+					imgStr2 : data.imgStr2,
+					imgStr3 : data.imgStr3,
+					imgStr4 : data.imgStr4,
+					imgname1: data.imgname1,
+					imgname2: data.imgname2,
+					imgname3: data.imgname3,
+					imgname4: data.imgname4,
+
 				}
-			})
-			res.redirect("/getArchived");
-			
+
+				edit_by_id(req.params.name, updated_plant, function(data){
+					res.redirect('/getArchived');
+				})
+			})		
 		},
 
 	}//return

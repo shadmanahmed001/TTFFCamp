@@ -41,6 +41,26 @@
 	 </style>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/qrcode.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#showtext').hide();
+			$('#changeloc').on('input', function() {
+	   			$('#loc').text($('#changeloc').val());
+			});
+			$('#changename').on('input', function() {
+	   			$('#displayname').text($('#changename').val());
+			});
+			$('#hide').click(function(){
+				$('#control').hide();
+				$('#showtext').show();
+			})
+			$('#showtext').click(function(){
+				$('#control').show();
+				$('#showtext').hide();
+			})
+		})
+		
+	</script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -56,12 +76,20 @@
 		      </ul>
 		    </div>
 		</nav>
+		<div class = "form-group" id = "control">
+			<label for="changeloc">edit name</label>
+			<input type="textarea" rows = "3" id = "changename" placeholder = "type here...">
+			<label for="changeloc">edit location</label>
+			<input type="textarea" rows = "3" id = "changeloc" placeholder = "type here...">
+			<button id = "hide" class = "btn btn-default">Hide editors</button>
+		</div>
+		<button id = "showtext" class = "btn btn-default">Show editors</button>
 		<div class = "block">
 			<input id="name" type="hidden" value="<%=plant.name%>" style="width:80%" / readonly><br />
 
 			<div class = "final">
 				<img id = "logo" src="/img/logo.png" alt="Taylor Family Foundation">
-				<div><h3><%=plant.name%></h3></div>
+				<div><h3 id = "displayname"><%=plant.name%></h3></div>
 				<!-- <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%=plant.name%>&size=150x150" alt="QR of <%=plant.name%>" />
 				<br> -->
 				<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
@@ -72,7 +100,8 @@
 					<span class = "blue">When to Plant: </span><%=plant.whenToPlant%>
 				</div>
 				<div id = "location">
-					<span class = "green">Location: </span><%=plant.location%>
+					<span class = "green">Location: </span>
+					<span id = "loc"><%=plant.location%></span>
 				</div>
 			</div>
 

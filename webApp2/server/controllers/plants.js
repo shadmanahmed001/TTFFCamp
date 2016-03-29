@@ -217,6 +217,7 @@ module.exports = (function(){
 				}
 			})
 		},
+		//get all unarchived plants
 		getAllPlants:function(req,res){
 			console.log('success!!');
 			get_all(function(data){

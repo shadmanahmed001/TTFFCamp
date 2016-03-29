@@ -85,7 +85,7 @@
                                             <rect key="frame" x="15" y="2" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -95,7 +95,7 @@
                                             <rect key="frame" x="15" y="22.5" width="59" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -741,7 +741,7 @@
         <image name="ttff" width="191" height="93"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aZq-Zm-Lcj"/>
+        <segue reference="XrI-xr-u7O"/>
         <segue reference="equ-oG-gMA"/>
     </inferredMetricsTieBreakers>
 </document>

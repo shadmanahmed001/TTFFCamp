@@ -67,7 +67,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             let label = UILabel(frame: CGRect(x: 10 + (i*500), y: 10, width: 50, height: 100))
             label.text = singlePlant.captions[i]
             
-            
             // Decode Base64 string into NSData
             let imageData = NSData(base64EncodedString: singlePlant.images[i], options: NSDataBase64DecodingOptions(rawValue: 0))
             
@@ -75,10 +74,8 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             let imageView = UIImageView(frame: CGRect(x: (i*500), y: 0, width: 500, height: 500))
             imageView.image = UIImage(data: imageData!)
             
-            
             scrollView.addSubview(imageView)
             scrollView.addSubview(label)
-            
     
         }
         let scrollViewWidth = CGFloat(singlePlant.images.count * 500)
@@ -109,22 +106,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         coolFactsTextView.text = singlePlant.coolFact
         descriptionTextView.editable = false;
         coolFactsTextView.editable = false;
-
-        
-        
-        // Received image data comes in as Base64 string
-        let receivedData = singlePlant.images[0]
-        
-        // Decode Base64 string into NSData
-        let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))
-        
-        // Set image variable to UIImage from raw data
-        let image = UIImage(data: imageData!)
-        
-        // Set layout parameters for image
-//        plantImage.image = image
-//        plantImage.layer.borderWidth = 3
-//        plantImage.layer.borderColor = UIColor.greenColor().CGColor
     }
     
     // Function for text-to-speech

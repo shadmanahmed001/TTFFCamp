@@ -66,6 +66,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         for i in 0 ..< singlePlant.images.count {
             let label = UILabel(frame: CGRect(x: 10 + (i*500), y: 10, width: 50, height: 100))
             label.text = singlePlant.captions[i]
+            label.adjustsFontSizeToFitWidth = true
+            label.textColor = UIColor.whiteColor()
+            label.font = UIFont(name: "Chalkduster", size: 20)
             
             // Decode Base64 string into NSData
             let imageData = NSData(base64EncodedString: singlePlant.images[i], options: NSDataBase64DecodingOptions(rawValue: 0))

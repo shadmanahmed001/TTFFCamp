@@ -145,7 +145,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     
     @IBAction func clickToPlantList(sender: UIButton) {
-        
+        objCaptureSession?.stopRunning()
     }
     
     func customPlantListButton(){

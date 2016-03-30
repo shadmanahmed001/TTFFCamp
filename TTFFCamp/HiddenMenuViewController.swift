@@ -70,8 +70,57 @@ class HiddenMenuViewController: UIViewController {
                             if let newMF = anItem["moreFact"] {
                                 plantObj.moreFacts = newMF as! String
                             }
-                            if let newImage = anItem["imgStr"] {
-                                plantObj.image = newImage as! String
+                            if let newImage1 = anItem["imgStr1"] {
+                                let image1 = newImage1 as! String
+                                if image1 != ""{
+                                    plantObj.images.append(image1)
+                                }
+                            }
+                            if let newImage2 = anItem["imgStr2"] {
+                                let image2 = newImage2 as! String
+                                if image2 != ""{
+                                    plantObj.images.append(image2)
+                                }
+                            }
+                            if let newImage3 = anItem["imgStr3"] {
+                                let image3 = newImage3 as! String
+                                if image3 != ""{
+                                    plantObj.images.append(image3)
+                                }
+                            }
+                            if let newImage4 = anItem["imgStr4"] {
+                                let image4 = newImage4 as! String
+                                if image4 != ""{
+                                    plantObj.images.append(image4)
+                                }
+                            }
+                            
+                            if let newCaption1 = anItem["imgname1"] {
+                                let caption1 = newCaption1 as! String
+                                if caption1 != "" {
+                                    plantObj.captions.append(caption1)
+                                }
+                            }
+                            
+                            if let newCaption2 = anItem["imgname2"] {
+                                let caption2 = newCaption2 as! String
+                                if caption2 != "" {
+                                    plantObj.captions.append(caption2)
+                                }
+                            }
+                            
+                            if let newCaption3 = anItem["imgname3"] {
+                                let caption3 = newCaption3 as! String
+                                if caption3 != "" {
+                                    plantObj.captions.append(caption3)
+                                }
+                            }
+                            
+                            if let newCaption4 = anItem["imgname4"] {
+                                let caption4 = newCaption4 as! String
+                                if caption4 != "" {
+                                    plantObj.captions.append(caption4)
+                                }
                             }
 
                             plantArray.append(plantObj)

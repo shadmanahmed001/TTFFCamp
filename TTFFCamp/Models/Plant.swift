@@ -20,8 +20,9 @@ class Plant: NSObject, NSCoding {
     var whenToPlant: String
     var coolFact: String
     var moreFacts: String
-    var image: String
+    var images: [String]
     var createdAt: NSDate
+    var captions: [String]
     
     //init method for new obj instances
     override init (){
@@ -32,7 +33,8 @@ class Plant: NSObject, NSCoding {
         self.whenToPlant = ""
         self.coolFact = ""
         self.moreFacts = ""
-        self.image = ""
+        self.images = []
+        self.captions = []
         createdAt = NSDate()
     }
     
@@ -46,7 +48,8 @@ class Plant: NSObject, NSCoding {
         aCoder.encodeObject(whenToPlant, forKey: "whenToPlant")
         aCoder.encodeObject(coolFact, forKey: "coolFact")
         aCoder.encodeObject(moreFacts, forKey: "moreFacts")
-        aCoder.encodeObject(image, forKey: "images")
+        aCoder.encodeObject(images, forKey: "images")
+        aCoder.encodeObject(captions, forKey: "captions")
         aCoder.encodeObject(createdAt, forKey:  "createdAt")
     }
     // used for decoding (loading) objects
@@ -58,7 +61,8 @@ class Plant: NSObject, NSCoding {
         whenToPlant = aDecoder.decodeObjectForKey("whenToPlant") as! String
         coolFact = aDecoder.decodeObjectForKey("coolFact") as! String
         moreFacts = aDecoder.decodeObjectForKey("moreFacts") as! String
-        image = aDecoder.decodeObjectForKey("images") as! String
+        images = aDecoder.decodeObjectForKey("images") as! [String]
+        captions = aDecoder.decodeObjectForKey("captions") as! [String]
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
         super.init()
     }

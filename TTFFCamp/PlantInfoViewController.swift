@@ -86,7 +86,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         
         // Received image data comes in as Base64 string
-        let receivedData = singlePlant.image
+        let receivedData = singlePlant.images[0]
         
         // Decode Base64 string into NSData
         let imageData = NSData(base64EncodedString: receivedData, options: NSDataBase64DecodingOptions(rawValue: 0))

@@ -17,14 +17,14 @@ var server = app.listen(8001,function(){
 	console.log('listening on port 8001...');
 })
 
-var io = require('socket.io').listen(server);
-
-
-// to be cut
-io.on('connection', function(socket){
- fs.readFile(__dirname + '/public/uploads/image.png', function(err, buf){
-
-   socket.emit('image', { image: true, buffer: buf.toString('base64') });
-   console.log('image file is initialized');
- });
-});
+// var io = require('socket.io').listen(server);
+//
+//
+// // to be cut
+// io.on('connection', function(socket){
+//  fs.readFile(__dirname + '/public/uploads/image.png', function(err, buf){
+//
+//    socket.emit('image', { image: true, buffer: buf.toString('base64') });
+//    console.log('image file is initialized');
+//  });
+// });

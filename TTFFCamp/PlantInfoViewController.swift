@@ -19,7 +19,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var descriptionButton: UIButton!
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
-    @IBOutlet weak var plantImage: UIImageView!
+//    @IBOutlet weak var plantImage: UIImageView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var originTextLabel: UILabel!
     @IBOutlet weak var locationTextLabel: UILabel!
@@ -50,12 +52,37 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         // get all plants from local storage
         allPlants = Database.all()
         getPlantByName(detectedText)
+        initializeScrollView()
         
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)    
         self.navigationItem.setHidesBackButton(editing, animated: animated)
+    }
+    
+    
+    func initializeScrollView(){
+        for i in 0 ..< singlePlant.images.count {
+            let label = UILabel(frame: CGRect(x: 10 + (i*500), y: 10, width: 50, height: 100))
+            label.text = singlePlant.captions[i]
+            
+            
+            // Decode Base64 string into NSData
+            let imageData = NSData(base64EncodedString: singlePlant.images[i], options: NSDataBase64DecodingOptions(rawValue: 0))
+            
+            // Set image variable to UIImage from raw data
+            let imageView = UIImageView(frame: CGRect(x: (i*500), y: 0, width: 500, height: 500))
+            imageView.image = UIImage(data: imageData!)
+            
+            
+            scrollView.addSubview(imageView)
+            scrollView.addSubview(label)
+            
+    
+        }
+        let scrollViewWidth = CGFloat(singlePlant.images.count * 500)
+        scrollView.contentSize = CGSizeMake(scrollViewWidth, scrollView.frame.size.height);
     }
     
     
@@ -95,9 +122,9 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         let image = UIImage(data: imageData!)
         
         // Set layout parameters for image
-        plantImage.image = image
-        plantImage.layer.borderWidth = 3
-        plantImage.layer.borderColor = UIColor.greenColor().CGColor
+//        plantImage.image = image
+//        plantImage.layer.borderWidth = 3
+//        plantImage.layer.borderColor = UIColor.greenColor().CGColor
     }
     
     // Function for text-to-speech

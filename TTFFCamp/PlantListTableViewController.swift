@@ -22,13 +22,14 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         // search bar tasks
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-
+        
         // get all plants from local storage
         allPlants = Database.all()
         

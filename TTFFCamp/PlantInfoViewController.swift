@@ -19,7 +19,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     @IBOutlet weak var descriptionButton: UIButton!
     @IBOutlet weak var whenToPlantButton: UIButton!
     @IBOutlet weak var coolFactButton: UIButton!
-//    @IBOutlet weak var plantImage: UIImageView!
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -64,17 +64,22 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     func initializeScrollView(){
         for i in 0 ..< singlePlant.images.count {
-            let label = UILabel(frame: CGRect(x: 10 + (i*500), y: 10, width: 50, height: 100))
+            let label = UILabel(frame: CGRect(x: 120 + (i*500), y: 280, width: 250, height: 40))
             label.text = singlePlant.captions[i]
-            label.adjustsFontSizeToFitWidth = true
             label.textColor = UIColor.whiteColor()
-            label.font = UIFont(name: "Chalkduster", size: 20)
+            label.textAlignment = .Center
+            label.adjustsFontSizeToFitWidth = true
+            label.font = UIFont(name: "Verdana", size: 20)
+            label.layer.backgroundColor = UIColor.blackColor().CGColor
+            label.layer.cornerRadius = 8
+            label.layer.borderWidth = 2
+            label.layer.borderColor = UIColor.lightGrayColor().CGColor
             
             // Decode Base64 string into NSData
             let imageData = NSData(base64EncodedString: singlePlant.images[i], options: NSDataBase64DecodingOptions(rawValue: 0))
             
             // Set image variable to UIImage from raw data
-            let imageView = UIImageView(frame: CGRect(x: (i*500), y: 0, width: 500, height: 500))
+            let imageView = UIImageView(frame: CGRect(x: (i*500), y: 0, width: 500, height: 400))
             imageView.image = UIImage(data: imageData!)
             
             scrollView.addSubview(imageView)
@@ -83,6 +88,10 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         }
         let scrollViewWidth = CGFloat(singlePlant.images.count * 500)
         scrollView.contentSize = CGSizeMake(scrollViewWidth, scrollView.frame.size.height);
+        scrollView.layer.borderWidth = 3
+        scrollView.layer.cornerRadius = 8
+        scrollView.layer.borderColor = UIColor.greenColor().CGColor
+        
     }
     
     
@@ -150,35 +159,35 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         
         originButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         originButton.backgroundColor = UIColor.lightGrayColor()
-        originButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        originButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         originButton.layer.cornerRadius = 8
         originButton.layer.borderWidth = 2
         originButton.layer.borderColor = UIColor.blackColor().CGColor
         
         locationButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         locationButton.backgroundColor = UIColor.lightGrayColor()
-        locationButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        locationButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         locationButton.layer.cornerRadius = 8
         locationButton.layer.borderWidth = 2
         locationButton.layer.borderColor = UIColor.blackColor().CGColor
         
         descriptionButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         descriptionButton.backgroundColor = UIColor.lightGrayColor()
-        descriptionButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        descriptionButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         descriptionButton.layer.cornerRadius = 8
         descriptionButton.layer.borderWidth = 2
         descriptionButton.layer.borderColor = UIColor.blackColor().CGColor
         
         whenToPlantButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         whenToPlantButton.backgroundColor = UIColor.lightGrayColor()
-        whenToPlantButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 16)
+        whenToPlantButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         whenToPlantButton.layer.cornerRadius = 8
         whenToPlantButton.layer.borderWidth = 2
         whenToPlantButton.layer.borderColor = UIColor.blackColor().CGColor
         
         coolFactButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         coolFactButton.backgroundColor = UIColor.lightGrayColor()
-        coolFactButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        coolFactButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         coolFactButton.layer.cornerRadius = 8
         coolFactButton.layer.borderWidth = 2
         coolFactButton.layer.borderColor = UIColor.blackColor().CGColor

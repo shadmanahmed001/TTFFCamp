@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import Auk
 
 
 class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -99,10 +98,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         // loop through all plants in the local database to find the specific plant scanned or chosen from the list
         for i in 0 ..< allPlants.count {
             if allPlants[i].plantName == plantName {
-                print("found the correct plant ID", allPlants[i])
                 singlePlant = allPlants[i]
-                print(singlePlant.plantName)
-                
             }
         }
         

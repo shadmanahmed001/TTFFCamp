@@ -6,7 +6,6 @@ use_frameworks!
 target 'TTFFCamp' do
 
  pod 'Alamofire', '~> 3.0'
- pod 'Auk', '~> 2.0'
 
 end
 

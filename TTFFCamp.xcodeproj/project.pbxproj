@@ -16,8 +16,6 @@
 		E01E57FA1C90EDA9008267EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */; };
 		E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E58011C90F80F008267EC /* PlantInfoViewController.swift */; };
 		E038D7541C9A651700906CA9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E038D7531C9A651700906CA9 /* Alamofire.framework */; };
-		E038D7561C9A651C00906CA9 /* Auk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E038D7551C9A651C00906CA9 /* Auk.framework */; };
-		E038D7581C9A651F00906CA9 /* moa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E038D7571C9A651F00906CA9 /* moa.framework */; };
 		E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */; };
 		E0D571871C96365E005A7856 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D571851C96365E005A7856 /* SWRevealViewController.m */; };
 		E0D5718C1C963785005A7856 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D571891C963785005A7856 /* Database.swift */; };
@@ -39,8 +37,6 @@
 		E01E58011C90F80F008267EC /* PlantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantInfoViewController.swift; sourceTree = "<group>"; };
 		E038D7511C9A643F00906CA9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		E038D7531C9A651700906CA9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		E038D7551C9A651C00906CA9 /* Auk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auk.framework; path = "Pods/../build/Debug-iphoneos/Auk.framework"; sourceTree = "<group>"; };
-		E038D7571C9A651F00906CA9 /* moa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = moa.framework; path = "Pods/../build/Debug-iphoneos/moa.framework"; sourceTree = "<group>"; };
 		E03A1B451C923569009DF6B3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		E0D5717F1C962033005A7856 /* HiddenMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenMenuViewController.swift; sourceTree = "<group>"; };
 		E0D571841C96365E005A7856 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -55,8 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E038D7581C9A651F00906CA9 /* moa.framework in Frameworks */,
-				E038D7561C9A651C00906CA9 /* Auk.framework in Frameworks */,
 				E038D7541C9A651700906CA9 /* Alamofire.framework in Frameworks */,
 				AA8A24DDDAA2005F137600CA /* Pods_TTFFCamp.framework in Frameworks */,
 			);
@@ -132,8 +126,6 @@
 		FB6D80EE8EA74A24EA2C224E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E038D7571C9A651F00906CA9 /* moa.framework */,
-				E038D7551C9A651C00906CA9 /* Auk.framework */,
 				E038D7531C9A651700906CA9 /* Alamofire.framework */,
 				E038D7511C9A643F00906CA9 /* Alamofire.framework */,
 				E03A1B451C923569009DF6B3 /* Alamofire.framework */,

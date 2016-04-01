@@ -103,7 +103,6 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
             
             // Unwrap the text from the cell and pass it through the segue to the PlantInfoViewController
             if let text = cell.textLabel!.text {
-                print("unwrapped sender", text)
                 plantInfoVC.detectedText = text
             }
 

@@ -32,16 +32,25 @@
     </div>
   </nav>
 
-    <h2>Snapshot</h2>
+    <h2>Snapshots</h2>
     <a href="/createSnapshot" class = "btn btn-success">Create Snapshot</a>
+    <h4>*Snapshots are back-ups of your database. Remove snapshots are strongly not recommended.</h4>
     <% if (results) { %>
       <table class = "table table-condensed">
-        <tr>
-          
-        </tr>
+
         <% for (var x in results) { %>
           <tr>
             <td><%=results[x] %></td>
+            <td>
+              <form action="/restoreFromSnapshot/<%=results[x]%>" method = "post">
+                <input type="submit" class = "btn btn-default" value = "Restore from this snapshot">
+              </form>
+            </td>
+            <td>
+              <form action="/removeSnapshot/<%=results[x]%>" method = "post">
+                <input type="submit" class = "btn btn-danger" value = "Remove this snapshot">
+              </form>
+            </td>
           </tr>
         <% }%>
 

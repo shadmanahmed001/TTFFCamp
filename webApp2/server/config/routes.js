@@ -93,4 +93,15 @@ module.exports = function(app){
 		plants.createSnapshot(req,res);
 	})
 
+	app.post('/restoreFromSnapshot/:name',function(req,res){
+		plants.restoreFromSnapshot(req,res);
+	})
+
+	app.post('/removeSnapshot/:name',function(req,res){
+		plants.removeSnapshot(req,res);
+	})
+
+
+	
+
 }

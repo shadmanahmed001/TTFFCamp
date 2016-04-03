@@ -294,7 +294,7 @@ module.exports = (function(){
 
 		createSnapshot:function(req,res){
 			var filename = "snapshot_"+Date()+".json";
-			var filename_mod = filename.split(' ').join('').split(':').join('_');
+			var filename_mod = filename.split(' ').join('');
 			fs.writeFile(filename_mod, JSON.stringify(all, null, 4), function(err){
 				res.redirect('/showSnapshot');
 			})
@@ -309,6 +309,23 @@ module.exports = (function(){
 			  }
 			})
 			res.render('snapshot',{results:files});
+		},
+
+		restoreFromSnapshot:function(req,res){
+			var filename = req.params.name;
+			var data = require("./../../"+filename);
+			fs.writeFile('allPlants.json', JSON.stringify(data, null, 4), function(err){
+				console.log("restored from "+filename);
+				res.redirect('/showSnapshot');
+			})
+
+		},
+		removeSnapshot:function(req,res){
+			var filename = req.params.name;
+			var filePath = filename ; 
+			fs.unlinkSync(filePath);
+			console.log(filePath+" removed");
+			res.redirect('/showSnapshot');
 		},
 
 	}//return

@@ -56,7 +56,6 @@ module.exports = function(app){
 		plants.remove(req,res);
 	})
 
-
 	//try to encode img as base64 string
 	// app.post('/saveImg',function(req,res){
 	// 	plants.saveImg(req,res);
@@ -79,13 +78,30 @@ module.exports = function(app){
 	// })
 	
 	app.post('/archive/:name',function(req,res){
-		
 		plants.archive(req,res);
 	})
 
 	app.post('/restore/:name',function(req,res){
-
 		plants.restore(req,res);
 	})
+
+	app.get('/showSnapshot',function(req,res){
+		plants.getSnapshot(req,res);
+	})
+
+	app.get('/createSnapshot',function(req,res){
+		plants.createSnapshot(req,res);
+	})
+
+	app.post('/restoreFromSnapshot/:name',function(req,res){
+		plants.restoreFromSnapshot(req,res);
+	})
+
+	app.post('/removeSnapshot/:name',function(req,res){
+		plants.removeSnapshot(req,res);
+	})
+
+
+	
 
 }

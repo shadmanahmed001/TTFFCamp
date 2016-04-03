@@ -292,5 +292,24 @@ module.exports = (function(){
 			})		
 		},
 
+		createSnapshot:function(req,res){
+			var filename = "snapshot_"+Date()+".json";
+			var filename_mod = filename.split(' ').join('').split(':').join('_');
+			fs.writeFile(filename_mod, JSON.stringify(all, null, 4), function(err){
+				res.redirect('/showSnapshot');
+			})
+		},
+
+		getSnapshot:function(req,res){
+			var models_path = __dirname + '/../../';
+			var files = [];
+			fs.readdirSync(models_path).forEach(function(file) {
+			  if(file.startsWith('snapshot')) {
+			    files.push(file);
+			  }
+			})
+			res.render('snapshot',{results:files});
+		},
+
 	}//return
 })()

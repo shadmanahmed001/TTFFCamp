@@ -2,6 +2,8 @@ var plants = require('./../controllers/plants.js');
 var multer = require('multer');
 var fs = require('fs');
 
+// var QRCode = require('qrcode');
+
 module.exports = function(app){
 	//root
 	app.get('/',function(req,res){
@@ -12,7 +14,11 @@ module.exports = function(app){
 		res.render('new');
 	});
 
-	app.get('/edit/:id',function(req,res){
+	app.post('/toPrintPage/:name',function(req,res){
+		plants.toPrintPage(req,res);
+	});
+
+	app.get('/edit/:name',function(req,res){
 		plants.edit(req,res);
 	});
 
@@ -27,48 +33,27 @@ module.exports = function(app){
 		plants.index(req,res);
 	});
 
+	//get all plants
+	app.get('/getArchived',function(req,res){
+		plants.getArchived(req,res);
+	});
+
 	//get plant by id
-	app.get('/plants/:id',function(req,res){
+	app.get('/plants/:name',function(req,res){
+		//console.log(req.params.id);
 		plants.show(req,res);
+		//plants.show(req,res);
 	});
 
 	//update plant
-	app.post('/updatePlant/:id',function(req,res){
+	app.post('/updatePlant/:name',function(req,res){
 		plants.update(req,res);
 	})
 
 	//remove plant
-	app.post('/removePlant/:id',function(req,res){
+	app.post('/removePlant/:name',function(req,res){
+		// console.log(res);
 		plants.remove(req,res);
-	})
-
-	app.post('/upload', multer({ dest: './public/uploads/'}).single('upl'), function(req,res){
-		console.log(req.body); //form fields
-		/* example output:
-		{ title: 'abc' }
-		 */
-		console.log(req.file); //form files
-		/* example output:
-	            { fieldname: 'upl',
-	              originalname: 'grumpy.png',
-	              encoding: '7bit',
-	              mimetype: 'image/png',
-	              destination: './uploads/',
-	              filename: '436ec561793aa4dc475a88e84776b1b9',
-	              path: 'uploads/436ec561793aa4dc475a88e84776b1b9',
-	              size: 277056 }
-	 	*/
-		var plant_id = req.body.id;
-		var info = {
-			id:plant_id,
-			filename:req.file.filename,
-			mimetype:req.file.mimetype,
-			originalname:req.file.originalname,
-		}
-		console.log(info);
-		plants.upload(info,res);
-
-		res.redirect("/all");
 	})
 
 	//try to encode img as base64 string
@@ -85,7 +70,38 @@ module.exports = function(app){
 		plants.getAllPlants(req,res);
 	})
 
+	// app.post('/getQR/:name',function(req,res){
+	// 	var name = req.params.name;
+	// 	QRCode.toDataURL(name,function(err,url){
+	// 		res.json(url);
+	// 	});
+	// })
+	
+	app.post('/archive/:name',function(req,res){
+		plants.archive(req,res);
+	})
 
+	app.post('/restore/:name',function(req,res){
+		plants.restore(req,res);
+	})
+
+	app.get('/showSnapshot',function(req,res){
+		plants.getSnapshot(req,res);
+	})
+
+	app.get('/createSnapshot',function(req,res){
+		plants.createSnapshot(req,res);
+	})
+
+	app.post('/restoreFromSnapshot/:name',function(req,res){
+		plants.restoreFromSnapshot(req,res);
+	})
+
+	app.post('/removeSnapshot/:name',function(req,res){
+		plants.removeSnapshot(req,res);
+	})
+
+
+	
 
 }
-

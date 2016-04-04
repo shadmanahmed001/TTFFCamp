@@ -9,9 +9,18 @@
   }
 </style>
 <script>
-  function ConfirmDelete()
+  function ConfirmArchive()
     {
       var x = confirm("Are you sure you want to archive?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+
+    function ConfirmDelete()
+    {
+      var x = confirm("Are you sure you want to delete?");
       if (x)
           return true;
       else
@@ -67,7 +76,7 @@
         </td>
         <td>
           <form action="/archive/<%=results[x].name%>" method = "post">
-                <input type="submit" Onclick="return ConfirmDelete();" value = 'archive' class = "btn btn-warning">
+                <input type="submit" Onclick="return ConfirmArchive();" value = 'archive' class = "btn btn-warning">
                 
           </form>
         </td>

@@ -9,9 +9,17 @@
 <script>
   function ConfirmDelete()
     {
-      var x = confirm("Are you sure you want to archive?");
+      var x = confirm("Are you sure you want to delete this snapshot?");
       if (x)
-          return true;
+        return true;
+      else
+        return false;
+    }
+    function ConfirmRestore()
+    {
+      var x = confirm("Are you sure to restore database from this snapshot?");
+      if (x)
+        return true;
       else
         return false;
     }
@@ -43,12 +51,12 @@
             <td><%=results[x] %></td>
             <td>
               <form action="/restoreFromSnapshot/<%=results[x]%>" method = "post">
-                <input type="submit" class = "btn btn-default" value = "Restore from this snapshot">
+                <input type="submit" Onclick="return ConfirmRestore();" class = "btn btn-default" value = "Restore from this snapshot">
               </form>
             </td>
             <td>
               <form action="/removeSnapshot/<%=results[x]%>" method = "post">
-                <input type="submit" class = "btn btn-danger" value = "Remove this snapshot">
+                <input type="submit" Onclick="return ConfirmDelete();" class = "btn btn-danger" value = "Remove this snapshot">
               </form>
             </td>
           </tr>

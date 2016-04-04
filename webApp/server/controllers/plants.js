@@ -1,5 +1,3 @@
-// var mongoose = require('mongoose');
-// var Plant = mongoose.model('plants');
 var fs = require('fs');
 var all = require("./../../allPlants.json");
 

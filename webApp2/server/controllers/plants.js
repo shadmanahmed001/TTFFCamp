@@ -304,7 +304,7 @@ module.exports = (function(){
 			var models_path = __dirname + '/../../';
 			var files = [];
 			fs.readdirSync(models_path).forEach(function(file) {
-			  if(file.startsWith('snapshot')) {
+			  if(file.match('snapshot')) {
 			    files.push(file);
 			  }
 			})

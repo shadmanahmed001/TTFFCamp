@@ -41,7 +41,8 @@ class HiddenMenuViewController: UIViewController {
             messageLabel.isHidden = false
             var successCheck = false
             
-            Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
+            Alamofire.request("http://\(userInputLabel.text!):8001/getAllPlants")
+            //Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
                 .responseJSON { response in
                     if let JSON = response.result.value {
                         var plantArray = [Plant]()
@@ -138,7 +139,7 @@ class HiddenMenuViewController: UIViewController {
                         successCheck = false
                     } else {
                         self.messageLabel.text = "ERROR"
-                        self.messageLabel.textColor = UIColor.redColor()
+                        self.messageLabel.textColor = UIColor.red
                     }
                 }
         }

@@ -169,7 +169,7 @@
 				TargetAttributes = {
 					E01E57EB1C90EDA9008267EC = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UT542PX85R;
+						DevelopmentTeam = 7ZCT66FZW7;
 						LastSwiftMigration = 0830;
 					};
 				};
@@ -387,7 +387,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UT542PX85R;
+				DEVELOPMENT_TEAM = 7ZCT66FZW7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -411,7 +411,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UT542PX85R;
+				DEVELOPMENT_TEAM = 7ZCT66FZW7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",

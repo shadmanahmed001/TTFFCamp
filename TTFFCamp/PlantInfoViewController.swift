@@ -41,6 +41,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     
     
     override func viewDidLoad() {
+        print("PlantInfoViewController loaded")
         super.viewDidLoad()
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QN0-Lk-0bg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QN0-Lk-0bg">
     <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                                 </state>
                                 <connections>
                                     <action selector="clickToPlantList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enD-4N-4e8"/>
-                                    <segue destination="UJq-sL-lAS" kind="show" identifier="plantList" id="vMh-2W-z2l"/>
+                                    <segue destination="dPn-ew-Iqu" kind="show" identifier="plantList" id="vMh-2W-z2l"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="272"/>
+            <point key="canvasLocation" x="-727" y="381"/>
         </scene>
         <!--PlantListTableViewController-->
         <scene sceneID="lSB-Dm-gcr">
@@ -117,6 +117,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Rn0-tE-YIe">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="BHd-Bs-O3k">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="UJq-sL-lAS" id="u4S-OM-JUq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" id="aZq-Zm-Lcj"/>
@@ -124,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQM-Hd-ZWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330" y="329"/>
+            <point key="canvasLocation" x="875.9765625" y="158.56515373352855"/>
         </scene>
         <!--PlantInfoViewController-->
         <scene sceneID="dv5-ex-MEe">
@@ -472,19 +479,26 @@
                                 <exclude reference="4am-ee-nhn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="NMx-OF-LVT"/>
+                                <exclude reference="Pz8-ch-n3y"/>
+                                <exclude reference="eae-w6-Bex"/>
+                                <exclude reference="yIJ-n7-a0Y"/>
+                                <exclude reference="Ev3-i9-0pp"/>
+                                <exclude reference="XuV-lM-Fet"/>
+                                <exclude reference="ecm-kR-CUq"/>
+                                <exclude reference="p2c-h7-ITt"/>
+                                <exclude reference="TvY-Ff-mW1"/>
+                                <exclude reference="beu-yq-YAt"/>
+                                <exclude reference="cPb-lN-udE"/>
+                                <exclude reference="dIL-3S-Kkq"/>
                                 <exclude reference="ECh-ZP-Mtl"/>
                                 <exclude reference="EuP-DH-zet"/>
                                 <exclude reference="ZhH-fD-ZZo"/>
                                 <exclude reference="f9r-Eq-Fb6"/>
                                 <exclude reference="mpI-D0-hCH"/>
-                                <exclude reference="TvY-Ff-mW1"/>
-                                <exclude reference="beu-yq-YAt"/>
-                                <exclude reference="cPb-lN-udE"/>
-                                <exclude reference="dIL-3S-Kkq"/>
-                                <exclude reference="Ev3-i9-0pp"/>
-                                <exclude reference="XuV-lM-Fet"/>
-                                <exclude reference="ecm-kR-CUq"/>
-                                <exclude reference="p2c-h7-ITt"/>
+                                <exclude reference="BEQ-cT-2kb"/>
+                                <exclude reference="E7N-87-LIw"/>
+                                <exclude reference="wK6-Ol-uBf"/>
                                 <exclude reference="GPJ-PO-GtW"/>
                                 <exclude reference="NKN-Jf-Ngc"/>
                                 <exclude reference="xNr-QG-Wf9"/>
@@ -492,16 +506,6 @@
                                 <exclude reference="1FG-s2-Eq9"/>
                                 <exclude reference="9LC-KC-dC5"/>
                                 <exclude reference="GgA-64-5JL"/>
-                                <exclude reference="NMx-OF-LVT"/>
-                                <exclude reference="Pz8-ch-n3y"/>
-                                <exclude reference="eae-w6-Bex"/>
-                                <exclude reference="yIJ-n7-a0Y"/>
-                                <exclude reference="BEQ-cT-2kb"/>
-                                <exclude reference="E7N-87-LIw"/>
-                                <exclude reference="wK6-Ol-uBf"/>
-                                <exclude reference="md0-sy-dN3"/>
-                                <exclude reference="njv-Tk-IQc"/>
-                                <exclude reference="s1T-68-Q9Q"/>
                                 <exclude reference="YAr-ie-J4Q"/>
                                 <exclude reference="vJE-1o-pga"/>
                                 <exclude reference="Qxd-cs-Vgo"/>
@@ -516,9 +520,12 @@
                                 <exclude reference="jHH-XX-Jda"/>
                                 <exclude reference="qYe-40-cgg"/>
                                 <exclude reference="iiL-Ut-YXF"/>
+                                <exclude reference="md0-sy-dN3"/>
+                                <exclude reference="njv-Tk-IQc"/>
+                                <exclude reference="s1T-68-Q9Q"/>
+                                <exclude reference="c2L-0t-T6z"/>
                                 <exclude reference="OCB-8a-93W"/>
                                 <exclude reference="rbf-6O-ACQ"/>
-                                <exclude reference="c2L-0t-T6z"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -533,19 +540,26 @@
                                 <include reference="4am-ee-nhn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="NMx-OF-LVT"/>
+                                <exclude reference="Pz8-ch-n3y"/>
+                                <exclude reference="eae-w6-Bex"/>
+                                <include reference="yIJ-n7-a0Y"/>
+                                <include reference="Ev3-i9-0pp"/>
+                                <include reference="XuV-lM-Fet"/>
+                                <include reference="ecm-kR-CUq"/>
+                                <exclude reference="p2c-h7-ITt"/>
+                                <exclude reference="TvY-Ff-mW1"/>
+                                <include reference="beu-yq-YAt"/>
+                                <include reference="cPb-lN-udE"/>
+                                <include reference="dIL-3S-Kkq"/>
                                 <exclude reference="ECh-ZP-Mtl"/>
                                 <exclude reference="EuP-DH-zet"/>
                                 <include reference="ZhH-fD-ZZo"/>
                                 <include reference="f9r-Eq-Fb6"/>
                                 <exclude reference="mpI-D0-hCH"/>
-                                <exclude reference="TvY-Ff-mW1"/>
-                                <include reference="beu-yq-YAt"/>
-                                <include reference="cPb-lN-udE"/>
-                                <include reference="dIL-3S-Kkq"/>
-                                <include reference="Ev3-i9-0pp"/>
-                                <include reference="XuV-lM-Fet"/>
-                                <include reference="ecm-kR-CUq"/>
-                                <exclude reference="p2c-h7-ITt"/>
+                                <include reference="BEQ-cT-2kb"/>
+                                <include reference="E7N-87-LIw"/>
+                                <include reference="wK6-Ol-uBf"/>
                                 <include reference="GPJ-PO-GtW"/>
                                 <exclude reference="NKN-Jf-Ngc"/>
                                 <include reference="xNr-QG-Wf9"/>
@@ -553,18 +567,6 @@
                                 <include reference="1FG-s2-Eq9"/>
                                 <include reference="9LC-KC-dC5"/>
                                 <include reference="GgA-64-5JL"/>
-                                <include reference="NMx-OF-LVT"/>
-                                <exclude reference="Pz8-ch-n3y"/>
-                                <exclude reference="eae-w6-Bex"/>
-                                <include reference="yIJ-n7-a0Y"/>
-                                <include reference="BEQ-cT-2kb"/>
-                                <include reference="E7N-87-LIw"/>
-                                <include reference="wK6-Ol-uBf"/>
-                                <exclude reference="COf-3f-tc1"/>
-                                <exclude reference="JgH-MF-8b9"/>
-                                <include reference="md0-sy-dN3"/>
-                                <include reference="njv-Tk-IQc"/>
-                                <include reference="s1T-68-Q9Q"/>
                                 <exclude reference="BvH-F3-T7c"/>
                                 <include reference="YAr-ie-J4Q"/>
                                 <exclude reference="upM-XD-pyh"/>
@@ -585,10 +587,15 @@
                                 <exclude reference="XPj-ZP-wQC"/>
                                 <include reference="iiL-Ut-YXF"/>
                                 <exclude reference="nRr-pf-h9t"/>
+                                <exclude reference="COf-3f-tc1"/>
+                                <exclude reference="JgH-MF-8b9"/>
+                                <include reference="md0-sy-dN3"/>
+                                <include reference="njv-Tk-IQc"/>
+                                <include reference="s1T-68-Q9Q"/>
+                                <include reference="c2L-0t-T6z"/>
                                 <exclude reference="Cgy-le-SZV"/>
                                 <exclude reference="cux-qp-BeF"/>
                                 <include reference="rbf-6O-ACQ"/>
-                                <include reference="c2L-0t-T6z"/>
                             </mask>
                         </variation>
                     </view>
@@ -609,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb5-jW-W3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="1464"/>
+            <point key="canvasLocation" x="-206" y="1098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="95b-cS-TP2">
@@ -625,7 +632,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nn8-mt-e9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-847" y="-179"/>
+            <point key="canvasLocation" x="-727" y="-326"/>
         </scene>
         <!--Hidden Menu View Controller-->
         <scene sceneID="rXP-P6-6pA">
@@ -735,7 +742,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CuJ-kL-EZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-847" y="1555"/>
+            <point key="canvasLocation" x="-1505" y="1056"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="9xG-yX-fOr">
@@ -757,7 +764,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KbS-Xn-Jcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1842" y="447"/>
+            <point key="canvasLocation" x="-1505" y="355"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D8A-P4-t3O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dPn-ew-Iqu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8iR-2s-2Pp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UJq-sL-lAS" kind="relationship" relationship="rootViewController" id="xbL-58-7rC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsu-Lb-KJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="151.7578125" y="158.56515373352855"/>
         </scene>
     </scenes>
     <resources>
@@ -765,7 +790,7 @@
         <image name="ttff" width="191" height="93"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XrI-xr-u7O"/>
-        <segue reference="daq-sV-SeR"/>
+        <segue reference="aZq-Zm-Lcj"/>
+        <segue reference="equ-oG-gMA"/>
     </inferredMetricsTieBreakers>
 </document>

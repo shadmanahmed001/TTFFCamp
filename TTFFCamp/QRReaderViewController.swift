@@ -22,6 +22,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     
     override func viewDidLoad() {
+        print("QRReaderViewController loaded")
         super.viewDidLoad()
         self.configureVideoCapture()
         self.addVideoPreviewLayer()
@@ -51,6 +52,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     func configureVideoCapture() {
         
         let objCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        print("set objCaptureDevice to some stuff",objCaptureDevice as Any)
         var error: NSError?
         
         let objCaptureDeviceInput: AnyObject!
@@ -58,6 +60,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         do {
             objCaptureDeviceInput = try AVCaptureDeviceInput(device: objCaptureDevice) as AVCaptureDeviceInput
         } catch let error1 as NSError {
+            print("there was an error trying to set objCaptureDevice as AVCaptureDeviceInput")
             error = error1
             objCaptureDeviceInput = nil
         }
@@ -76,9 +79,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         
         objCaptureSession = AVCaptureSession()
+//        print("objectcapturedevice is :",objCaptureDevice)
         
         objCaptureSession?.addInput(objCaptureDeviceInput as! AVCaptureInput)
-        
+
         let objCaptureMetadataOutput = AVCaptureMetadataOutput()
         objCaptureSession?.addOutput(objCaptureMetadataOutput)
         

@@ -17,8 +17,12 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
     var filteredPlants = [Plant]()
     var detectedText = ""
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
+        print("PlantListTableViewController loaded")
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self

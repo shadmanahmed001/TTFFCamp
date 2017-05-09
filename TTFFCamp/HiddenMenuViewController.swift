@@ -20,6 +20,7 @@ class HiddenMenuViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        print("HiddenMenuViewController loaded")
         super.viewDidLoad()
         messageLabel.isHidden = true
         messageLabel.textColor = UIColor.red

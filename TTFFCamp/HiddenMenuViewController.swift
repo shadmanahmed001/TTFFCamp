@@ -21,24 +21,24 @@ class HiddenMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        messageLabel.hidden = true
-        messageLabel.textColor = UIColor.redColor()
+        messageLabel.isHidden = true
+        messageLabel.textColor = UIColor.red
         userInputLabel.attributedPlaceholder = NSAttributedString(string:"Please enter your IP address",
-            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+            attributes:[NSForegroundColorAttributeName: UIColor.gray])
         passwordInput.attributedPlaceholder = NSAttributedString(string:"Please enter your password",
-            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+            attributes:[NSForegroundColorAttributeName: UIColor.gray])
 
         
     }
     
-    @IBAction func clickToSynchronize(sender: UIButton) {
+    @IBAction func clickToSynchronize(_ sender: UIButton) {
         
         let ipCheck = regExIpAddressCheck(userInputLabel.text!)
 
         if ipCheck && passwordInput.text == "ttff" {
             messageLabel.text = "Downloading..."
-            messageLabel.textColor = UIColor.blueColor()
-            messageLabel.hidden = false
+            messageLabel.textColor = UIColor.blue
+            messageLabel.isHidden = false
             var successCheck = false
             
             Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
@@ -144,17 +144,17 @@ class HiddenMenuViewController: UIViewController {
         }
         else {
             messageLabel.text = "Wrong Entry"
-            messageLabel.hidden = false
-            messageLabel.textColor = UIColor.redColor()
+            messageLabel.isHidden = false
+            messageLabel.textColor = UIColor.red
         }
         
     }
     
     
-    func regExIpAddressCheck(ipAddress: String) -> Bool {
+    func regExIpAddressCheck(_ ipAddress: String) -> Bool {
         let validIpAddressRegex = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
         
-        if ipAddress.rangeOfString(validIpAddressRegex, options: .RegularExpressionSearch) != nil {
+        if ipAddress.range(of: validIpAddressRegex, options: .regularExpression) != nil {
             print("IP is valid")
             return true
         } else {

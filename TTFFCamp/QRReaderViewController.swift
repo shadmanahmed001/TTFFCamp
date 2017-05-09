@@ -42,7 +42,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     
     
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
@@ -50,7 +50,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     func configureVideoCapture() {
         
-        let objCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let objCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         var error: NSError?
         
         let objCaptureDeviceInput: AnyObject!
@@ -63,14 +63,14 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         }
         
         if (error != nil) {
-            let alertController:UIAlertController = UIAlertController(title: "Device Error", message: "Device not Supported for this Application", preferredStyle: .Alert)
+            let alertController:UIAlertController = UIAlertController(title: "Device Error", message: "Device not Supported for this Application", preferredStyle: .alert)
             
-            let cancelAction:UIAlertAction = UIAlertAction(title: "Ok Done", style: .Cancel, handler: { (alertAction) -> Void in
-                alertController.dismissViewControllerAnimated(true, completion: nil)
+            let cancelAction:UIAlertAction = UIAlertAction(title: "Ok Done", style: .cancel, handler: { (alertAction) -> Void in
+                alertController.dismiss(animated: true, completion: nil)
             })
             
             alertController.addAction(cancelAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
         
         
@@ -83,7 +83,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureSession?.addOutput(objCaptureMetadataOutput)
         
         
-        objCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        objCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         objCaptureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
     }
     
@@ -95,65 +95,65 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         objCaptureSession?.startRunning()
         customBanner()
         customPlantListButton()
-        self.view.bringSubviewToFront(welcomeBannerLabel)
-        self.view.bringSubviewToFront(planListButton)
+        self.view.bringSubview(toFront: welcomeBannerLabel)
+        self.view.bringSubview(toFront: planListButton)
 
     }
     
     func initializeQRView() {
         vwQRCode = UIView()
-        vwQRCode?.layer.borderColor = UIColor.greenColor().CGColor
+        vwQRCode?.layer.borderColor = UIColor.green.cgColor
         vwQRCode?.layer.borderWidth = 5
         self.view.addSubview(vwQRCode!)
-        self.view.bringSubviewToFront(vwQRCode!)
+        self.view.bringSubview(toFront: vwQRCode!)
     }
     
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
-            vwQRCode?.frame = CGRectZero
+            vwQRCode?.frame = CGRect.zero
             return
         }
         let objMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if objMetadataMachineReadableCodeObject.type == AVMetadataObjectTypeQRCode {
-            let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObjectForMetadataObject(objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+            let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
                 detectedText = objMetadataMachineReadableCodeObject.stringValue
                 objCaptureSession?.stopRunning()
-                self.performSegueWithIdentifier("showInfo", sender: nil)
+                self.performSegue(withIdentifier: "showInfo", sender: nil)
             }
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier! == "showInfo"){
-            let plantInfoVC = segue.destinationViewController as! PlantInfoViewController
+            let plantInfoVC = segue.destination as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
         }
     }
     
     func customBanner() {
-        welcomeBannerLabel.layer.backgroundColor = UIColor.greenColor().CGColor
-        welcomeBannerLabel.textColor = UIColor.whiteColor()
+        welcomeBannerLabel.layer.backgroundColor = UIColor.green.cgColor
+        welcomeBannerLabel.textColor = UIColor.white
         welcomeBannerLabel.layer.cornerRadius = 10
         welcomeBannerLabel.font = UIFont(name: "Chalkduster", size: 45)
         welcomeBannerLabel.layer.borderWidth = 2
-        welcomeBannerLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        welcomeBannerLabel.layer.borderColor = UIColor.white.cgColor
     }
     
     
-    @IBAction func clickToPlantList(sender: UIButton) {
+    @IBAction func clickToPlantList(_ sender: UIButton) {
         objCaptureSession?.stopRunning()
     }
     
     func customPlantListButton(){
-        planListButton.layer.backgroundColor = UIColor.greenColor().CGColor
-        planListButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        planListButton.layer.backgroundColor = UIColor.green.cgColor
+        planListButton.setTitleColor(UIColor.white, for: UIControlState())
         planListButton.layer.cornerRadius = 10
         planListButton.titleLabel!.font =  UIFont(name: "Chalkduster", size: 36)
         planListButton.layer.borderWidth = 2
-        planListButton.layer.borderColor = UIColor.whiteColor().CGColor
+        planListButton.layer.borderColor = UIColor.white.cgColor
     }
 
     

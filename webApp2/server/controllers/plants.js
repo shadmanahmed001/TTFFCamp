@@ -137,6 +137,36 @@ module.exports = (function(){
 				imgname3:(req.body.imgname3!="")?req.body.imgname3:"img3",
 				imgname4:(req.body.imgname4!="")?req.body.imgname4:"img4",
 			};
+			// console.log(newPlant);
+			var plant = new Plant(newPlant);
+			// 	{name:(req.body.name !="")?req.body.name:"untitled",
+			// description:req.body.description,
+			// location:req.body.location,
+			// origin:req.body.origin,
+			// whenToPlant:req.body.whenToPlant,
+			// coolFact:req.body.coolFact,
+			// imgStr1:req.body.imgStr1,
+			// imgStr2:req.body.imgStr2,
+			// imgStr3:req.body.imgStr3,
+			// imgStr4:req.body.imgStr4,
+			// created_at:Date(),
+			// updated_at:Date(),
+			// archived:false,
+			// imgname1:(req.body.imgname1!="")?req.body.imgname1:"img1",
+			// imgname2:(req.body.imgname2!="")?req.body.imgname2:"img2",
+			// imgname3:(req.body.imgname3!="")?req.body.imgname3:"img3",
+			// imgname4:(req.body.imgname4!="")?req.body.imgname4:"img4"});
+			plant.save(function(err){
+		if(err){
+			console.log('something went wrong');
+		}else{
+			console.log('successfully added a plant');
+			console.log(plant)
+
+			res.json(plant);
+			//res.redirect('/plant')
+		}
+	})
 
 			create_unique(newPlant, function(data){
 				if(data == null){
@@ -181,7 +211,7 @@ module.exports = (function(){
 			edit_by_id(req.body.name, updated_plant, function(data){
 				res.redirect('/all');
 			})
-			
+
 		},
 		edit:function(req,res){
 			get_by_id(req.params.name, function(data){
@@ -260,7 +290,7 @@ module.exports = (function(){
 					res.redirect('/all');
 				})
 			})
-			
+
 
 		},
 		restore:function(req,res){
@@ -289,7 +319,7 @@ module.exports = (function(){
 				edit_by_id(req.params.name, updated_plant, function(data){
 					res.redirect('/getArchived');
 				})
-			})		
+			})
 		},
 
 		createSnapshot:function(req,res){
@@ -322,7 +352,7 @@ module.exports = (function(){
 		},
 		removeSnapshot:function(req,res){
 			var filename = req.params.name;
-			var filePath = filename ; 
+			var filePath = filename ;
 			fs.unlinkSync(filePath);
 			console.log(filePath+" removed");
 			res.redirect('/showSnapshot');

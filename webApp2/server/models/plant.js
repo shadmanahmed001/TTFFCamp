@@ -1,7 +1,7 @@
 //model
 var mongoose = require('mongoose');
-
-var Schema = mongoose.Schema;
+console.log('plant models loaded');
+// var Schema = mongoose.Schema;
 var PlantSchema = new mongoose.Schema({
 	name:{
 		type:String,
@@ -49,4 +49,5 @@ var PlantSchema = new mongoose.Schema({
 	updated_at:Date,
 });
 
-mongoose.model('plants',PlantSchema);
+mongoose.model('Plant',PlantSchema);
+var Plant = mongoose.model('Plant')

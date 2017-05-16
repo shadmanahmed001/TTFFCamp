@@ -37,16 +37,25 @@ class HiddenMenuViewController: UIViewController {
         let ipCheck = regExIpAddressCheck(userInputLabel.text!)
 
         if ipCheck && passwordInput.text == "ttff" {
+            print("THIS STUFF IS HAPPENING NOW!!!~~~~~~~`")
             messageLabel.text = "Downloading..."
             messageLabel.textColor = UIColor.blue
             messageLabel.isHidden = false
             var successCheck = false
-            
-            Alamofire.request("http://\(userInputLabel.text!):8001/getAllPlants")
-            //Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants")
+                            Alamofire.request("http://54.85.162.0/getAllPlants") /// this is for the aws
+
+//            Alamofire.request("http://\(userInputLabel.text!):8001/getAllPlants") /// this works
+            //Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants") /// this was old not needed
                 .responseJSON { response in
+                    
+                    print("THIS IS THEE RESPONSEEEEEEE",response)
+                    if(response.result.isFailure) {
+                        print("it's a failure!")
+                        print("result",response.result)
+                    }
                     if let JSON = response.result.value {
                         var plantArray = [Plant]()
+                        print("right after platarray is created")
                     
                         // parse JSON data and create new Plant objs and Plant array
                         for anItem in JSON as! [Dictionary<String, AnyObject>] {
@@ -128,7 +137,7 @@ class HiddenMenuViewController: UIViewController {
                             plantArray.append(plantObj)
                                             
                         }
-                        
+                        print("we got to this point!")
                         print("new plant array", plantArray)
                                         
                         Database.save(plantArray, toSchema: Plant.schema, forKey: Plant.key) // save all to local storage

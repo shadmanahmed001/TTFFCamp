@@ -16,10 +16,13 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
     var searchController = UISearchController(searchResultsController: nil)
     var filteredPlants = [Plant]()
     var detectedText = ""
+    var backDelegate: BackButtonDelegate?
+    
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        backDelegate?.backButtonPressed(controller: self)
     }
+
 
     override func viewDidLoad() {
         print("PlantListTableViewController loaded")
@@ -72,6 +75,7 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("1!~~~~~",section)
         allPlants = Database.all()
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -95,18 +99,24 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
         tableView.reloadData()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected ",indexPath)
+    }
     
     // Prepare segue to Plant Info View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier! == "showInfoFromList"){
+            print("segue is about to start!")
             
             let plantInfoVC = segue.destination as! PlantInfoViewController
             
             // Sender is the cell that gets selected by the user
+            print("sender is: ",sender!)
             let cell = sender as! UITableViewCell
             
             // Unwrap the text from the cell and pass it through the segue to the PlantInfoViewController
             if let text = cell.textLabel!.text {
+                print("TEXT IS :",text)
                 plantInfoVC.detectedText = text
             }
 

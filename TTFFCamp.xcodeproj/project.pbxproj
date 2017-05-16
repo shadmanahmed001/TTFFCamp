@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0B59361ECAA5B700EB95CB /* BackButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B59351ECAA5B700EB95CB /* BackButtonDelegate.swift */; };
+		9D9C947D1EC56372004AA8ED /* Plant2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C947C1EC56372004AA8ED /* Plant2.swift */; };
+		9D9C947F1EC563D5004AA8ED /* PublicFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C947E1EC563D5004AA8ED /* PublicFunctions.swift */; };
 		AA8A24DDDAA2005F137600CA /* Pods_TTFFCamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */; };
 		E01A31C91CA1B181001EB74A /* PlantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A31C81CA1B181001EB74A /* PlantListTableViewController.swift */; };
 		E01E57F01C90EDA9008267EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E57EF1C90EDA9008267EC /* AppDelegate.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		4A6EC689F3C0F53F9389C862 /* Pods-TTFFCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.release.xcconfig"; sourceTree = "<group>"; };
 		51C93434E05113EBB271C567 /* Pods-TTFFCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTFFCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTFFCamp/Pods-TTFFCamp.debug.xcconfig"; sourceTree = "<group>"; };
+		9D0B59351ECAA5B700EB95CB /* BackButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonDelegate.swift; sourceTree = "<group>"; };
+		9D9C947C1EC56372004AA8ED /* Plant2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant2.swift; sourceTree = "<group>"; };
+		9D9C947E1EC563D5004AA8ED /* PublicFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicFunctions.swift; sourceTree = "<group>"; };
 		C9626B18E7273A054E9BBC38 /* Pods_TTFFCamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTFFCamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01A31C81CA1B181001EB74A /* PlantListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantListTableViewController.swift; sourceTree = "<group>"; };
 		E01E57EC1C90EDA9008267EC /* TTFFCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTFFCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +103,7 @@
 				E01E57EF1C90EDA9008267EC /* AppDelegate.swift */,
 				E01E57FB1C90EDA9008267EC /* Info.plist */,
 				E01E57F31C90EDA9008267EC /* Main.storyboard */,
+				9D0B59351ECAA5B700EB95CB /* BackButtonDelegate.swift */,
 				E01E57F81C90EDA9008267EC /* LaunchScreen.storyboard */,
 				E01E57F61C90EDA9008267EC /* Assets.xcassets */,
 				E0D571831C96365E005A7856 /* SupportingFiles */,
@@ -119,6 +126,8 @@
 			children = (
 				E0D571891C963785005A7856 /* Database.swift */,
 				E0D5718B1C963785005A7856 /* Plant.swift */,
+				9D9C947C1EC56372004AA8ED /* Plant2.swift */,
+				9D9C947E1EC563D5004AA8ED /* PublicFunctions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,7 +269,10 @@
 			files = (
 				E0D5718C1C963785005A7856 /* Database.swift in Sources */,
 				E01E58021C90F80F008267EC /* PlantInfoViewController.swift in Sources */,
+				9D9C947D1EC56372004AA8ED /* Plant2.swift in Sources */,
 				E0D571871C96365E005A7856 /* SWRevealViewController.m in Sources */,
+				9D0B59361ECAA5B700EB95CB /* BackButtonDelegate.swift in Sources */,
+				9D9C947F1EC563D5004AA8ED /* PublicFunctions.swift in Sources */,
 				E0D571801C962033005A7856 /* HiddenMenuViewController.swift in Sources */,
 				E01A31C91CA1B181001EB74A /* PlantListTableViewController.swift in Sources */,
 				E0D5718E1C963785005A7856 /* Plant.swift in Sources */,

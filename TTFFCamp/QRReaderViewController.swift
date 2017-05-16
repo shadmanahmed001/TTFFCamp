@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, BackButtonDelegate {
     
     
     @IBOutlet weak var welcomeBannerLabel: UILabel!
@@ -35,6 +35,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
+    }
+    
+    func backButtonPressed(controller: UITableViewController) {
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -123,6 +127,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
+                print("THIS STUFF IS HAPPENING KILLING CAMERA NOW!")
                 detectedText = objMetadataMachineReadableCodeObject.stringValue
                 objCaptureSession?.stopRunning()
                 self.performSegue(withIdentifier: "showInfo", sender: nil)
@@ -131,6 +136,14 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "plantList"){
+            print("test, this is the segue to the plant list`````````````")
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! PlantListTableViewController
+            controller.backDelegate = self
+        }
+        
         if(segue.identifier! == "showInfo"){
             let plantInfoVC = segue.destination as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText
@@ -148,7 +161,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     
     @IBAction func clickToPlantList(_ sender: UIButton) {
-        objCaptureSession?.stopRunning()
+        //objCaptureSession?.stopRunning()
     }
     
     func customPlantListButton(){

@@ -44,7 +44,7 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         print("PlantInfoViewController loaded")
         super.viewDidLoad()
         print("got past super view did load")
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         print("got past addGesture")
         
         self.navigationItem.setHidesBackButton(true, animated: false)

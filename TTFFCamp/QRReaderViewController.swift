@@ -18,23 +18,41 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var vwQRCode: UIView?
     var detectedText = ""
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        print("WE UNWOUND!!!!~~~~~~~~~~~")
+        self.configureVideoCapture()
+        print("after configurevideocapture")
+        self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
+        self.initializeQRView()
+        print("after initializeQRView")
+    }
+    
     @IBOutlet weak var planListButton: UIButton!
     
     
     override func viewDidLoad() {
         print("QRReaderViewController loaded")
+        print("DID THIS AGAIN!!!!")
         super.viewDidLoad()
+        print("after view did load")
         self.configureVideoCapture()
+        print("after configurevideocapture")
         self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
         self.initializeQRView()
+        print("after initializeQRView")
         self.navigationItem.setHidesBackButton(true, animated: false)
+        print("after sethidesbackbutton")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        print("after addgesturerecognizer")
         
         if self.revealViewController() != nil {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
+        print("after if")
     }
     
     func backButtonPressed(controller: UITableViewController) {
@@ -161,7 +179,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     
     @IBAction func clickToPlantList(_ sender: UIButton) {
-        //objCaptureSession?.stopRunning()
+        objCaptureSession?.stopRunning()
     }
     
     func customPlantListButton(){

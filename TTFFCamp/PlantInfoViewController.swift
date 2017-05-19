@@ -68,7 +68,6 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
     
-    
     func initializeScrollView(){
         for i in 0 ..< singlePlant.images.count {
             let label = UILabel(frame: CGRect(x: 120 + (i*500), y: 280, width: 250, height: 40))

@@ -23,7 +23,6 @@ class PlantListTableViewController: UITableViewController, UISearchResultsUpdati
         backDelegate?.backButtonPressed(controller: self)
     }
 
-
     override func viewDidLoad() {
         print("PlantListTableViewController loaded")
         super.viewDidLoad()

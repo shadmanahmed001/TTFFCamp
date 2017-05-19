@@ -28,6 +28,17 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         print("after initializeQRView")
     }
     
+    func backButtonPressed(controller: UITableViewController) {
+        dismiss(animated: true, completion: nil)
+        print("BACK BUTTON DISMISS THING")
+        self.configureVideoCapture()
+        print("after configurevideocapture")
+        self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
+        self.initializeQRView()
+        print("after initializeQRView")
+    }
+    
     @IBOutlet weak var planListButton: UIButton!
     
     
@@ -53,10 +64,6 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
         print("after if")
-    }
-    
-    func backButtonPressed(controller: UITableViewController) {
-        dismiss(animated: true, completion: nil)
     }
     
     

@@ -13,10 +13,10 @@ import Foundation
 
 class HiddenMenuViewController: UIViewController {
     
-    @IBOutlet weak var userInputLabel: UITextField!
+//    @IBOutlet weak var userInputLabel: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var testImage: UIImageView!
-    @IBOutlet weak var passwordInput: UITextField!
+//    @IBOutlet weak var passwordInput: UITextField!
     
     
     override func viewDidLoad() {
@@ -24,25 +24,25 @@ class HiddenMenuViewController: UIViewController {
         super.viewDidLoad()
         messageLabel.isHidden = true
         messageLabel.textColor = UIColor.red
-        userInputLabel.attributedPlaceholder = NSAttributedString(string:"Please enter your IP address",
-            attributes:[NSForegroundColorAttributeName: UIColor.gray])
-        passwordInput.attributedPlaceholder = NSAttributedString(string:"Please enter your password",
-            attributes:[NSForegroundColorAttributeName: UIColor.gray])
+//        userInputLabel.attributedPlaceholder = NSAttributedString(string:"Please enter your IP address",
+//            attributes:[NSForegroundColorAttributeName: UIColor.gray])
+//        passwordInput.attributedPlaceholder = NSAttributedString(string:"Please enter your password",
+//            attributes:[NSForegroundColorAttributeName: UIColor.gray])
 
         
     }
     
     @IBAction func clickToSynchronize(_ sender: UIButton) {
         
-        let ipCheck = regExIpAddressCheck(userInputLabel.text!)
-
-        if ipCheck && passwordInput.text == "ttff" {
+//        let ipCheck = regExIpAddressCheck(userInputLabel.text!)
+//
+//        if ipCheck && passwordInput.text == "ttff" {
             print("THIS STUFF IS HAPPENING NOW!!!~~~~~~~`")
             messageLabel.text = "Downloading..."
             messageLabel.textColor = UIColor.blue
             messageLabel.isHidden = false
             var successCheck = false
-                            Alamofire.request("http://54.85.162.0/getAllPlants") /// this is for the aws
+                            Alamofire.request("http://52.15.32.193/getAllPlants") /// this is for the aws
 
 //            Alamofire.request("http://\(userInputLabel.text!):8001/getAllPlants") /// this works
             //Alamofire.request(.GET, "http://\(userInputLabel.text!):8001/getAllPlants") /// this was old not needed
@@ -152,12 +152,12 @@ class HiddenMenuViewController: UIViewController {
                         self.messageLabel.textColor = UIColor.red
                     }
                 }
-        }
-        else {
-            messageLabel.text = "Wrong Entry"
-            messageLabel.isHidden = false
-            messageLabel.textColor = UIColor.red
-        }
+//        }
+//        else {
+//            messageLabel.text = "Wrong Entry"
+//            messageLabel.isHidden = false
+//            messageLabel.textColor = UIColor.red
+//        }
         
     }
     

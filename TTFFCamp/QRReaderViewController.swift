@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, BackButtonDelegate {
     
     
     @IBOutlet weak var welcomeBannerLabel: UILabel!
@@ -18,23 +18,52 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var vwQRCode: UIView?
     var detectedText = ""
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        print("WE UNWOUND!!!!~~~~~~~~~~~")
+        self.configureVideoCapture()
+        print("after configurevideocapture")
+        self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
+        self.initializeQRView()
+        print("after initializeQRView")
+    }
+    
+    func backButtonPressed(controller: UITableViewController) {
+        dismiss(animated: true, completion: nil)
+        print("BACK BUTTON DISMISS THING")
+        self.configureVideoCapture()
+        print("after configurevideocapture")
+        self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
+        self.initializeQRView()
+        print("after initializeQRView")
+    }
+    
     @IBOutlet weak var planListButton: UIButton!
     
     
     override func viewDidLoad() {
         print("QRReaderViewController loaded")
+        print("DID THIS AGAIN!!!!")
         super.viewDidLoad()
+        print("after view did load")
         self.configureVideoCapture()
+        print("after configurevideocapture")
         self.addVideoPreviewLayer()
+        print("after addvideopreviewlayer")
         self.initializeQRView()
+        print("after initializeQRView")
         self.navigationItem.setHidesBackButton(true, animated: false)
+        print("after sethidesbackbutton")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        print("after addgesturerecognizer")
         
         if self.revealViewController() != nil {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
+        print("after if")
     }
     
     
@@ -123,6 +152,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
+                print("THIS STUFF IS HAPPENING KILLING CAMERA NOW!")
                 detectedText = objMetadataMachineReadableCodeObject.stringValue
                 objCaptureSession?.stopRunning()
                 self.performSegue(withIdentifier: "showInfo", sender: nil)
@@ -131,6 +161,14 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "plantList"){
+            print("test, this is the segue to the plant list`````````````")
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! PlantListTableViewController
+            controller.backDelegate = self
+        }
+        
         if(segue.identifier! == "showInfo"){
             let plantInfoVC = segue.destination as! PlantInfoViewController
             plantInfoVC.detectedText = detectedText

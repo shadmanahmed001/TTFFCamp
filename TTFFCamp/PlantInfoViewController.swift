@@ -36,31 +36,37 @@ class PlantInfoViewController: UIViewController, AVCaptureMetadataOutputObjectsD
     var singlePlant = Plant()
     var allPlants: [Plant] = []
     
-    var detectedText = ""
+    var detectedText: String?
     
     
     
     override func viewDidLoad() {
         print("PlantInfoViewController loaded")
         super.viewDidLoad()
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        print("got past super view did load")
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        print("got past addGesture")
         
         self.navigationItem.setHidesBackButton(true, animated: false)
-        
+        print("got past navigationitem")
         customButtons()
-        
+        print("got past custombuttons")
         // get all plants from local storage
         allPlants = Database.all()
-        getPlantByName(detectedText)
-        initializeScrollView()
+        print("got past allPlants")
+        if let unwrappedGetPlantByName = detectedText {
+            print("inside unwrappedGetPlantByName")
+            getPlantByName(unwrappedGetPlantByName)
+            initializeScrollView()
+        }
+        print("got past if let")
         
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)    
+        super.setEditing(editing, animated: animated)
         self.navigationItem.setHidesBackButton(editing, animated: animated)
     }
-    
     
     func initializeScrollView(){
         for i in 0 ..< singlePlant.images.count {

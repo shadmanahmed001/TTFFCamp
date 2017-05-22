@@ -1,7 +1,21 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+// Used for flash messages on create plant page
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+
 app.use(bodyParser.json());
+app.use(cookieParser('secretString'));
+app.use(session({
+		cookie: { maxAge: 60000 },
+		secret: "cookie_secret",
+    // name: cookie_name,
+    proxy: true,
+    resave: true,
+    saveUninitialized: true}));
+app.use(flash());
 
 var path = require('path');
 var fs = require("fs");

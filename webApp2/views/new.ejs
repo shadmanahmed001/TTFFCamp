@@ -76,13 +76,18 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="/">Home</a></li>
 		        <li class="active"><a href="#">Create New Plants</a></li>
-		        <li><a href="/all">Display All Plants</a></li> 
+		        <li><a href="/all">Display All Plants</a></li>
         		<li><a href="/getArchived">Archived Plants</a></li>
         		<li><a href="/showSnapshot">Snapshot</a></li>
 		      </ul>
 		    </div>
 		</nav>
 	 <h3>Create entry for new plants</h3>
+
+
+	 <% if (locals.messages) { %>
+		 <h4>You have successfully created a Plant</h4>
+        <% } %>
 	 <form action='/plants' method='post'>
 		<div class = "form-group">
 	 		<label for="name">Plant Name</label>
@@ -109,39 +114,39 @@
 	 		<input type='text' class = "form-control" name='location' id = "location" placeholder = "seperate with comma">
 	 	</div>
 
-	 	
+
 	 	<div id = "imgdiv1">
 	 		<input id="inputFileToLoad1" type="file" onchange="encodeImageFileAsURL(1);" />
 	 		<div id="imgTest1"></div>
-			
+
 			<input type="text" name = "imgname1" placeholder = "describe image1 here">
 			<input type="text" name = "imgStr1" value = "" id = "imgStr1" readonly>
 	 	</div>
-		
+
 		<div id = "imgdiv2">
 			<input id="inputFileToLoad2" type="file" onchange="encodeImageFileAsURL(2);" />
 			<div id="imgTest2"></div>
-			
+
 			<input type="text" name = "imgname2" placeholder = "describe image2 here">
 			<input type="text" name = "imgStr2" value = "" id = "imgStr2" readonly>
 		</div>
-		
+
 		<div id = "imgdiv3">
 			<input id="inputFileToLoad3" type="file" onchange="encodeImageFileAsURL(3);" />
 			<div id="imgTest3"></div>
-			
+
 			<input type="text" name = "imgname3" placeholder = "describe image3 here">
 			<input type="text" name = "imgStr3" value = "" id = "imgStr3" readonly>
 		</div>
-		
+
 		<div id = "imgdiv4">
 			<input id="inputFileToLoad4" type="file" onchange="encodeImageFileAsURL(4);" />
 			<div id="imgTest4"></div>
-			
+
 			<input type="text" name = "imgname4" placeholder = "describe image4 here">
 			<input type="text" name = "imgStr4" value = "" id = "imgStr4" readonly>
 		</div>
-		<button id = "more" class = "btn btn-default" type="button">+</button>	
+		<button id = "more" class = "btn btn-default" type="button">+</button>
 
 	 <button type="submit" class = "btn btn-success">Submit</button>
 	 </form>

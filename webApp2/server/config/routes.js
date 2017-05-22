@@ -76,7 +76,7 @@ module.exports = function(app){
 	// 		res.json(url);
 	// 	});
 	// })
-	
+
 	app.post('/archive/:name',function(req,res){
 		plants.archive(req,res);
 	})
@@ -102,6 +102,6 @@ module.exports = function(app){
 	})
 
 
-	
+
 
 }

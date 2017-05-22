@@ -137,9 +137,18 @@ module.exports = (function(){
 				imgname3:(req.body.imgname3!="")?req.body.imgname3:"img3",
 				imgname4:(req.body.imgname4!="")?req.body.imgname4:"img4",
 			};
-			res.redirect('/all')
 
-			// var plant = new Plant(newPlant);
+		  // req.flash('test', 'it worked');
+			// res.render('new', {message: req.flash("Hi how are You")});
+			// res.render('new');
+
+			req.flash("msg", "Data updated successfully");
+      res.locals.messages = req.flash();
+      res.render('new', { 'title': 'myApp'});
+			// req.flash('info', 'Hi there!')
+		  // res.redirect('/new')
+
+	// var plant = new Plant(newPlant);
 	// 		plant.save(function(err){
 	// 	if(err){
 	// 		console.log('something went wrong');

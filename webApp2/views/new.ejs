@@ -86,8 +86,8 @@
 
 
 	 <% if (locals.messages) { %>
-		 <h4>You have successfully created a Plant</h4>
-        <% } %>
+		 <h4><%=messages.msg%></h4>
+  	<% } %>
 	 <form action='/plants' method='post'>
 		<div class = "form-group">
 	 		<label for="name">Plant Name</label>

@@ -109,12 +109,12 @@ module.exports = (function(){
 	return{
 		index:function(req,res){
 			get_all(function(data){
-				res.render('results', {results: data});
+				 return res.render('results', {results: data});
 			})
 		},
 		getArchived:function(req,res){
 			get_archived(function(data){
-				res.render('arc_results', {results: data});
+				return res.render('arc_results', {results: data});
 			})
 		},
 		add:function(req,res){
@@ -141,10 +141,20 @@ module.exports = (function(){
 		  // req.flash('test', 'it worked');
 			// res.render('new', {message: req.flash("Hi how are You")});
 			// res.render('new');
+			create_unique(newPlant, function(data){
+				if(data == null){
+					console.log('problem');
+					return res.redirect('/new');
+				}else{
+					console.log("before end");
+					req.flash("msg", "You have successfully created a Plant");
+					res.locals.messages = req.flash();
+					return res.redirect('/new');
 
-			req.flash("msg", "Data updated successfully");
-      res.locals.messages = req.flash();
-      res.render('new', { 'title': 'myApp'});
+				}
+			})
+
+
 			// req.flash('info', 'Hi there!')
 		  // res.redirect('/new')
 
@@ -161,14 +171,6 @@ module.exports = (function(){
 	// 	}
 	// })
 
-			create_unique(newPlant, function(data){
-				if(data == null){
-					console.log('problem');
-					res.render('new', {error: 'You must add a unique plant name!'})
-				}else{
-					res.redirect('/new');
-				}
-			})
 
 		},
 

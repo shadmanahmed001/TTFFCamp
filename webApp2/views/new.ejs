@@ -86,12 +86,13 @@
 
 
 	 <% if (locals.messages) { %>
-		 <h4><%=messages.msg%></h4>
+		 <h4 style="color:red"><%=messages.msg%></h4>
+		 <h4 style="color:green"><%=messages.success%></h4>
   	<% } %>
 	 <form action='/plants' method='post'>
 		<div class = "form-group">
 	 		<label for="name">Plant Name</label>
-	 		<input type='text' class = "form-control" name='name' id = "name">
+	 		<input type='text' class = "form-control" name='name' id = "name" required>
 	 	</div>
 	 	<div class = "form-group">
 	 		<label for="origin">Origin</label>

@@ -144,15 +144,18 @@ module.exports = (function(){
 			create_unique(newPlant, function(data){
 				if(data == null){
 					console.log('problem');
-					return res.redirect('/new');
-				}else{
-					console.log("before end");
-					req.flash("msg", "You have successfully created a Plant");
+					req.flash("msg", "Plant already exists in the database. Please type a unique plant name.");
 					res.locals.messages = req.flash();
-					return res.redirect('/new');
+					return res.render('new');
+				}else{
+					req.flash("success", "You have successfully created a plant.");
+					res.locals.messages = req.flash();
+					console.log(res.locals.messages);
+					return res.render('new');
 
 				}
 			})
+
 
 
 			// req.flash('info', 'Hi there!')
